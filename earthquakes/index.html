@@ -130,7 +130,7 @@
 				var time = $("#select-time").val();
 				var mag  = $("#select-mag").val();
 
-				var url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/" + mag + "_" + time + ".geojson";
+				var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/" + mag + "_" + time + ".geojson";
 
 				$.getJSON(url).done(function(data){
 					json = data;
