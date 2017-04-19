@@ -1,0 +1,43 @@
+[
+	{
+		"id": "musicxml"
+	,	"title": "Music score visualization"
+	,	"description": "Visualization of classic music score from Music XML"
+	,	"date": "19 Apr 2017"
+	}
+,	{
+		"id": "collisions"
+	,	"title": "Vehicle collisions in Edinburgh"
+	,	"description": "3D mapped motor vehicle collisions in Edinburgh, 2012"
+	,	"date": "11 Apr 2017"
+	}
+,	{
+		"id": "population2"
+	,	"title": "Population of Japan 2"
+	,	"description": "Revised version of population data with THREE.js"
+	,	"date": "9 Apr 2017"
+	}
+,	{
+		"id": "tourists"
+	,	"title": "Tourists to Japan"
+	,	"description": "Number of tourists from each country to each prefecture in Japan, in 2015"
+	,	"date": "11 Feb 2017"
+	}
+,	{
+		"id": "population"
+	,	"title": "Population of Japan"
+	,	"description": "Population of Japan from 1980 to 2040, in each age class"
+	,	"date": "14 Feb 2017"
+	}
+,	{
+		"id": "earthquakes"
+	,	"title": "Earthquakes on the earth"
+	,	"description": "Animation of earthquakes on the earth in the past an hour to 30 days"
+	,	"date": "23 Feb 2017"
+	}
+]
+
+
+
+
+

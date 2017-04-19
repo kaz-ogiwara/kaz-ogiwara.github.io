@@ -1,44 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<link rel="stylesheet" href="assets/skyblue.min.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="description" content="A self introduction page of Kazuki OGIWARA.">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-		<title>kaz-ogiwara.github.io</title>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.min.css" />
-		<link rel="stylesheet" href="assets/css/top.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+		<title>Kazuki OGIWARA: Portfolio</title>
 	</head>
 	<body>
+		<canvas data-processing-sources="index/pde/processing.pde"></canvas>
+		<div class="container">
+			<div class="title">
+				<h1>Data Visualizations</h1>
+				<h3>Kazuki OGIWARA</h3>
+				<p>Data Visualization Portfolio for Digital Playgrounds for the Online Public (ARCH11247)</p>
+			</div>
+			<div class="pure-g" id="visualizations">
+			</div>
+		</div>
 		<style>
+			* {
+				font-family: 'Roboto', sans-serif;
+				color: rgba(255,255,255,0.9);
+			}
+
+			html,body {
+				padding: 0;
+				background: #102030;
+				background: radial-gradient(#ddd 0%, #102030 60%);
+			}
+			
+			h1{
+				margin: 0;
+			}
+
+			canvas {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				z-index: -10;
+			}
+						
+			.container{
+				margin: 0 auto;
+				padding-top: 20px;
+				width: 96%;
+				max-width: 1080px;
+			}
+			
+			.title {
+				text-align: center;
+				margin-bottom: 40px;
+			}
+			
+			.pure-g {
+				margin-left: -30px;
+				margin-right: -30px;
+			}
+			
 			.card {
-				border: 1px solid #f00;
+				margin: 30px;
+			}
+			
+			.bg-image{
+				height: 200px;
+				margin:0 auto;
+				background-position: center center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				box-shadow: 0px 0px 1px rgba(255,255,255,0.5);
+			}
+			
+			.card-title {
+				margin-top: 10px;
+				font-size: medium;
+			}
+			
+			.card-description {
+				margin-top: 10px;
+				font-size: small;
+				color: rgba(255,255,255,0.7);
+			}
+			
+			.card-date {
+				margin-top: 5px;
+				font-size: small;
+				text-align: right;
+				color: rgba(255,255,255,0.7);
 			}
 		</style>
-		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-			<header class="mdl-layout__header">
-				<div class="mdl-layout__title">kaz-ogiwara.github.io</div>
-			</header>
-			<main class="mdl-layout__content">
-				<div class="mdl-grid">
-					<div class="top-title">
-						kaz-ogiwara.github.io
-					</div>
-				</div>
-				<div class="mdl-grid">
-					<div class="mdl-cell mdl-card mdl-shadow--4dp">
-						<div class="mdl-card__media" style="background-image:url('assets/img/thumbnail-temperature.png')"></div>
-						<div class="mdl-card__title">
-							<h2 class="mdl-card__title-text">140 Years of Temperature in Tokyo</h2>
-						</div>
-						<div class="mdl-card__actions mdl-card--border">
-							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="temperature/">Read more</a>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
+		<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script>
+			$(function(){
+				var url = "index/data/viz.json";
+				$.getJSON(url).done(function(json){
+					
+					var area = $("#visualizations");
+
+					for (var i = 0; i< json.length; i++) {
+						var id					= json[i]["id"];
+						var title				= json[i]["title"];
+						var description = json[i]["description"];
+						var date				= json[i]["date"];
+						
+						area.append(
+							'<div class="pure-u-1-3">'
+							+ '<div class="card">'
+								+ '<a href="viz/' + id + '/"><div class="bg-image" style="background-image:url(index/img/thumbnail-' + id + '.png)"></div></a>'
+								+ '<div class="card-caption">'
+									+ '<div class="card-title">' + title + '</div>'
+									+ '<div class="card-description">' + description + '</div>'
+									+ '<div class="card-date">' + date + '</div>'
+								+ '</div>'
+							+ '</div>'
+						+ '</div>');
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
