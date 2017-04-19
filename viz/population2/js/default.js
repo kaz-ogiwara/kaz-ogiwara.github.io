@@ -44,7 +44,7 @@ function init(){
 	
 	// フォント
 	var loader = new THREE.FontLoader();
-	loader.load("helvetiker_regular.typeface.json", function(f) {
+	loader.load("data/helvetiker_regular.typeface.json", function(f) {
 		var font = f;
 
 		for(var y = 0; y < 13; y ++){
