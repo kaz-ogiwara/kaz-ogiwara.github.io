@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Music XML</title>
+    <style>
+      *{
+        margin: 0;
+        color: rgba(255,255,255,0.9);
+        font-family: Helvetica;
+      }
+
+      html,body{
+        width: 100%;
+        height: 100%;
+      }
+      
+      #cover{
+        background-color: rgba(255,255,255,0.8);
+        color: rgba(0,0,0,0.8);
+        padding-top: 300px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 500;
+        text-align: center;
+      }
+      
+      .box{
+        background-color: rgba(0,0,0,0.6);
+        display: none;
+        position: absolute;
+        width: 150px;
+        right: 10px;
+        bottom: 10px;
+        padding: 0 10px 10px 10px;
+        z-index: 50;
+        font-size: smaller;
+      }
+      
+      .box .info-title{
+        margin-top: 10px;
+        color: rgba(150, 150, 150, 0.9);
+        font-size: x-small;
+      }
+      
+      .box.title {
+        display: block;
+        left: 10px;
+        top: 10px;
+        width: 550px;
+        height: 170px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cover">Loading...</div>
+    <div id="canvas-area"></div>
+    <div class="box title">
+			<h1>Visualization of Music Score</h1>
+			<br>
+			<p>19 Apr 2017: Kazuki OGIWARA</p>
+			<br>
+			<p>- Each line describes notes on the score</p>
+			<p>- By hovering a note, you can see detail information</p>
+      <br>
+			<p>- Library: <a href="https://jquery.com/" target="_blank">jQuery</a>, <a href="https://threejs.org/" target="_blank">Three.js</a></p>
+			<p>- Music XML from: <a href="http://openmusicscore.org/" target="_blank">Open Music Score</a></p>
+      <p>- Music score: Symphony No. 1 in C Major, Op. 21. Beethoven, Ludwig Van</p>
+    </div>
+    <div class="box" id="box-info">
+      <div class="info-title">Part:</div>
+      <div id="info-part"></div>
+      <div class="info-title">Measure:</div>
+      <div id="info-measure"></div>
+      <div class="info-title">Step:</div>
+      <div id="info-step"></div>
+      <div class="info-title">Octave:</div>
+      <div id="info-octave"></div>
+      <div class="info-title">Duration:</div>
+      <div id="info-duration"></div>
+    </div>
+		<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"></script>
+		<script src="lib/Detector.js"></script>
+		<script src="lib/OrbitControls.js"></script>
+    <script>
+      var canW = $(window).width();
+      var canH = $(window).height();
+      var scene, camera, renderer, controls;
+      var xml;
+
+      var raycaster = new THREE.Raycaster();
+      var mouse = new THREE.Vector2();
+        mouse.x = -1000;
+        mouse.y = -1000;
+
+      var notes = [];
+      
+      var prevIntersectObject, prevIntersectColor;
+      
+      
+      function init(){
+        var container = $("#canvas-area")[0];
+        if(!Detector.webgl)Detector.addGetWebGLMessage({parent: container});
+       
+        scene = new THREE.Scene();
+       
+        // Camera
+        camera = new THREE.PerspectiveCamera( 60, canW/canH, 1, 1000);
+        scene.add(camera);
+        camera.position.set(100, 100, 100);
+      
+        // Light
+        var ambientLight = new THREE.AmbientLight(0x888888);
+        var pointLights = [];
+        pointLights[0] = new THREE.PointLight(0xffffff, .8, 0);
+        pointLights[1] = new THREE.PointLight(0xffffff, .8, 0);
+        pointLights[2] = new THREE.PointLight(0xffffff, .8, 0);
+        pointLights[0].position.set(   0,  200,    0);
+        pointLights[1].position.set( 100,  200,  100);
+        pointLights[2].position.set(-100, -200, -100);
+        scene.add(ambientLight, pointLights[0],pointLights[1],pointLights[2]);
+      
+        // renderer
+        renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(canW,canH);
+        container.appendChild(renderer.domElement);
+       
+        // Geometry
+        var i = 0;
+        var curz = 0;
+        var cx = 0;
+        var measure = 0;
+        var part = "";
+        var partid = "";
+        var MAX_Z = 3000;
+        
+        $(xml).find("part").each(function() {
+
+          partid = $(this).attr("id");
+          part = $(xml).find("score-part[id='" + partid + "']").find("part-name").text();
+        
+          cx += 20;
+          curz = 0;
+
+          $(this).find("measure").each(function() {
+            
+            measure = $(this).attr("number");
+
+            $(this).find("note").each(function() {
+              
+              var step      = $(this).find("step").text();
+              var octave    = $(this).find("octave").text();
+              var duration  = $(this).find("duration").text();
+              
+              var w = 1;
+              var d = duration / 500;
+              var h = 1;
+              
+              var x = cx - 100;
+              var y = getH(octave, step) * 5 - 100;
+              var z = curz;
+                if ($(this).find("chord")[0]){
+                  z = curz - d;
+                }
+                
+              if (!$(this).find("rest")[0]){
+                //var c = getC(getH(octave, step));
+                var c = getC(partid);
+                
+                var geometry = new THREE.BoxGeometry(w, h, d, 1, h / 5, 1);
+                var material = new THREE.MeshPhongMaterial({color: c, wireframe:true});
+                //var material = new THREE.MeshPhongMaterial({color: c, side: THREE.DoubleSide});
+                
+                notes[i] = new THREE.Mesh(geometry, material);
+                notes[i].position.set(x, y, z - (MAX_Z / 2));
+                notes[i].step = step;
+                notes[i].octave = octave;
+                notes[i].duration = duration;
+                notes[i].part = part;
+                notes[i].measure = measure;
+
+                notes[i].z = z;
+                notes[i].d = d;
+                
+                scene.add(notes[i]);
+                i++;
+              }
+
+              //console.log("w: " + w + ", h: " + h + ", d: " + d + ", x: " + x + ", y: " + y + ", z: " + z);
+              
+              curz = z + d;
+            });
+
+            if (curz >= MAX_Z) {
+              return false;
+            }
+          });
+        });
+        
+        console.log("Note read done");
+        console.log(i);
+      
+        // Controller
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.minDistance = 10;
+        controls.maxDistance = 500;
+        controls.maxPolarAngle = (Math.PI * 0.48);
+      
+        // Auto rotate
+        //controls.autoRotate = true;
+        controls.autoRotateSpeed = 2.0;
+      
+        document.addEventListener('mousemove', onDocumentMouseMove, false);
+      
+        rendering();
+      }
+
+      function getC(part) {
+        var c;
+        switch (part) {
+          case "P1":  c = "#CAF270"; break;
+          case "P2":  c = "#A3E578"; break;
+          case "P3":  c = "#7FD780"; break;
+          case "P4":  c = "#5FC788"; break;
+          case "P5":  c = "#42B78D"; break;
+          case "P6":  c = "#2BA68F"; break;
+          case "P7":  c = "#1E958E"; break;
+          case "P8":  c = "#218389"; break;
+          case "P9":  c = "#2A7180"; break;
+          case "P10": c = "#326074"; break;
+          case "P11": c = "#374F65"; break;
+          case "P12": c = "#383F55"; break;
+        }
+        
+        return c;
+      }
+      
+      
+      function getH(octave, step) {
+        var a = parseInt(octave) * 7;
+        var b = 0;
+        switch (step) {
+          case "C": b = 0; break;
+          case "D": b = 1; break;
+          case "E": b = 2; break;
+          case "F": b = 3; break;
+          case "G": b = 4; break;
+          case "A": b = 5; break;
+          case "B": b = 6; break;
+        }
+        
+        return a + b;
+      }
+      
+      
+      function showInfo(obj) {
+        $("#info-part").text(obj.part);
+        $("#info-measure").text(obj.measure);
+        $("#info-step").text(obj.step);
+        $("#info-octave").text(obj.octave);
+        $("#info-duration").text(obj.duration);
+
+        $("#box-info").show();
+      }
+       
+      function rendering(){
+        raycaster.setFromCamera(mouse, camera);
+
+        var intersects = raycaster.intersectObjects(notes);
+        
+        if (intersects.length >= 1) {
+
+          if (prevIntersectObject != intersects[0].object) {
+      
+            if (prevIntersectObject) {
+              prevIntersectObject.material.color.setHex(prevIntersectColor);
+            }
+            
+            showInfo(intersects[0].object);
+
+            prevIntersectObject = intersects[0].object;
+            prevIntersectColor  = intersects[0].object.material.color.getHex();
+            intersects[0].object.material.color.setHex(0xff3333);
+          }
+        } else {
+          if (prevIntersectObject) {
+            prevIntersectObject.material.color.setHex(prevIntersectColor);
+          }
+          
+          $("#info-box").hide();
+        }
+
+        requestAnimationFrame(rendering, renderer.domElement);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      
+      
+      function onDocumentMouseMove(e) {
+        e.preventDefault();
+        mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = - (e.clientY / window.innerHeight) * 2 + 1;
+      }
+      
+      $(function(){
+        $.ajax({
+          url:"data/data.xml",
+          type:"GET",
+          dataType:"xml",
+          timeout:1000,
+          error:function() {
+            alert("Failed");
+          },
+          success:function(data){
+            xml = data;
+            init();
+            $("#cover").fadeOut("slow");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
