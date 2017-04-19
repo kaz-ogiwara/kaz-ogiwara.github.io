@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=9" />
+		<title>Population of Japan: 1980 - 2040</title>
+		<style>
+			*{
+				margin:0 auto;
+				padding:0;
+				color: #f3f3f3;
+				font-family: Helvetica, sans-serif;
+				font-size: 10pt;
+				background: transparent;
+				text-shadow: black 1px 1px 0px, black -1px 1px 0px,
+             black 1px -1px 0px, black -1px -1px 0px;
+			}
+			
+			html,body{
+				background-color:rgb(10,20,30);
+			}
+			
+			#title{
+				position: fixed;
+				left: 20px;
+				top: 20px;
+			}
+			
+			#title h2{
+				font-size: 20pt;
+			}
+			
+			.indent{
+				text-indent: 10px;
+			}
+			
+			#loading{
+				width: 100%;
+				height: 360px;
+				padding-top: 200px;
+				text-align: center;
+				z-index: 1000;
+			}
+
+			canvas{
+				display:block;
+				margin:auto;
+			}
+			
+			#paraconsole{
+				position: fixed;
+				background: transparent;
+				left: 20px;
+				bottom: 20px;
+			}
+			
+			#legend {
+				position: fixed;
+				bottom: 68px;
+				right: 30px;
+			}
+			
+			#legend .age{
+				width: 8px;
+				height: 8px;
+				border: 1px solid #aaa;
+				float: left;
+				margin: 2px;
+			}
+			
+			.age:hover{
+				background-color: #eeaaaa !important;
+			}
+
+			#tooltip {
+				position: fixed;
+				box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+				display: none;
+				padding: 15px;
+				background-color: #f0f0f0;
+				border-radius: 5px;
+				z-index: 60;
+				width: 130px;
+			}
+			
+			#tooltip p{
+				color: #102030;
+				text-shadow: none;
+			}
+
+			#tooltip:before{
+				content:"";
+				display:block;
+				position:absolute;
+				height:0;
+				width:0;
+				border: 10px transparent solid;
+				border-right-width:0;
+				border-left-color:#fff;
+				z-index: 50;
+				left: 125px;
+				top: calc(100% - 7px);
+				transform:rotate(90deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="title">
+			<h2>Population of Japan: 1980 - 2040</h2>
+			<br>
+			<div>14 Feb 2017: Kazuki OGIWARA</div>
+			<br>
+			<div>- Population of Japan in each age class (19 classes from "0 - 5 y.o." to "90 y.o. -")</div>
+			<div>- Actual result from 1980 to 2010, projection from 2015 - 2040</div>
+			<div>- Grids on bottom-right is a legend viewed from above</div>
+			<div>- By hovering each grid, detail information will be shown</div>
+		</div>
+		<div id="paraconsole">
+			<div>RotateX: <span id="rtx"></span></div>
+			<div>RotateY: <span id="rtz"></span></div>
+		</div>
+		<div id="legend"></div>
+		<div id="tooltip">
+			<div id="tooltip-inner"></div>
+		</div>
+		<div id="loading">
+			<img src="loading.gif" alt="" />
+			<div>Loading...</div>
+		</div>
+		<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+			var json;
+			
+			$(function(){
+				var url = "data/data.json";
+
+				$.getJSON(url).done(function(data){
+					json = data;
+					$("#loading").hide();
+					
+					// p5 and sketch are loaded after json was stored in a variable
+					$.getScript("//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.min.js");
+					$.getScript("js/sketch.js");
+					
+					// create legend
+					for(var y = 0; y < 13; y++){
+						var year = 1980 + (y * 5);
+						$("#legend").append('<div class="year" year="' + year + '"></div>');
+						for(var x = 0; x < 19; x++){
+							var pp = json[year.toString()][x]["m"] + json[year.toString()][x]["f"];
+							
+							$(".year:last").append('<div class="age" x="' + x + '" val="' + pp + '"></div>');
+						}
+					}
+				});
+				
+				$(document).on("mouseenter", ".age", function(){
+					var minAge = $(this).attr("x") * 5;
+					var maxAge = minAge + 4;
+					var ageString = minAge + " y.o. - " + maxAge + " y.o.";
+					if (ageString == "90 y.o. - 94 y.o.") {ageString = "90 y.o. -";}
+					
+					$("#tooltip-inner").html(
+						"<p>Year: " + $(this).parent().attr("year") + "</p>"
+					+	"<p>Age: " + ageString + "</p>"
+					+	"<p>Population: " + $(this).attr("val") + "</p>"
+					);
+
+					var left = $(this).offset().left;
+					var top  = $(this).offset().top;
+					
+					left = left - 125;
+					top  = top - 90;
+					
+					$("#tooltip").css("left", left);
+					$("#tooltip").css("top",  top);
+					$("#tooltip").show();
+				});
+
+				$(document).on("mouseleave", ".age", function(){
+					$("#tooltip").hide();
+				});
+			});
+		</script>
+	</body>
+</html>
