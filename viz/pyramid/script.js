@@ -83,8 +83,10 @@ function init(){
 			mesh.position.set(-57 + (i * 0.05), 0, i * 5 - 503);
 			scene.add(mesh);
 		}
-
-    $("#cover").fadeOut();
+		
+		if ($("#cover").is(":visible")) {
+	    $("#cover").fadeOut();
+		}
 	});
 
  

@@ -3,83 +3,105 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Data visualizations portfolio by Kazuki OGIWARA.">
+		<link rel="stylesheet" href="../../assets/css/default.css">
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script src="../../assets/js/default.js"></script>
 		<title>140 Years of Temperature in Tokyo</title>
 	</head>
 	<body>
+		<div id="cover">
+			<p>Loading...</p>
+		</div>
 		<div id="tooltip">
 			<div id="tooltip-inner"></div>
 		</div>
-		<div id="container">
-			<div id="row">
-				<h2>140 Years of Temperature in Tokyo</h2>
-				<h4>Kazuki OGIWARA / 30 December 2016</h4>
-				<p>
-					Mapped average temperatures on each day in Tokyo from 1876 to 2015.<br>
-					left: 1876 - right: 2015<br>
-					top: 1 January - bottom: 31 December<br>
-				</p>
-				<p>
-					Similar to other cities in the world, Tokyo is gradually becoming hotter.<br>
-					Now the city has longer / hotter summer and shorter / warmer winter than 140 years ago.<br>
-					(When I arrived Edinburgh in August, I was surprised how comfortable it is.)<br>
-				</p>
-				<div id="loading">(Loading data...)</div>
-				<table id="data-table"></table>
-				<p>
-					- Data source: <a href="http://www.jma.go.jp/" target="_blank">Japan Meteorological Agency</a> <br>
-					- (Data was (were?) collected by using PHP, then processed by using SQL)<br>
-					- Place: Tokyo (Tokyo) lat. 35°41.5′ North / long. 139°45.0′ East<br>
-					- Reference values are treated as usual<br>
-					- Empty when the value is unmeasurable (ex. 24 Dec 1880)<br>
-					- Bissextile days (29 Februrary) are not indicated<br>
-				</p>
-				<div id="pad"></div>
+		<div class="container">
+			<div id="section-title">
+				<h1>140 Years of Temperature in Tokyo</h1>
+				<p>Mapped average temperatures on each day in Tokyo from 1876 to 2015.</p>
+				<p>Similar to other cities in the world, Tokyo is gradually becoming hotter.</p>
+				<p>Now the city has longer / hotter summer and shorter / warmer winter than 140 years ago.</p>
+			</div>
+		</div>
+		<div id="heatmap-wrapper">
+			<div id="heatmap"></div>
+		</div>
+		<div class="container">
+			<div id="footer">
+				<p>- Data source: <a href="http://www.jma.go.jp/" target="_blank">Japan Meteorological Agency</a></p>
+				<p>- Data was collected by using PHP, then processed by using SQL)</p>
+				<p>- Place: Tokyo lat. 35°41.5′ North / long. 139°45.0′ East</p>
+				<p>- Reference values are treated as usual</p>
+				<p>- Empty when the value is unmeasurable (ex. 24 Dec 1880)</p>
+				<p>- Intercalary days (29 Februrary) are not indicated</p>
 			</div>
 		</div>
 		<style>
-			*{
-				font-family: Helvetica;
-				color: rgba(255,255,255,0.9);
-			}
-			
 			body{
-				background-color: rgb(10,20,40);
+				background-color: #555;
+				background-image: url(tweed.png);
 			}
 			
-			#container{
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
+			h1,p,a {
+				color: #fdfdfd;
+			}
+			
+			.container{
 				margin: auto;
-				min-width: 720px;
-				max-width: 1080px;
+				width: 96%;
+				max-width: 800px;
 			}
 			
-			#row{
-				padding-right: 20px;
-				padding-left: 20px;
+			#section-title {
+				padding-bottom: 40px;
 			}
 			
-			#pad {
-				height: 30px;
+			#section-title h1 {
+				font-size: xx-large;
+				margin-top: 40px;
+				margin-bottom: 20px;
 			}
 			
-			#data-table {
+			#footer {
+				margin-top: 40px;
+				margin-bottom: 30px;
+			}
+			
+			#heatmap-wrapper {
+				width: 100%;
+				padding: 40px 10px 10px 60px;
+			}
+			
+			#heatmap {
 				margin: 0;
 				padding: 0;
 				border: 0;
-				border-collapse: collapse;
+				display: grid;
+				grid-template-columns:
+					4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px
+					4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px
+					4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px
+					4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px 4px;
 			}
 			
-			#data-table td {
-				width: 6px;
-				height: 2px;
-				border: 1px solid #102040;
+			#heatmap d {
+				position: relative;
+				border: none;
+				width: 4px;
 			}
 			
-			td.selected {
+			#heatmap v {
+				position: relative;
+				display: block;
+				border: none;
+				width: 4px;
+				height: 4px;
+        border-top: 1px solid #999;
+        border-right: 1px solid #999;
+			}
+			
+			v.selected {
 				background-color: #fff !important;
 			}
 
@@ -89,16 +111,46 @@
 				text-align: center;
 				display: none;
 				padding: 15px;
-				background-color: #fff;
+				background-color: #fdfdfd;
 				border-radius: 5px;
 				z-index: 60;
+			}
+			
+			#tooltip * {
+				color: #333;
 			}
 
 			.b{
 				font-weight: bold;
 			}
+			
+			line {
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-bottom: 1px solid #bbb;
+				border-left: 1px solid #bbb;
+			}
+			
+			line.v   {height: 3px; top: 34px;}
+			line.h   {width:  3px; left: 54px;}
+			line.v.l {height: 7px; top: 30px;}
+			line.h.l {width:  7px; left: 50px;}
+
+			.legend {
+				position: absolute;
+				width: 80px;
+				height: 20px;
+				margin-left: -40px;
+				margin-top: -8px;
+				top: 20px;
+				left: 28px;
+				text-align: center;
+				color: #fdfdfd;
+				font-size: small;
+			}
+			
 		</style>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script>
 			function cMonth(m) {
         switch(m) {
@@ -118,42 +170,109 @@
 				}
       }
 			
+      // The same function as map in Processing
+      function map(value, low1, high1, low2, high2) {
+        var ret = low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+        //if (ret > high2) {ret = high2;}
+        //if (ret < low2)  {ret = low2;}
+        return ret;
+      }
+      
+			function getColor(value) {
+/*
+				var r,g,b;
+
+        r = map(value,  5, 20,   0, 255);
+        if (value <= 25) {g = map(value,  0, 10, 100, 255);}
+        if (value >  25) {g = map(value, 25, 40, 255, 0);}
+        b = map(value, 10, 30, 255, 0);
+
+        var str = "rgb(" + Math.round(r) + "," + Math.round(g) + "," + Math.round(b) + ")";
+        // console.log(value + ": " + str);
+*/
+        if (value <= 0.0) {str = "#0066ff";}
+        if ( 0.0 < value && value <=  5.0) {str = "#00ccff";}
+        if ( 5.0 < value && value <= 10.0) {str = "#66ffff";}
+        if (10.0 < value && value <= 15.0) {str = "#66ff66";}
+        if (15.0 < value && value <= 20.0) {str = "#ccff33";}
+        if (20.0 < value && value <= 25.0) {str = "#ffffcc";}
+        if (25.0 < value && value <= 30.0) {str = "#ffcc00";}
+        if (30.0 < value && value <= 35.0) {str = "#ff6600";}
+        if (35.0 < value) {str = "#ff3300";}
+
+				return str;
+      }
+			
 			$(function(){
-				$.getJSON("data/data.json" , function(data) {
-					$("#loading").text("");
+				$.getJSON("data.json" , function(data) {
+					
+					// Add cells
 					$.each(data, function(key, val) {
-						var vc = "";
+						var values = "";
 						
 						$.each(val[2], function(key2, val2) {
-							vc += '<td y="' + val2[0] + '" v="' + val2[1] + '">';
+							values += '<v y="' + val2[0] + '" v="' + val2[1] + '"/>';
 						});
 						
-						$("#data-table").append('<tr m="' + val[0] + '" d="' + val[1] + '">' + vc + '</tr>');
+						$("#heatmap").append('<d m="' + val[0] + '" d="' + val[1] + '">' + values + '</d>');
 
-						$("#data-table").find("tr").last().find("td").each(function(){
+						$("#heatmap").find("d:last").find("v").each(function(){
 							var value = $(this).attr("v");
-							
-							if (value <= 0.0) {$(this).css("background-color","#0066ff");}
-							if ( 0.0 < value && value <=  5.0) {$(this).css("background-color","#00ccff");}
-							if ( 5.0 < value && value <= 10.0) {$(this).css("background-color","#66ffff");}
-							if (10.0 < value && value <= 15.0) {$(this).css("background-color","#66ff66");}
-							if (15.0 < value && value <= 20.0) {$(this).css("background-color","#ccff33");}
-							if (20.0 < value && value <= 25.0) {$(this).css("background-color","#ffffcc");}
-							if (25.0 < value && value <= 30.0) {$(this).css("background-color","#ffcc00");}
-							if (30.0 < value && value <= 35.0) {$(this).css("background-color","#ff6600");}
-							if (35.0 < value) {$(this).css("background-color","#ff3300");}
-							
+							var color = getColor(value);
+							$(this).css("background-color", color);
 							if (value == null || value == "") {$(this).css("background-color","#eee");}
 						});
 					});
+					
+					// Add vertical lines and legends (Jan - Dec)
+					for (var i = 1; i <= 241; i++) {
+						var x = map(i, 1, 241, 60, (4 * 365) + 60);
+						$("#heatmap-wrapper").append('<line class="v" />');
+						var line = $("line.v:last");
+						line.css("left", x + "px");
+						
+						if (i % 10 === 1) {
+              line.addClass("l");
+            }
+
+						if (i % 20 === 11) {
+							var idx = (i + 9) / 20;
+							var str = cMonth(idx.toString());
+							$("#heatmap-wrapper").append('<div class="legend month">' + str + '</div>');
+							$(".legend.month:last").css("left", x + "px");
+            }
+          }
+					
+					// Add horizontal lines and legends (1876 - 2015)
+					for (var i = 0; i <= 70; i++) {
+						var y = map(i, 0, 70, 40, (140 * 4) + 40);
+						if (i === 70) {y = y - 1;}
+						
+						$("#heatmap-wrapper").append('<line class="h" />');
+						var line = $("line.h:last");
+						line.css("top", y + "px");
+						
+						if (i % 5 === 0) {
+              				line.addClass("l");
+            			}
+
+						if (i % 10 === 0) {
+							var yy = (i * 2) + 1876;
+							if (yy === 2016) {yy = 2015;}
+							$("#heatmap-wrapper").append('<div class="legend year">' + yy + '</div>');
+							$(".legend.year:last").css("top", y + "px");
+            			}
+          			}
+
+					$("#cover").fadeOut();
 				});
 				
-				$(document).on("mouseenter", "td", function(){
+				$(document).on("mouseenter touchstart", "v", function(){
 					var MIN_YEAR = 1876;
-					var index	= $(this).closest("tr").index(this);
+					var index	= $(this).closest("d").index(this);
 					var tYear	= parseInt($(this).attr("y")) + MIN_YEAR;
-					var tMonth	= $(this).closest("tr").attr("m");
-					var tDay	= $(this).closest("tr").attr("d");
+					var tMonth	= $(this).closest("d").attr("m");
+					var tDay	= $(this).closest("d").attr("d");
 					var tVal	= $(this).attr("v");
 					
 					$(this).addClass("selected");
@@ -175,7 +294,7 @@
 					$("#tooltip").show();
 				});
 
-				$(document).on("mouseleave", "td", function(){
+				$(document).on("mouseleave", "v", function(){
 					$("#tooltip").hide();
 					$(this).removeClass("selected");
 				});
@@ -184,4 +303,5 @@
 		</script>
 	</body>
 </html>
+
 
