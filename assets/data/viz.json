@@ -1,5 +1,21 @@
 [
 	{
+		"id": "trade"
+	,	"title": "Import and Export between Japan and the world"
+	}
+,	{
+		"id": "pyramid"
+	,	"title": "Population pyramids from Uganda to Japan"
+	}
+,	{
+		"id": "temperature"
+	,	"title": "140 years temperature in Tokyo"
+	}
+,	{
+		"id": "nobelprize"
+	,	"title": "Nobel Prize laureattes getting older"
+	}
+,	{
 		"id": "musicxml"
 	,	"title": "Music score visualization"
 	,	"description": "Visualization of classic music score from Music XML"
@@ -12,9 +28,9 @@
 	,	"date": "11 Apr 2017"
 	}
 ,	{
-		"id": "population2"
-	,	"title": "Population of Japan 2"
-	,	"description": "Revised version of population data with THREE.js"
+		"id": "population"
+	,	"title": "Population of Japan"
+	,	"description": "Population of Japan from 1980 to 2040, in each age class"
 	,	"date": "9 Apr 2017"
 	}
 ,	{
@@ -22,12 +38,6 @@
 	,	"title": "Tourists to Japan"
 	,	"description": "Number of tourists from each country to each prefecture in Japan, in 2015"
 	,	"date": "11 Feb 2017"
-	}
-,	{
-		"id": "population"
-	,	"title": "Population of Japan"
-	,	"description": "Population of Japan from 1980 to 2040, in each age class"
-	,	"date": "14 Feb 2017"
 	}
 ,	{
 		"id": "earthquakes"

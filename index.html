@@ -85,7 +85,7 @@
 		<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script>
 			$(function(){
-				var url = "index/data/viz.json";
+				var url = "assets/data/viz.json";
 				$.getJSON(url).done(function(json){
 					
 					var area = $("#works");
@@ -96,7 +96,7 @@
 						
 						area.append(
 							  '<div class="card">'
-								+ '<a class="viz-link" href="viz/' + id + '/"><div class="card-image" style="background-image:url(index/img/thumbnail-' + id + '.png)"></div></a>'
+								+ '<a class="viz-link" href="viz/' + id + '/"><div class="card-image" style="background-image:url(assets/img/thumbnail-' + id + '.png)"></div></a>'
 								+ '<div class="card-caption">'
 									+ '<div class="card-title">' + title + '</div>'
 								+ '</div>'
