@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+}
+
+html,body {
+  width: 100%;
+  height: 100%;
+}
+
+#cover {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(255,255,255);
+  text-align: center;
+  color: rgba(0,0,0,0.8);
+  vertical-align: middle;
+  line-height: 100%;
+}
+
+#cover p {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0,0,0,0.8);
+  font-family: Helvetica;
+  font-size: small;
+}
+
