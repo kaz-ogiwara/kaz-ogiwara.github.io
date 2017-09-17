@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Data visualizations portfolio by Kazuki OGIWARA.">
+		<link rel="stylesheet" href="../../assets/css/default.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <title>Population of Japan with Three.js</title>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script src="../../assets/js/default.js"></script>
+    <title>Population of Japan</title>
     <style>
       *{
-        margin:0;
-        font-family: Helvetica;
+        color: rgba(255,255,255,0.9);
         font-size: small;
         font-weight: lighter;
       }
       
       .info-box{
         background-color: rgba(0,0,0,0.6);
-        color: rgba(255,255,255,0.9);
         display: none;
         position: absolute;
         width: 150px;
@@ -35,7 +38,7 @@
         display: block;
         top: 10px;
         left: 10px;
-        width: 480px;
+        width: 640px;
         height: 150px;
       }
       
@@ -51,7 +54,6 @@
         height: 30px;
         border: 2px solid rgba(130, 206, 238, 0.9);
         border-radius: 5px;
-        color: rgba(160, 200, 240, 0.9);
         background-color: rgba(130, 206, 238, 0.05);
         outline: none;
       }
@@ -60,25 +62,15 @@
         background-color: rgba(130, 206, 238, 0.3);
         cursor: pointer;
       }
-      
-      #cover{
-        background-color: rgba(255,255,255,0.8);
-        padding-top: 300px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 500;
-        text-align: center;
-      }
+			
+			.btn-control .fa {
+        color: rgba(160, 200, 240, 0.9);
+			}
     </style>
   </head>
   <body>
+    <div id="cover"><p>Loading...</p></div>
     <div id="canvas-area"></div>
-    <div id="cover">
-			<h5>Loading...</h5>
-		</div>
     <div class="info-box title">
 			<h1>Population of Japan: 1980 - 2040</h1>
 			<br>
@@ -101,7 +93,7 @@
       <div class="detail-title">Male:</div>
       <div id="info-popm"></div>
     </div>
-    <button class="btn-control play"><i class="fa fa-play"></i></button>
+    <button class="btn-control stop"><i class="fa fa-stop"></i></button>
     <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"></script>
     <script>
