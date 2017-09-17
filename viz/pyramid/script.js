@@ -16,8 +16,6 @@ var prevIntersectObject1, prevIntersectColor1,prevIntersectObject2, prevIntersec
 // The same function as map in Processing
 function map(value, low1, high1, low2, high2) {
 	var ret = low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-	//if (ret > high2) {ret = high2;}
-	//if (ret < low2)  {ret = low2;}
 	return ret;
 }
 
@@ -117,25 +115,6 @@ function init(){
 			
 			for (var k = 0; k < 21; k++) {
 				var w = map(ages[k][1], 0, 30, 0, 80);
-/*
-				var prevx = 0;
-				var prevy = 0;
-				for (var m = 0; m * u < w; m++) {
-					prevx = m * u * coef;
-					if (prevx !== m * u * coef || prevy !== k * h) {
-						shape.lineTo(m * u * coef, k * h);
-						prevy = k * h;
-					}
-
-					if (prevx !== m * u * coef || prevy !== (k + 1) * h) {
-						shape.lineTo(m * u * coef, (k + 1) * h);
-						prevy = (k + 1) * h;
-					}
-				}
-
-				shape.lineTo(w * coef, k * h);
-				shape.lineTo(w * coef, (k + 1) * h);
-*/
 				shape.lineTo(0, k * h + k);
 				shape.lineTo(w * coef, k * h + k);
 				shape.lineTo(w * coef, (k + 1) * h + k);
@@ -144,7 +123,6 @@ function init(){
 
 			var geometry = new THREE.ShapeGeometry(shape);
 			var material = new THREE.MeshPhongMaterial({color: colr, wireframe:true, side: THREE.DoubleSide});
-			//var material = new THREE.MeshPhongMaterial({color: colr, side: THREE.DoubleSide});
 			
 			var idx = (i * 2) + g;
 			meshes[idx] = new THREE.Mesh(geometry, material);
@@ -161,7 +139,7 @@ function init(){
 	controls.maxPolarAngle = (Math.PI * 0.48);
 
 	// Rotation
-	//controls.autoRotate = true;
+	controls.autoRotate = true;
 	controls.autoRotateSpeed = 2.0;
 
  	document.addEventListener('mousemove', onDocumentMouseMove, false);
