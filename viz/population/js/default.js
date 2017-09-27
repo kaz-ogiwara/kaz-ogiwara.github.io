@@ -21,12 +21,10 @@ function init(){
  
 	scene = new THREE.Scene();
  
-	// カメラ:透視投影
 	camera = new THREE.PerspectiveCamera( 60, canW/canH, 1, 1000);
 	scene.add(camera);
 	camera.position.set(100, 100, 100);
 
-	// ライト:環境光 + ポイントライトx3
 	var ambientLight = new THREE.AmbientLight(0x888888);
 	var pointLights = [];
 	pointLights[0] = new THREE.PointLight(0xffffff, .8, 0);
@@ -37,12 +35,10 @@ function init(){
 	pointLights[2].position.set(-100, -200, -100);
 	scene.add(ambientLight, pointLights[0],pointLights[1],pointLights[2]);
 
-	// レンダラー
 	renderer = new THREE.WebGLRenderer({antialias: true});
 	renderer.setSize(canW,canH);
 	container.appendChild(renderer.domElement);
 	
-	// フォント
 	var loader = new THREE.FontLoader();
 	loader.load("data/helvetiker_regular.typeface.json", function(f) {
 		var font = f;
@@ -50,12 +46,7 @@ function init(){
 		for(var y = 0; y < 13; y ++){
 			var yr = 1980 + (y * 5);
 			var cx = y * 10 - 65;
-/*
-			var textMesh1 = getTextMesh(font, yr.toString(), 0xffccff);
-			textMesh1.rotation.z = Math.PI / 2;
-			textMesh1.position.set(cx - 2, -30, -110);
-			scene.add(textMesh1);
-*/
+
 			yearMeshArray[y] = getTextMesh(font, yr.toString(), 0xaaffff);
 			yearMeshArray[y].rotation.z = -Math.PI / 2;
 			yearMeshArray[y].position.set(cx + 1.7, -30, 98);
