@@ -49,7 +49,7 @@
 				font-weight: 300;
 			}
 			
-			#article-block p {
+			#description-block p {
 				font-size: small;
 				color: #666;
 				line-height: 2em;
@@ -57,6 +57,24 @@
 				text-align: justify;
 			}
 			
+			#description-block .more,
+			#description-block .less {
+				color: #359;
+			}
+			
+			#description-block .more:hover,
+			#description-block .less:hover {
+				cursor: pointer;
+			}
+			
+			#description-block .detail {
+				display: none;
+			}
+			
+			#description-block .detail.show {
+				display: block;
+			}
+
 			#notes-block {
 			}
 			
@@ -244,10 +262,10 @@
 				<h1>G7各国の解散・総選挙タイムライン</h1>
 				<h4>戦後のG7各国において解散・総選挙がいつ行われてきたか時系列で表示した。</h4>
 			</div>
-			<div id="article-block">
-				<p>戦後日本における衆議院の総選挙は、10月22日に予定される総選挙を含めて25回を数える。そのうち実に24回が解散に伴う総選挙だ（唯一の任期満了は1976年の三木内閣）。では、諸外国の議会と比べるとどうなるか。高澤（2016）を基に、G7各国において解散制度のある議会（日本でいえば衆議院）の総選挙の日付をタイムラインで表示してみた（米国の議会には解散制度はないが、参考として下院の情報を載せた）。</p>
-				<p>下記のタイムラインでは解散回数の多い国を右側に表示している。国旗アイコンの下にあるのは通算の解散回数および平均の任期。グレーの点は解散を伴わない総選挙（自動解散を含む）、オレンジは解散に伴う総選挙（日本ではいわゆる「７条解散」）、ブルーは不信任案の決議などによる総選挙を示す（同じく日本でいう「69条解散」）。これを見ると、日本の衆議院はG7各国の中で最も解散回数が多いことがわかる。もともとの任期がやや短いこともあり、日本の衆議院における実質的な任期は米国（任期２年）に次いで短い。</p>
-				<p>一方、解散の回数で日本に次ぐカナダや英国では、それぞれ2007年と2011年に解散の濫用を制限するための法改正が行われた。日本でも遠くないうちに、解散権の適用を厳格化する機運が高まるかもしれない。</p>
+			<div id="description-block" class="short">
+				<p>戦後日本における衆議院の総選挙は、10月22日に予定される総選挙を含めて25回。そのうち実に24回が解散に伴う総選挙だ（唯一の任期満了は1976年の三木内閣）。では、諸外国の議会と比べるとどうなるか。高澤（2016）を基に、G7各国において解散制度のある議会の総選挙をタイムラインで表示してみた。<a class="more">Read more</a></p>
+				<p class="detail">表示対象は解散制度のある下院（日本でいえば衆議院）。米国の議会には解散制度はないが、参考として下院の情報を載せた。解散回数の多い国を右側に表示している。国旗アイコンの下にあるのは通算の解散回数および平均の任期。グレーの点は解散を伴わない総選挙（自動解散を含む）、オレンジは解散に伴う総選挙（日本ではいわゆる「７条解散」）、ブルーは不信任案の決議などによる総選挙を示す（同じく日本でいう「69条解散」）。これを見ると、日本の衆議院はG7各国の中で最も解散回数が多いことがわかる。もともとの任期がやや短いこともあり、日本の衆議院における実質的な任期は米国（任期２年）に次いで短い。</p>
+				<p class="detail">一方、解散の回数で日本に次ぐカナダや英国では、それぞれ2007年と2011年に解散の濫用を制限するための法改正が行われた。日本でも遠くないうちに、解散権の適用を厳格化する機運が高まるかもしれない。<a class="less">Read less</a></p>
 			</div>
 			<div id="content-block">
 				<div id="countries-wrapper">
@@ -287,6 +305,18 @@
 			}
 
 			$(function(){
+
+				$(document).on("click touchend", ".more", function(e) {
+					e.preventDefault();
+					$(this).hide("fast");
+					$("#description-block").find(".detail").show("fast");
+				});
+
+				$(document).on("click touchend", ".less", function(e) {
+					e.preventDefault();
+					$("#description-block").find(".detail").hide("fast");
+					$(".more").show("fast");
+				});
 
 				$(document).on("click touchend", function(e) {
 					if (!$(e.target).closest(".election").length) {
