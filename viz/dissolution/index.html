@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=9" />
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>G7各国の解散・総選挙タイムライン</title>
+		<link rel="stylesheet" href="../../assets/css/default.css" />
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="../../assets/js/default.js"></script>
+		<style>
+			@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+			
+			body {
+				/* Thanks to: https://www.toptal.com/designers/subtlepatterns/white-wall-3/ */
+				background-image: url('img/white_wall_hash.png');
+			}
+
+			#container {
+				margin: 0 auto;
+				width: 96%;
+				max-width: 800px;
+			}
+			
+			#container * {
+				color: rgba(0,0,0,0.7);
+				transition: all 0.15s;
+			}
+			
+			#title-block *,
+			#content-block *,
+			#footer-block * {
+				font-family: 'Helvetica Neue', 'Noto Sans Japanese';
+			}
+			
+			#title-block {
+				margin-top: 24px;
+				padding-left: 16px;
+				border-left: 10px solid #d64;
+				margin-bottom: 36px;
+			}
+			
+			#title-block h1 {
+				line-height: 36px;
+				margin-bottom: 12px;
+			}
+			
+			#title-block h4 {
+				font-weight: 300;
+			}
+			
+			#article-block p {
+				font-size: small;
+				color: #666;
+				line-height: 2em;
+				text-indent: 1em;
+				text-align: justify;
+			}
+			
+			#notes-block {
+				margin-top: 60px;
+			}
+			
+			#notes-block p,#notes-block a {
+				font-size: small;
+				color: #999;
+				line-height: 1.8em;
+			}
+			
+			#content-block {
+				margin-top: 24px;
+			}
+			
+			#countries {
+				margin: 0 auto;
+				width: 70%;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+			}
+
+			.country {
+				width: 100%;
+			}
+
+			.country .flag {
+				width: 100%;
+				height: 100px;
+				background-size: 70%;
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+			
+			.country .cname {
+				font-size: x-small;
+				color: #999 !important;
+				text-align: center;
+				margin-bottom: -24px;
+			}
+
+			.country .disnumber {
+				font-size: x-small;
+				color: #aaa !important;
+				text-align: center;
+				margin-bottom: 12px;
+			}
+			
+			.country .disnumber span {
+				margin: 0 2px;
+				font-size: small;
+				color: #888 !important;
+			}
+			
+			.country .avgperiod {
+				font-size: small;
+				color: #888 !important;
+				text-align: center;
+				margin-bottom: 24px;
+			}
+
+			.country .timeline {
+				height: 1000px;
+			}
+
+			.timeline .bone {
+				position: absolute;
+				width: 4px;
+				height: 100%;
+				left: calc((100% - 4px) / 2);
+				border-radius: 20px;
+				border: 1px solid #ccc;
+				opacity: 0.3;
+			}
+
+			.timeline .election {
+				position: absolute;
+				left: calc((100% - 20px) / 2);
+				margin-top: -5px;
+				width: 20px;
+				height: 20px;
+				border-radius: 40px;
+				border: 2px solid rgba(0,0,0,0.0);
+				background-image: url('img/white_wall_hash.png');
+			}
+
+			.timeline .election .inner {
+				top: 2px;
+				left: 2px;
+				width: 12px;
+				height: 12px;
+				border-radius: 40px;
+				background-color: rgba(0,0,0,0.25);
+			}
+
+			.timeline .bone {
+				background-color: #aaa;
+			}
+
+			.election.dissolution {border: 2px solid #D06A3B;}
+			.election.censure			{border: 2px solid #208DC3;}
+			.election.dissolution	.inner {background-color: #D06A3B;}
+			.election.censure			.inner {background-color: #208DC3;}
+
+			.election.hovered {                      
+				margin-top: -13px;
+				left: calc((100% - 36px) / 2);
+				width: 36px;
+				height: 36px;
+				z-index: 10;
+			}
+
+			.election.hovered .inner {
+				top: 4px;
+				left: 4px;
+				width: 24px;
+				height: 24px;
+			}
+
+			#years {
+				position: absolute;
+				width: calc(100% + 80px);
+				margin-left: -80px;
+				padding-top: 160px;
+				height: calc(100% - 100px);
+			}
+			
+			#years .year {
+				font-size: small;
+			}
+			
+			#years .line {
+				height: 1px;
+				border-bottom: 1px dotted #ccc;
+			}
+			
+			.tooltip {
+				position: absolute;
+				font-size: small;
+				width: 240px;
+				height: 64px;
+				margin-left: calc((240px * -0.5) + 16px);
+				margin-top: 20px;
+				background-color: #999;
+				color: #fcfcfc !important;
+				padding: 12px 24px;
+				border-radius: 8px;
+				border: none;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+				text-align: center;
+			}
+			
+			/* Thanks to: https://saruwakakun.com/html-css/basic/before-after#two8 */
+			.tooltip:before {
+				position: absolute;
+				content: '';
+				border-top: 12px solid #999;
+				border-right: 12px solid transparent;
+				border-left: 12px solid transparent;
+				top: -9px;
+				left: calc(50% - 12px);
+				transform: rotateX(180deg);
+			}
+			
+			#footer-block {
+				height: 160px;
+				padding-top: 60px;
+				font-size: small;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cover">
+			<p>Loading...</p>
+		</div>
+		<div id="container">
+			<div id="title-block">
+				<h1>G7各国の解散・総選挙タイムライン</h1>
+				<h4>戦後のG7各国において解散・総選挙がいつ行われてきたか時系列で表示した。</h4>
+			</div>
+			<div id="article-block">
+				<p>戦後日本における衆議院の総選挙は、10月22日に予定される総選挙を含めて25回を数える。そのうち実に24回が解散に伴う総選挙だ（唯一の任期満了は1976年の三木内閣）。では、諸外国の議会と比べるとどうなるか。高澤（2016）を基に、G7各国において解散制度のある議会（日本でいえば衆議院）の総選挙の日付をタイムラインで表示してみた（米国の議会には解散制度はないが、参考として下院の情報を載せた）。</p>
+				<p>下記のタイムラインでは解散回数の多い国を右側に表示している。国旗アイコンの下にあるのは通算の解散回数および平均の任期。グレーの点は解散を伴わない総選挙（自動解散を含む）、オレンジは解散に伴う総選挙（日本ではいわゆる「７条解散」）、ブルーは不信任案の決議などによる総選挙を示す（同じく日本でいう「69条解散」）。これを見ると、日本の衆議院はG7各国の中で最も解散回数が多いことがわかる。もともとの任期がやや短いこともあり、日本の衆議院における実質的な任期は米国（任期２年）に次いで短い。</p>
+				<p>一方、解散の回数で日本に次ぐカナダや英国では、それぞれ2007年と2011年に解散の濫用を制限するための法改正が行われた。日本でも遠くないうちに、解散権の適用を厳格化する機運が高まるかもしれない。</p>
+			</div>
+			<div id="content-block">
+				<div id="countries">
+					<div id="years"></div>
+				</div>
+			</div>
+			<div id="notes-block">
+				<p>・主なデータソース：<a href="http://dl.ndl.go.jp/view/download/digidepo_10202206_po_0923.pdf?contentNo=1" target="_blank">高澤美有紀（2016）主要国議会の解散制度，国立国会図書館　調査と情報，923</a>（G7各国における議会の解散制度に関して非常にわかりやすく概説している）、ほか各種ニュースサイト。</p>
+				<p>・解散理由（自動解散、不信任案の可決など）の分類は上記論文に準拠。「不信任案の可決」には不信任案の可決や信任案の否決などが含まれる。</p>
+				<p>・一部の国では戦後に憲法や政体が変わったため、それ以降のデータを使っている。日本のデータは日本国憲法が施行された1947年から。イタリアのデータはイタリア共和国憲法が制定された1948年から。フランスのデータは第五共和政が発布された1958年から。</p>
+				<p>・米国には議会の解散制度はなく、下院では2年ごとに全議員が改選されるが、今回は参考として載せた。</p>
+			</div>
+			<div id="footer-block">
+				<p>Copyright &copy; 2017 Kazuki OGIWARA All rights reserved.</p>
+			</div>
+		</div>
+		<script>
+			var maxDate = 26571;	// 2017/10/01
+
+			function map(value, low1, high1, low2, high2) {
+				var ret = low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+				return ret;
+			}
+			
+			function addYear(date, string){
+				var y = map(date, 0, maxDate, 0, 98);
+				var html =
+					'<div class="year" style="top:' + y + '%">'
+					+ '<div class="string">' + string + '</div>'
+					+ '<div class="line"></div>'
+				+	'</div>'
+				;
+				
+				$("#years").append(html);
+			}
+
+			$(function(){
+
+				$(document).on("click touchend", function(e) {
+					if (!$(e.target).closest(".election").length) {
+						$(".hovered").removeClass("hovered");
+						$(".tooltip").remove();
+					}
+				});
+
+				$(document).on("mouseover touchend", ".election", function(){
+					$(".hovered").removeClass("hovered");
+					$(this).addClass("hovered");
+					
+					$(".tooltip").remove();
+					
+					var explanation = "任期満了に伴う総選挙";
+					if ($(this).hasClass("dissolution")){
+						explanation = "解散に伴う総選挙";
+						
+						if ($(this).hasClass("censure")){
+							explanation = "不信任案の可決等に伴う解散";
+						}
+					} else if ($(this).hasClass("expire")) {
+						explanation = "任期満了に伴う自動解散";
+					}
+
+					var tooltip =
+						'<div class="tooltip">'
+						+	$(this).attr("date") + '<br>' + explanation
+					+	'</div>'
+					;
+					
+					$(this).append(tooltip);
+				});
+
+				$.getJSON("data.json", function(json){
+					var labels = [
+						"米国"
+					,	"ドイツ"
+					,	"フランス"
+					,	"イタリア"
+					,	"英国"
+					,	"カナダ"
+					,	"日本"
+					];
+
+					for (var i = 0; i < json.length; i++) {
+						var country = json[i];
+						var name   = country["name"];
+						var disnum = country["num"];
+						var period = country["period"];
+						var data   = country["data"];
+						
+						var html =
+							'<div class="country country' + i + '">'
+							+	'<div class="cname">' + labels[i] + '</div>'
+							+	'<div class="flag" style="background-image:url(img/flag_' + name + '.png)"></div>'
+							+	'<div class="disnumber">解散<span class="disnumber-inner">' + disnum + '</span>回</div>'
+							+	'<div class="avgperiod">' + period + '</div>'
+							+	'<div class="timeline">'
+								+	'<div class="bone"></div>'
+							+	'</div>'
+						+	'</div>'
+						;
+
+						$("#countries").append(html);
+
+						for (var j = 0; j < data.length; j++) {
+							var value = data[j];
+							var y = map(value[0], 0, maxDate, 0, 100);
+							
+							var dclass = "";
+							if (value[1] === 1)   {dclass += " dissolution";}
+							if (value[3] === "C") {dclass += " censure";}
+							if (value[3] === "E") {dclass += " expire";}
+							
+							var e =
+								'<div class="election' + dclass + '" date="' + value[2] + '" style="top:' + y + '%;">'
+								+	'<div class="inner">'
+								+	'</div>'
+							+	'</div>'
+							;
+							
+							$(".timeline:last").append(e);
+						}
+					}
+				});
+				
+				addYear(1826,  "1950");
+				addYear(5478,  "1960");
+				addYear(9131,  "1970");
+				addYear(12783, "1980");
+				addYear(16436, "1990");
+				addYear(20088, "2000");
+				addYear(23741, "2010");
+			});
+		</script>
+	</body>
+</html>
