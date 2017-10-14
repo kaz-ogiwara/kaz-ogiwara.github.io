@@ -1,7 +1,8 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', Helvetica;
+  /* Thanks to: https://sole-color-blog.com/blog/963/ */
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
   letter-spacing: 1px;
   color: #555;
   position: relative;
