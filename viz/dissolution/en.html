@@ -122,10 +122,16 @@
 			}
 
 			.country .disnumber {
-				font-size: small;
-				color: #888 !important;
+				font-size: x-small;
+				color: #aaa !important;
 				text-align: center;
 				margin-bottom: 12px;
+			}
+			
+			.country .disnumber span {
+				margin: 0 2px;
+				font-size: small;
+				color: #888 !important;
 			}
 			
 			.country .avgperiod {
@@ -133,12 +139,6 @@
 				color: #888 !important;
 				text-align: center;
 				margin-bottom: 24px;
-			}
-			
-			.country .xs {
-				font-size: x-small !important;
-				color: #aaa !important;
-				margin-bottom: 4px;
 			}
 
 			.country .timeline {
@@ -220,9 +220,9 @@
 				z-index: 10;
 				position: absolute;
 				font-size: small;
-				width: 210px;
+				width: 240px;
 				height: 64px;
-				margin-left: calc((210px * -0.5) + 16px);
+				margin-left: calc((240px * -0.5) + 16px);
 				margin-top: 20px;
 				background-color: #999;
 				color: #fcfcfc !important;
@@ -231,7 +231,6 @@
 				border: none;
 				box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 				text-align: center;
-				line-height: 20px;
 			}
 			
 			/* Thanks to: https://saruwakakun.com/html-css/basic/before-after#two8 */
@@ -264,10 +263,10 @@
 				<h4>Timeline of elections and dissolutions in the G7 countries after WWII.</h4>
 			</div>
 			<div id="description-block" class="short">
-				<p>This timeline is a visualization of national elections, especially focusing on elections due to dissolution, of lower houses in G7 countries. <a class="more">Read more...</a></p>
-				<p class="detail">On 22 October, all members of Japanese lower house (House of Representatives) were elected. This is the 25th election after WW II, of which 24 times are elections due to dissolution of the house.</p>
+				<p>This timeline is a visualization of national elections, espacially focusing on elections due to dissolution, of lower houses in G7 countries. <a class="more">Read more...</a></p>
+				<p class="detail">On 22 October, all members of Japanese lower house (House of Representatives) will be elected. This is the 25th election after WW II, of which 24 times are elections due to dissolution of the house.</p>
 				<p class="detail">In Japan, the lower house has shorter term of service and stronger political power, compared with the House of Councilors, and could be dissolved by no-confidence proposal to the Cabinet or <a href="http://japan.kantei.go.jp/constitution_and_government/frame_01.html" target="_blank">"the advice and approval of the Cabinet"</a>. The latter type of dissolution, substantially the decision of the Prime Minister, is <a href="https://www.nytimes.com/2017/09/25/world/asia/japan-abe-election.html" target="_blank">often criticized of cynical timing</a>.
-				<p class="detail">So what happens if the timing of the elections was compared with other countries? Based on news articles and <a href="http://dl.ndl.go.jp/view/download/digidepo_10202206_po_0923.pdf?contentNo=1" target="_blank">Takazawa (2016), a paper that took a general view of systems of dissolution in G7 countries</a>, I plotted timings of national elections of lower houses of G7 countries (The U.S. does not have system of dissolution but is plotted the left side for your information).</p>
+				<p class="detail">So what happens if the timing of the elections were compared with other countries? Based on news articles and <a href="" target="_blank">Takazawa (2016), a paper that took a general view of systems of dissolution in G7 countries</a>, I plotted timings of national elections of lower houses of G7 countries (The U.S. does not have system of dissolution but is plotted the left side for your information).</p>
 				<p class="detail">The larger number of dissolutions the country has experienced, the more right side it is placed. The colors are based on the reasons of the election: orange circles are elections due to dissolution decided by the head of the state such as the president or the prime minister, blue circles are dissolutions due to no-confidence proposal to the Cabinet, and gray small circles are elections due to expiration of term of office, including automatic dissolution after expiration. The number of dissolutions and the average period of term (not legal but practical) are shown under each national flag.</p>
 				<p class="detail">The visualization shows that Japan has the largest number of dissolutions in G7, 24 times, and the second shortest practical term of service, following The US. While Canada and The UK follow Japan, the two countries changed their law in 2007 and 2011 respectively in order to restrict abusing dissolution. In the near future, Japan may follow the trend and the momentum of tightening the abusive dissolution may increase.<a class="less">Read less</a></p>
 			</div>
@@ -279,10 +278,10 @@
 				</div>
 			</div>
 			<div id="notes-block">
-				<p>- Data source: <a href="http://dl.ndl.go.jp/view/download/digidepo_10202206_po_0923.pdf?contentNo=1" target="_blank">Takazawa, M. 2016. 主要国議会の解散制度 (Japanese)</a>(The paper briefly describes dissolution systems in G7 countries), and other news articles.</p>
-				<p>- Reasons of dissolutions are assessed according to the paper. "Non-confidence" includes approval of non-confidence bill and denial of confidence bill.</p>
-				<p>- Japanese elections displayed are after The Constitution of Japan was enforced (1947). Similarly, Italian elections are after The Constitution of the Italian Republic (1948), and French are after Fifth Republic (1958).</p>
-				<p>- While The U.S. lower house (House of Representatives) does not have system off dissolution and all members are elected every 2 years, I displayed The U.S. timeline for reference.</p>
+				<p>・主なデータソース：<a href="http://dl.ndl.go.jp/view/download/digidepo_10202206_po_0923.pdf?contentNo=1" target="_blank">高澤美有紀（2016）主要国議会の解散制度，国立国会図書館　調査と情報，923</a>（G7各国における議会の解散制度に関して非常にわかりやすく概説している）、ほか各種ニュースサイト。</p>
+				<p>・解散理由（自動解散、不信任案の可決など）の分類は上記論文に準拠。「不信任案の可決」には不信任案の可決や信任案の否決などが含まれる。</p>
+				<p>・一部の国では戦後に憲法や政体が変わったため、それ以降のデータを使っている。日本のデータは日本国憲法が施行された1947年から。イタリアのデータはイタリア共和国憲法が制定された1948年から。フランスのデータは第五共和政が発布された1958年から。</p>
+				<p>・米国には議会の解散制度はなく、下院では2年ごとに全議員が改選されるが、今回は参考として載せた。</p>
 			</div>
 			<div id="footer-block">
 				<p>Copyright &copy; 2017 Kazuki OGIWARA All rights reserved.</p>
@@ -361,16 +360,16 @@
 						var name   = country["name"];
 						var disnum = country["num"];
 						var period = country["period"];
-							period = period.replace('年', ' <span class="xs">years</span><br>');
-							period = period.replace('ヶ月', ' <span class="xs">months</span>');
+							period = period.replace("年", " years<br>");
+							period = period.replace("ヶ月", " months");
 						var data   = country["data"];
 						
 						var html =
 							'<div class="country country' + i + '">'
 							+	'<div class="cname">' + name + '</div>'
 							+	'<div class="flag" style="background-image:url(img/flag_' + name + '.png)"></div>'
-							+	'<div class="disnumber"><div class="xs">Dissolution:</div>' + disnum + ' <span class="xs">times</span></div>'
-							+	'<div class="avgperiod"><div class="xs">Average:</div>' + period + '</div>'
+							+	'<div class="disnumber">Dissolution: <br><span class="disnumber-inner">' + disnum + '</span> times</div>'
+							+	'<div class="avgperiod">' + period + '</div>'
 							+	'<div class="timeline">'
 								+	'<div class="bone"></div>'
 							+	'</div>'

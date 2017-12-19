@@ -11,8 +11,6 @@
 }
 
 html,body {
-  margin: 0;
-  padding: 0;
   width: 100%;
   height: 100%;
 }
@@ -135,4 +133,39 @@ body.hasheader {
 
 /* Thanks to: https://www.iconfinder.com/icons/107170/circle_color_twitter_icon */
 .social-icon.tw {background-image: url('../../assets/img/social_icon_tw.png');}
+
+/* Ripple effect (Thanks to: https://qiita.com/nekoneko-wanwan/items/c9f26ce049bd422e555c) */
+.ripple {
+  overflow: hidden;
+  position: relative;
+}
+
+/* エフェクト要素 */
+.ripple_effect {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border-radius: 100%;
+  pointer-events: none;
+  transform: scale(0);
+  opacity: 0;
+  background: #ccc;
+}
+
+/* classが付与されたらアニメーションを実行 */
+.ripple_effect.is-show {
+  animation: ripple 0.75s ease-out;
+}
+
+/* アニメーションの定義 */
+@keyframes ripple {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
 
