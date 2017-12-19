@@ -221,9 +221,6 @@
 		</div>
 		<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script>
-			// Touch or click event
-			var eClick = "touchstart mousedown";
-			
 			$(function(){
 
 				var url = "assets/data/viz.json";
@@ -253,7 +250,7 @@
 					});
 
 					// When a tag for viz was clicked
-					$(document).on(eClick, ".work", function(e){
+					$(document).on('click', ".work", function(e){
 						e.preventDefault();
 						var href = $(this).attr("href");
 						$.when(
@@ -264,7 +261,7 @@
 					});
 					
 					// When a tab was clicked
-					$(document).on(eClick, ".tab", function(){
+					$(document).on('touchstart click', ".tab", function(){
 						
 						var id = $(this).attr("for");
 						$(".tab-content").removeClass("selected");
@@ -285,7 +282,7 @@
 					});
 
 					// Ripple effect
-					$(document).on(eClick, '.ripple', function(e) {
+					$(document).on('touchstart click', '.ripple', function(e) {
 						var x = e.offsetX;
 						var y = e.offsetY;
 						
