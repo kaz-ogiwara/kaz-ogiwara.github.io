@@ -206,7 +206,7 @@ function slider(tx, ty, tw, th) {
 
 
 /*------------------------------------------------------------
- Class: Coin (Bar + value + coin title)
+ Class: Coin (Bar + issued number + amount of value)
 ------------------------------------------------------------*/
 function coin(ti, tx, ty, tw, th) {
   this.i = ti;
@@ -226,12 +226,12 @@ function coin(ti, tx, ty, tw, th) {
 
   this.display = function(){
     
-    // Background of text
+    // Background of value
     noStroke();
     fill(130,230,250,30);
-    rect(this.x + this.textX, this.y + this.h - (this.textH / 2) - 1, this.w - (this.textX * 2), this.textH, (this.textH / 2));
+    rect(this.x + this.textX, this.y + this.h - (this.textH / 2), this.w - (this.textX * 2), this.textH, (this.textH / 2));
     
-    // Text
+    // Amount of value
     textAlign(CENTER, CENTER);
     textSize(15);
     noStroke();
