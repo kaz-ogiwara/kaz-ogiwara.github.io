@@ -240,7 +240,7 @@ function coin(ti, tx, ty, tw, th) {
   this.h = th;
   this.label = COINS[this.i];
   
-  this.textX = 3;
+  this.textX = 4;
   this.textH = 20;
   
   this.blank = this.w * 0.1;
