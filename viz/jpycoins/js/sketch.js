@@ -240,12 +240,20 @@ function coin(ti, tx, ty, tw, th) {
   this.h = th;
   this.label = COINS[this.i];
   
+  this.textX = 3;
+  this.textH = 20;
+  
   this.blank = this.w * 0.1;
   this.barX = this.x + this.blank;
   this.barW = this.w - (this.blank * 2);
   this.barY = this.y + this.h - 40; // Bottom line
 
   this.display = function(){
+    
+    // Background of text
+    noStroke();
+    fill(130,230,250,30);
+    rect(this.x + this.textX, this.y + this.h - (this.textH / 2) - 1, this.w - (this.textX * 2), this.textH, (this.textH / 2));
     
     // Text
     textAlign(CENTER, CENTER);
