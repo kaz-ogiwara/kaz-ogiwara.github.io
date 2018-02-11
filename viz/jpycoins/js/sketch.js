@@ -112,44 +112,14 @@ function draw(){
   isClicking = false;
 
   if (isPlaying) {
-    objSlider.value += 1;
-    if (objSlider.value > objSlider.maxValue) {
-      objSlider.value = objSlider.maxValue;
-      isPlaying = false;
+    if (objSlider.value == objSlider.maxValue) {
+      stopButton();
+    } else {
+      objSlider.value += 1;
     }
   }
 }
 
-
-/*------------------------------------------------------------
- Class: Background
-------------------------------------------------------------*/
-/*
-function kBackground(tx, ty, tw, th) {
-  this.x = tx;
-  this.y = ty;
-  this.w = tw;
-  this.h = th;
-  
-  this.b = 10;
-  this.color = "rgba(100,220,250,0.1)";
-  
-  this.display = function(){
-    
-    stroke(this.color);
-    strokeWeight(1);
-    noFill();
-    
-    for (var i = 0; i * this.b <= this.x + this.w; i++) {
-      line(i * this.b, this.y, i * this.b, this.y + this.h);
-    }
-    
-    for (var i = 0; i * this.b <= this.y + this.h; i++) {
-      line(this.x, i * this.b, this.x + this.w, i * this.b);
-    }
-  };
-}
-*/
 
 /*------------------------------------------------------------
  Class: Year text
@@ -161,11 +131,17 @@ function yearText(tx, ty) {
   this.display = function(){
     
     noStroke();
-    textSize(32);
     fill(255,150);
     textAlign(RIGHT, TOP);
+
+    fill(255,100);
+    textSize(12);
+    text("Unit: 1,000 pcs", this.x, this.y);
+
+    fill(255,150);
+    textSize(32);
+    text(objSlider.value, this.x, this.y + 16);
     
-    text(objSlider.value, this.x, this.y);
   };
 }
 
