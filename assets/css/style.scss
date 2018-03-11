@@ -268,12 +268,18 @@ body {
           font-size: 1.6rem;
         }
       }
-
-      #eyecatch {
+      
+      #eyecatch-block {
+        overflow-x: hidden;
         margin-left: calc(((100vw - 100%) / 2) * -1);
         width: 100vw;
+
+        #eyecatch {
+          margin-left: -15%;
+          width: 130%;
+        }
       }
-  
+
       #article-block {
         margin-top: 24px;
         
@@ -340,9 +346,12 @@ body {
           font-weight: normal;
         }
       }
-      #eyecatch {
-        margin-left: 0;
-        width: 100%;
+
+      #eyecatch-block {
+        #eyecatch {
+          margin-left: 0;
+          width: 100%;
+        }
       }
     }
   }
@@ -371,6 +380,11 @@ body {
           font-size: 2.0rem;
           font-weight: normal;
         }
+      }
+
+      #eyecatch-block {
+        margin-left: 0;
+        width: 100%;
       }
     }
   }
