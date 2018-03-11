@@ -53,23 +53,32 @@ body {
       height: 36px;
       margin-top: 24px;
       
-      a {
+      i {
         display: block;
         position: absolute;
-        display: block;
         top: 0;
         left: 0;
         border-radius: 24px;
+        z-index: 10;
 
         &:hover {
           cursor: pointer;
           opacity: 0.7;
         }
-        
-        &#link-menu {
-          left: auto;
-          right: 0;
-        }
+      }
+      
+      a {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      #icon-menu {
+        right: 0;
+        left: auto;
       }
     }
 
@@ -99,9 +108,9 @@ body {
         height: 100%;
         top: 0;
         left: 0;
-        z-index: -1;
         background-color: rgba(0,0,0,0.7);
         opacity: 0;
+        z-index: -1;
       }
 
       #menu-content {
@@ -112,7 +121,7 @@ body {
         top: 0;
         right: -1 * $width;
         background-color: #fefefe;
-        z-index: 20;
+        z-index: 100;
         box-shadow: 0 4px 6px rgba(0,0,0,0.4);
         
         .item {
@@ -139,12 +148,12 @@ body {
         }
 
         .item:first-child {
-          height: 64px;
+          height: 72px;
           
           #icon-close {
-            position: absolute;
-            right: 16px;
-            top: 16px;
+            right: 24px;
+            left: auto;
+            top: 24px;
           }
         }
       }
@@ -152,9 +161,9 @@ body {
       &.show {
         #menu-cover {
           opacity: 1;
-          z-index: 10;
+          z-index: 90;
         }
-
+        
         #menu-content {
           right: 0;
         }

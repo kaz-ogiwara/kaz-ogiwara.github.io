@@ -1,4 +1,11 @@
 $(function(){
+  var eClick = (function() {
+    if ('ontouchstart' in document.documentElement === true)
+      return 'touchstart';
+    else
+      return 'click';
+  })();
+
   
   if ($("body").hasClass("home") || $("body").hasClass("works")) {
     $.getJSON("/kaz-ogiwara.github.io/assets/json/works.json", function(works){
@@ -17,14 +24,15 @@ $(function(){
     });
   }
 
-  //$(document).on("click", "#link-menu", function(e){
-  $("#link-menu").on("click", function(e){
-    e.preventDefault();
+  $("#icon-menu").on(eClick, function(){
+    //$("#menu-cover").fadeIn("fast");
     $("#menu").addClass("show");
   });
   
-  //$(document).on("click", "#icon-close,#menu-cover", function(){
-  $("#icon-close,#menu-cover").on("click", function(){
+  //$("#icon-close,#menu-cover").on("click touchstart", function(){
+  $("#icon-close,#menu-cover").on(eClick, function(){
+    //$("#menu-cover").fadeOut("fast");
     $("#menu").removeClass("show");
   });
+
 });
