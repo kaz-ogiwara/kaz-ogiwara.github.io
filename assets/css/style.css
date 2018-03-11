@@ -40,24 +40,19 @@ body {
       width: 100%;
       height: 36px;
       margin-top: 24px; }
-      body #container #icons-block i {
+      body #container #icons-block a {
+        display: block;
         position: absolute;
         display: block;
         top: 0;
-        font-size: 28px;
-        color: #999;
+        left: 0;
         border-radius: 24px; }
-        body #container #icons-block i:hover {
+        body #container #icons-block a:hover {
           cursor: pointer;
           opacity: 0.7; }
-        body #container #icons-block i a {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          left: 0;
-          text-decoration: none; }
-      body #container #icons-block #icon-menu {
-        right: 0; }
+        body #container #icons-block a#link-menu {
+          left: auto;
+          right: 0; }
     body #container #title-block {
       margin-top: 16px;
       margin-bottom: 48px;
@@ -109,6 +104,7 @@ body {
       body #container #menu #menu-content .item:first-child {
         height: 64px; }
         body #container #menu #menu-content .item:first-child #icon-close {
+          position: absolute;
           right: 16px;
           top: 16px; }
     body #container #menu.show #menu-cover {

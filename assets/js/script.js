@@ -17,7 +17,8 @@ $(function(){
     });
   }
 
-  $(document).on("click", "#icon-menu", function(){
+  $(document).on("click", "#link-menu", function(e){
+    e.preventDefault();
     $("#menu").addClass("show");
   });
   
