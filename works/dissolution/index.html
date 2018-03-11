@@ -4,15 +4,13 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=9" />
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta name="description" content="戦後のG7各国において解散・総選挙がいつ行われてきたか時系列で表示した。">
-		<meta property="og:image" content="../../assets/img/thumbnail-dissolution.png">
-		<title>G7各国の解散・総選挙タイムライン</title>
+		<meta name="description" content="Timeline of elections and dissolutions of parliaments in G7 countries after WW II.">
+		<meta property="og:image" content="https://kaz-ogiwara.github.io/assets/img/thumbnail-dissolution.png">
+		<title>Elections and Dissolutions in The G7</title>
 		<link rel="stylesheet" href="../../assets/css/default.css" />
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script src="../../assets/js/default.js"></script>
 		<style>
-			@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
-			
 			body {
 				/* Thanks to: https://www.toptal.com/designers/subtlepatterns/white-wall-3/ */
 				background-image: url('img/white_wall_hash.png');
@@ -32,7 +30,7 @@
 			#title-block *,
 			#content-block *,
 			#footer-block * {
-				font-family: 'Helvetica Neue', 'Noto Sans Japanese';
+				font-family: 'Helvetica Neue';
 			}
 			
 			#title-block {
@@ -261,13 +259,16 @@
 		</div>
 		<div id="container">
 			<div id="title-block">
-				<h1>G7各国の解散・総選挙タイムライン</h1>
-				<h4>戦後のG7各国において解散・総選挙がいつ行われてきたか時系列で表示した。</h4>
+				<h1>Elections and Dissolutions in The G7</h1>
+				<h4>Timeline of elections and dissolutions in the G7 countries after WWII.</h4>
 			</div>
 			<div id="description-block" class="short">
-				<p>戦後日本における衆議院の総選挙は、10月22日に予定される総選挙を含めて25回。そのうち実に24回が解散に伴う総選挙だ（唯一の任期満了は1976年の三木内閣）。では、諸外国の議会と比べるとどうなるか。高澤（2016）を基に、G7各国において解散制度のある議会の総選挙をタイムラインで表示してみた。<a class="more">Read more</a></p>
-				<p class="detail">表示対象は解散制度のある下院（日本でいえば衆議院）。米国の議会には解散制度はないが、参考として下院の情報を載せた。解散回数の多い国を右側に表示している。国旗アイコンの下にあるのは通算の解散回数および平均の任期。グレーの点は解散を伴わない総選挙（自動解散を含む）、オレンジは解散に伴う総選挙（日本ではいわゆる「７条解散」）、ブルーは不信任案の決議などによる総選挙を示す（同じく日本でいう「69条解散」）。これを見ると、日本の衆議院はG7各国の中で最も解散回数が多いことがわかる。もともとの任期がやや短いこともあり、日本の衆議院における実質的な任期は米国（任期２年）に次いで短い。</p>
-				<p class="detail">一方、解散の回数で日本に次ぐカナダや英国では、それぞれ2007年と2011年に解散の濫用を制限するための法改正が行われた。日本でも遠くないうちに、解散権の適用を厳格化する機運が高まるかもしれない。<a class="less">Read less</a></p>
+				<p>This timeline is a visualization of national elections, espacially focusing on elections due to dissolution, of lower houses in G7 countries. <a class="more">Read more...</a></p>
+				<p class="detail">On 22 October, all members of Japanese lower house (House of Representatives) will be elected. This is the 25th election after WW II, of which 24 times are elections due to dissolution of the house.</p>
+				<p class="detail">In Japan, the lower house has shorter term of service and stronger political power, compared with the House of Councilors, and could be dissolved by no-confidence proposal to the Cabinet or <a href="http://japan.kantei.go.jp/constitution_and_government/frame_01.html" target="_blank">"the advice and approval of the Cabinet"</a>. The latter type of dissolution, substantially the decision of the Prime Minister, is <a href="https://www.nytimes.com/2017/09/25/world/asia/japan-abe-election.html" target="_blank">often criticized of cynical timing</a>.
+				<p class="detail">So what happens if the timing of the elections were compared with other countries? Based on news articles and <a href="" target="_blank">Takazawa (2016), a paper that took a general view of systems of dissolution in G7 countries</a>, I plotted timings of national elections of lower houses of G7 countries (The U.S. does not have system of dissolution but is plotted the left side for your information).</p>
+				<p class="detail">The larger number of dissolutions the country has experienced, the more right side it is placed. The colors are based on the reasons of the election: orange circles are elections due to dissolution decided by the head of the state such as the president or the prime minister, blue circles are dissolutions due to no-confidence proposal to the Cabinet, and gray small circles are elections due to expiration of term of office, including automatic dissolution after expiration. The number of dissolutions and the average period of term (not legal but practical) are shown under each national flag.</p>
+				<p class="detail">The visualization shows that Japan has the largest number of dissolutions in G7, 24 times, and the second shortest practical term of service, following The US. While Canada and The UK follow Japan, the two countries changed their law in 2007 and 2011 respectively in order to restrict abusing dissolution. In the near future, Japan may follow the trend and the momentum of tightening the abusive dissolution may increase.<a class="less">Read less</a></p>
 			</div>
 			<div id="content-block">
 				<div id="countries-wrapper">
@@ -333,15 +334,15 @@
 					
 					$(".tooltip").remove();
 					
-					var explanation = "任期満了に伴う総選挙";
+					var explanation = "Due to expiration";
 					if ($(this).hasClass("dissolution")){
-						explanation = "解散に伴う総選挙";
+						explanation = "Due to dissolution";
 						
 						if ($(this).hasClass("censure")){
-							explanation = "不信任案の可決等に伴う解散";
+							explanation = "Due to non-confidence";
 						}
 					} else if ($(this).hasClass("expire")) {
-						explanation = "任期満了に伴う自動解散";
+						explanation = "Automatic dissolution";
 					}
 
 					var tooltip =
@@ -354,28 +355,20 @@
 				});
 
 				$.getJSON("data.json", function(json){
-					var labels = [
-						"米国"
-					,	"ドイツ"
-					,	"フランス"
-					,	"イタリア"
-					,	"英国"
-					,	"カナダ"
-					,	"日本"
-					];
-
 					for (var i = 0; i < json.length; i++) {
 						var country = json[i];
 						var name   = country["name"];
 						var disnum = country["num"];
 						var period = country["period"];
+							period = period.replace("年", " years<br>");
+							period = period.replace("ヶ月", " months");
 						var data   = country["data"];
 						
 						var html =
 							'<div class="country country' + i + '">'
-							+	'<div class="cname">' + labels[i] + '</div>'
+							+	'<div class="cname">' + name + '</div>'
 							+	'<div class="flag" style="background-image:url(img/flag_' + name + '.png)"></div>'
-							+	'<div class="disnumber">解散<span class="disnumber-inner">' + disnum + '</span>回</div>'
+							+	'<div class="disnumber">Dissolution: <br><span class="disnumber-inner">' + disnum + '</span> times</div>'
 							+	'<div class="avgperiod">' + period + '</div>'
 							+	'<div class="timeline">'
 								+	'<div class="bone"></div>'
