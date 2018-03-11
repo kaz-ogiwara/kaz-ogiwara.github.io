@@ -17,12 +17,14 @@ $(function(){
     });
   }
 
-  $(document).on("click", "#link-menu", function(e){
+  //$(document).on("click", "#link-menu", function(e){
+  $("#link-menu").on("click", function(e){
     e.preventDefault();
     $("#menu").addClass("show");
   });
   
-  $(document).on("click", "#icon-close,#menu-cover", function(){
+  //$(document).on("click", "#icon-close,#menu-cover", function(){
+  $("#icon-close,#menu-cover").on("click", function(){
     $("#menu").removeClass("show");
   });
 });
