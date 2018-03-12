@@ -178,7 +178,6 @@ body {
         margin: 0 auto;
         margin-bottom: 24px;
         width: calc(100% - 80px);
-        height: 234px;
         border-radius: 2px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         background-color: #fefefe;
@@ -194,7 +193,7 @@ body {
         }
         
         .title {
-          padding: 8px 8px 0 8px;
+          padding: 8px;
           font-size: 0.9rem;
           line-height: 1.2rem;
         }
@@ -321,7 +320,7 @@ body {
 
 
 /* Tablet */
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 600px) {
   body {
     #container {
       #works-block {
@@ -358,7 +357,7 @@ body {
 }
 
 /* PC */
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
   body {
     #container {
       #works-block {
