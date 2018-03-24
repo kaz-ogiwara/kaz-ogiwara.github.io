@@ -265,12 +265,18 @@ function drawResources(){
 
 
 $(function(){
+  var eHover = (function() {
+    if ('ontouchstart' in document.documentElement === true)
+      return 'touchstart';
+    else
+      return 'mouseover';
+  })();
+
 	drawParttimeRatio();
 	drawGendergap();
 	drawResources();
 
-
-	$(document).on("mouseover", function(e){
+	$(document).on(eHover, function(e){
 
 		if($(e.target).closest('ptv').length) {
 			showDescription($(e.target).closest("ptv"), "ptv");
