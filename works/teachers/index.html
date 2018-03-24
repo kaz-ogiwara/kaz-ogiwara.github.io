@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="How and why the job security of elementary and junior high school teachers is collapsing">
+		<meta property="og:url" content="https://kaz-ogiwara.github.io/viz/teachers/" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Schools are depending on part-time teachers" />
+		<meta property="og:description" content="How and why the job security of elementary and junior high school teachers is collapsing" />
+		<meta property="og:image" content="https://kaz-ogiwara.github.io/assets/img/eyecatch_teachers.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Schools are depending on part-time teachers - kaz-ogiwara.github.io</title>
+  </head>
+  <body>
+    <div id="container">
+			<div id="header-block">
+				<a href="../../">
+					<i class="material-icons">home</i>
+					Kazuki OGIWARA
+				</a>
+			</div>
+			<div id="title-block">
+				<h1>Schools are depending on part-time teachers</h1>
+				<h3>How and why the job security of elementary and junior high school teachers is collapsing</h3>
+				<hr>
+			</div>
+			<section>
+				<p>The job security of elementary and junior high school teachers, who form the basis of Japanese education, is gradually collapsing.</p>
+				<p>In Japan, most children are enrolled in elementary school for six years (from six to 12 years of age) and in junior high school for three years (from 12 to 15 years of age) for their compulsory education. Traditionally, in these schools, most teachers are employed on a full-time and indefinite basis. However, over the past few decades, an increasing number of teachers have been working part-time - they are not in charge of entire classes, but only teach their chosen subject.</p>
+				<p>The following graphic shows the proportion of part-time teachers in each prefecture (47 administrative divisions) over the past 20 years.</p>
+			</section>
+			<div class="viz-wrapper">
+				<div id="bubble-chart"></div>
+			</div>
+			<div class="datasource">
+				Data source: <a href="http://www.mext.go.jp/b_menu/toukei/chousa01/kihon/1267995.htm" target="_blank">Basic Research on School</a>, The Ministry of Education, Culture, Sports, Science and Technology<br>
+				The data was retrieved from Excel files and converted into <a href="json/parttimeRatio.json" target="_blank">JSON file</a>.<br>
+			</div>
+			<section>
+				<p>The size of the circle represents the number of teachers in that year/prefecture, and the color represents the proportion of part-time teachers. The graphic illustrates that the proportion of part-time teachers has increased in almost all of Japan’s prefectures over the past 20 years. In terms of the national average, this proportion increased from 2.2% to 8.9% during the same period. In Kagawa Prefecture, which has the highest part-time work rate, approximately one in every six of the teachers enrolled there are working part-time.</p>
+				<p>The wage of part-time teachers is paid according to the classes they teach, and they are known for their low wages and unstable employment situation. <a href="http://kyoiku.yomiuri.co.jp/hiseiki/contents/archive9-4-5.php" target="_blank">One part-time teacher working in five schools at once reports that his monthly net income is about 100,000 yen (approximately 940 US dollars), and he has to draw on his savings to pay his living expenses.</a></p>
+				<p>This trend is particularly affecting women. In 2017, the ratio of females working part-time exceeded that of males in 40 prefectures out of 47.</p>
+			</section>
+			<div class="viz-wrapper">
+				<div class="viz-container">
+					<div id="gendergap">
+						<div class="title">Gender gap in part-time teachers ratio</div>
+						<div class="y-label l s1">20</div>
+						<div class="y-label l s2">10</div>
+						<div class="y-label l s3">0</div>
+						<div class="y-label l unit">(%)</div>
+						<div class="y-label p s1"></div>
+						<div class="y-label p s2"></div>
+						<div class="y-label p s3"></div>
+					</div>
+				</div>
+			</div>
+			<div class="datasource">
+				Data source: The same as above<br>
+				The data was retrieved from Excel files and converted into <a href="json/gendergap.json" target="_blank">JSON file</a>.<br>
+			</div>
+			<section>
+				<p>So, why is part-time employment increasing? One of the reasons might be the long-term trend of cuts to educational expenditure. <a href="http://www.esri.go.jp/jp/prj/sbubble/history/history_02/analysis_02_05_06.pdf" target="_blank">In 2004, Junichiro Koizumi, the then Prime Minister, decided that the government would reduce the amount of subsidies provided to cover expenses in compulsory education, with the aim of stopping the financial deterioration of the national budget.</a> As a result, the national government’s expenditure going towards educational expenses has decreased.</p>
+			</section>
+			<div class="viz-wrapper">
+				<div class="viz-container">
+					<div id="resources">
+						<div class="title">Educational expenditure from the national government and teachers remuneration</div>
+						<div class="y-label l s1">4,000</div>
+						<div class="y-label l s2">2,000</div>
+						<div class="y-label l s3">0</div>
+						<div class="y-label l unit">(billion JPY)</div>
+						<div class="y-label r s1">6,000</div>
+						<div class="y-label r s2">4,000</div>
+						<div class="y-label r s3">2,000</div>
+						<div class="y-label r unit">(billion JPY)</div>
+						<div class="y-label p s1"></div>
+						<div class="y-label p s2"></div>
+						<div class="y-label p s3"></div>
+						<div id="canvas"></div>
+					</div>
+				</div>
+			</div>
+			<div class="datasource">
+				Data source: <a href="http://www.mext.go.jp/b_menu/toukei/001/index05.htm" target="_blank">Local Educational Expenditure Research</a>, The Ministry of Education, Culture, Sports, Science and Technology<br>
+				The data was retrieved from Excel files and converted into <a href="json/resources.json" target="_blank">JSON file</a>.<br>
+			</div>
+			<section>
+				<p>On the other hand, from a local government perspective, it just means an increased burden. Thus, local governments that do not have sufficient financial capacity are being forced to cut their educational expenditure. <a href="https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/56771/1/AA11562857_13_1-21.pdf" target="_blank">Okubo (2014) demonstrates that, taking school building costs as an example, educational expenditure is being affected by the financial circumstances of local governments.</a> In other words, the increase in part-time school teachers is a consequence of the finance deterioration of local governments, who have taken over the burden of the national government.</p>
+			</section>
+			<div id="description"></div>
+    </div>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/sketch.js"></script>
+  </body>
+</html>
