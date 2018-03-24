@@ -1,3 +1,10 @@
+var eHover = (function() {
+	if ('ontouchstart' in document.documentElement === true)
+		return 'touchstart';
+	else
+		return 'mouseover';
+})();
+
 var vMax = {
 	"total": 70000		// maximum number of teachers in a prefecture (fulltime + parttime)
 ,	"row": 19				// maximum index of row
@@ -7,7 +14,6 @@ var vMax = {
 var vMin = {
 	"ratio": 0.11	// minimum ratio of parttime teachers (Hyogo, 1998)
 }
-
 
 function map(value, low1, high1, low2, high2) {
 	var ret = low2 + (high2 - low2) * (value - low1) / (high1 - low1);
@@ -67,10 +73,10 @@ function getValueColor(v){
 function showDescription($v, type){
 	$desc = $("#description");
 	
-	if (type === "ptv" || type === "ggcol") {
+	if (type === "ptv" || type === ".ggcol") {
 		
 		//
-		if (type === "ggcol") {
+		if (type === ".ggcol") {
 			console.log($v.attr("name"));
 			$v = $("ptv[name='" + $v.attr("name") + "'][year='2017']");
 		}
@@ -127,7 +133,7 @@ function showDescription($v, type){
 		$desc.find(".rt").text(rt + "%");
 		$desc.find(".name").text($v.attr("name") + " - " + $v.attr("year"));
 
-	} else if (type === "rscol") {
+	} else if (type === ".rscol") {
 		$desc.html(
 				'<h4 class="name">' + $v.attr("year") + '</h4>'
 		+		'<table>'
@@ -202,6 +208,7 @@ function drawParttimeRatio(){
 
 	}).done(function(){
 		$bc.addClass("show");
+		bindEvent("ptv");
 	});
 }
 
@@ -232,6 +239,7 @@ function drawGendergap(){
 
 	}).done(function(){
 		$gg.addClass("show");
+		bindEvent(".ggcol");
 	});
 }
 
@@ -260,22 +268,30 @@ function drawResources(){
 
 	}).done(function(){
 		$rs.addClass("show");
+		bindEvent(".rscol");
 	});
 }
 
 
+function bindEvent(target){
+	$(target).on(eHover, function(e){
+		showDescription($(e.target).closest(target), target);
+		e.stopPropagation();
+	});
+}
+
+
+
 $(function(){
-  var eHover = (function() {
-    if ('ontouchstart' in document.documentElement === true)
-      return 'touchstart';
-    else
-      return 'mouseover';
-  })();
 
 	drawParttimeRatio();
 	drawGendergap();
 	drawResources();
 
+	$("*").on(eHover, function(e){
+		hideDescription();
+	});
+/*
 	$(document).on(eHover, function(e){
 
 		if($(e.target).closest('ptv').length) {
@@ -288,6 +304,7 @@ $(function(){
 			hideDescription();
 		}
 	});
+*/
 });
 
 
