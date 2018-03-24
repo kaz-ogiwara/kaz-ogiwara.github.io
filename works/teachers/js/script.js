@@ -71,15 +71,14 @@ function getValueColor(v){
 
 function showDescription($v, type){
 	$desc = $("#description");
+	$("#bubble-chart").find(".hovered").removeClass("hovered");
 	
 	if (type === "ptv" || type === ".ggcol") {
 		
-		//
 		if (type === ".ggcol") {
 			console.log($v.attr("name"));
 			$v = $("ptv[name='" + $v.attr("name") + "'][year='2017']");
 		}
-		
 		
 		$desc.html(
 				'<h4 class="name"></h4>'
@@ -131,6 +130,10 @@ function showDescription($v, type){
 		$desc.find(".rm").text(rm + "%");
 		$desc.find(".rt").text(rt + "%");
 		$desc.find(".name").text($v.attr("name") + " - " + $v.attr("year"));
+		
+		if (type === "ptv") {
+			$v.addClass("hovered");
+		}
 
 	} else if (type === ".rscol") {
 		$desc.html(
@@ -157,6 +160,7 @@ function showDescription($v, type){
 
 function hideDescription(){
 	$("#description").removeClass("show");
+	$("#bubble-chart").find(".hovered").removeClass("hovered");
 }
 
 
