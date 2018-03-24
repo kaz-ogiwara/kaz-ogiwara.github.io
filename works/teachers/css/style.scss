@@ -77,12 +77,12 @@ body {
           &.unit  {
             height: 10px;
             line-height: 10px;
-            width: 80px;
+            width: 160px;
             margin-top: 0;
             top: calc(100% + 4px);
             
             &.l {left: 0;}
-            &.r {right: 0; left: auto;}
+            &.r {right: 0; left: auto; text-align: right;}
           }
           
           &.p {
@@ -127,7 +127,7 @@ body {
     
     #bubble-chart {
       $rowHeight: 18px;
-      width: 200vw;
+      width: 220vw;
       height: $rowHeight * 47;
       margin-top: 8px;
       margin-bottom: 8px;
@@ -150,6 +150,10 @@ body {
           font-size: 0.8rem;
           text-align: right;
           padding-right: 8px;
+          
+          &.r {
+            text-align: left;
+          }
         }
         
         .values {
@@ -403,6 +407,10 @@ body {
         $rowHeight: 21px;
         width: 100%;
         height: $rowHeight * 47;
+        
+        .name.r {
+          display: none;
+        }
         
         .row {
           height: $rowHeight;

@@ -7,8 +7,8 @@ var eHover = (function() {
 
 var vMax = {
 	"total": 70000		// maximum number of teachers in a prefecture (fulltime + parttime)
-,	"row": 19				// maximum index of row
-,	"ratio": 16.26	// maximum ratio of parttime teachers (Kagawa, 2017)
+,	"row": 19					// maximum index of row
+,	"ratio": 16.26		// maximum ratio of parttime teachers (Kagawa, 2017)
 }
 
 var vMin = {
@@ -57,7 +57,6 @@ function pRound(num, precision){
 
 
 function getValueColor(v){
-	//var r = map(v, vMin.ratio, vMax.ratio, 0, 100);
 	var quartiles = [2.64, 4.51, 7.33];
 	
 	var ret = ["#cccccc",0];
@@ -169,6 +168,7 @@ function drawParttimeRatio(){
 			var html =	'<div class="row">'
 									+	'<div class="name">' + pref.name + '</div>'
 									+	'<div class="values"></div>'
+									+	'<div class="name r">' + pref.name + '</div>'
 								+	'</div>';
 
 			$bc.append(html);
@@ -198,7 +198,6 @@ function drawParttimeRatio(){
 								+	'">'
 							+	'</ptv>';
 				$bc.find(".values:last").append(v);
-				//console.log(i);
 			});
 		});
 
@@ -281,9 +280,7 @@ function bindEvent(target){
 }
 
 
-
 $(function(){
-
 	drawParttimeRatio();
 	drawGendergap();
 	drawResources();
@@ -291,20 +288,6 @@ $(function(){
 	$("*").on(eHover, function(e){
 		hideDescription();
 	});
-/*
-	$(document).on(eHover, function(e){
-
-		if($(e.target).closest('ptv').length) {
-			showDescription($(e.target).closest("ptv"), "ptv");
-		} else if($(e.target).closest('.ggcol').length) {
-			showDescription($(e.target).closest(".ggcol"), "ggcol");
-		} else if($(e.target).closest('.rscol').length) {
-			showDescription($(e.target).closest(".rscol"), "rscol");
-		} else {
-			hideDescription();
-		}
-	});
-*/
 });
 
 
