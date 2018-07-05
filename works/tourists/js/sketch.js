@@ -28,13 +28,13 @@ var start;
 
 function setup() {
   start = millis();
-  
+
   clrWhite = color(250, 250, 250, 250);
   clrBackground = color(10,20,30);
 
   createCanvas(w, h);
   background(clrBackground);
-  pixelDensity(6.0);
+  pixelDensity(1.0);
   frameRate(20);
 
   // countries
@@ -44,13 +44,13 @@ function setup() {
     countries[i] = new country(i, name, value);
   }
 
-  // prefectures 
+  // prefectures
   for(var i = 0; i < prefectures.length; i++){
     var name  = json["prefectures"][i]["n"];
     var value = json["prefectures"][i]["v"];
     prefectures[i] = new prefecture(i, name, value);
   }
-  
+
   // numbers
   for(var i = 0; i < countries.length; i++){
     for(var j = 0; j < prefectures.length; j++){
@@ -58,17 +58,17 @@ function setup() {
       numbers[i][j] = new number(i, j, vl);
     }
   }
-  
+
   objCover = new cover();
 }
 
 
 function draw() {
-  
+
 //  consoleTime("000");
 
   background(10,20,30);
-  
+
 //  consoleTime("010");
 
   for(var i = 0; i < countries.length; i++){
@@ -88,11 +88,11 @@ function draw() {
       numbers[i][j].display();
     }
   }
-  
+
 //  consoleTime("040");
 
   objCover.display();
-  
+
 //  consoleTime("050");
 }
 
@@ -101,7 +101,7 @@ function consoleTime(station) {
   var end = millis();
   var elapsed = end - start;
   start = end;
-  
+
   console.log(station + ": " + elapsed + "ms.");
 }
 
@@ -112,12 +112,12 @@ function country(tcode, tname, tvalue) {
   this.code  = tcode;
   this.name  = tname;
   this.value = tvalue;
-  
+
   this.x = 100;
   this.w = 50;
   this.min = 50;
   this.max = h - 50;
-  
+
   this.selected = false;
   this.numShow = false;
   this.num = 0;
@@ -125,9 +125,9 @@ function country(tcode, tname, tvalue) {
   this.y = map(curValueC,  0, total, this.min, this.max);
   this.h = map(this.value, 0, total, this.min, this.max) - this.min;
   curValueC += this.value;
-  
+
   this.color = map(curValueC, 0, total, 0, 240);
-  
+
   this.display = function(){
 
     // when hovered
@@ -140,7 +140,7 @@ function country(tcode, tname, tvalue) {
         prevHoverType = "C";
         prevHoverIndex = this.code;
       }
-      
+
       for(var i = 0; i < countries.length; i++){
         for(var j = 0; j < prefectures.length; j++){
           numbers[i][j].show = false;
@@ -151,17 +151,17 @@ function country(tcode, tname, tvalue) {
         countries[i].selected = false;
         countries[i].numShow = false;
       }
-      
+
       for(var i = 0; i < prefectures.length; i++){
         prefectures[i].selected = false;
         numbers[this.code][i].show = true;
         prefectures[i].numShow = true;
       }
-      
+
       this.selected = true;
       this.numShow = true;
     }
-    
+
     if (prevHoverType == "C" && prevHoverIndex == this.code) {
       this.num = floor(this.value * (1 - objCover.r));
       for(var i = 0; i < prefectures.length; i++){
@@ -175,13 +175,13 @@ function country(tcode, tname, tvalue) {
     strokeWeight(1);
     stroke(clrBackground);
     strokeCap(SQUARE);
-    
+
     rectMode(CORNER);
     rect(this.x, this.y, this.w, this.h);
-    
+
     textAlign(RIGHT, CENTER);
     text(this.name, this.x - 10, this.y + this.h/2);
-    
+
     if (this.numShow) {
       noStroke();
       fill(200,200,150);
@@ -200,12 +200,12 @@ function prefecture(tcode, tname, tvalue) {
   this.code  = tcode;
   this.name  = tname;
   this.value = tvalue;
-  
+
   this.x = w - 150;
   this.w = 50;
   this.min = 50;
   this.max = h - 50;
-  
+
   this.selected = false;
   this.numShow = false;
   this.num = 0;
@@ -213,9 +213,9 @@ function prefecture(tcode, tname, tvalue) {
   this.y = map(curValueP,  0, total, this.min, this.max);
   this.h = map(this.value, 0, total, this.min, this.max) - this.min;
   curValueP += this.value;
-  
+
   this.color = map(curValueP, 0, total, 0, 240);
-  
+
   this.display = function(){
 
     // when hovered
@@ -234,18 +234,18 @@ function prefecture(tcode, tname, tvalue) {
           numbers[i][j].show = false;
         }
       }
-      
+
       for(var i = 0; i < countries.length; i++){
         countries[i].selected = false;;
         numbers[i][this.code].show = true;
         countries[i].numShow = true;
       }
-      
+
       for(var i = 0; i < prefectures.length; i++){
         prefectures[i].selected = false;
         prefectures[i].numShow = false;
       }
-      
+
       this.selected = true;
       this.numShow = true;
     }
@@ -259,14 +259,14 @@ function prefecture(tcode, tname, tvalue) {
 
     fill(200,200,this.color);
     if (this.selected) {fill(240,240,220);}
-    
+
     stroke(clrBackground);
     strokeWeight(1);
     strokeCap(SQUARE);
-    
+
     rectMode(CORNER);
     rect(this.x, this.y, this.w, this.h);
-    
+
     textAlign(LEFT, CENTER);
     text(this.name, this.x + this.w + 10, this.y + this.h/2);
 
@@ -292,28 +292,28 @@ function number(tci, tpi, tvl) {
   if (this.vl >= 1) {
     this.min = 50;
     this.max = h - 50;
-    
+
     this.h  = map(this.vl, 0, total, 0, this.max - this.min);
     this.cx = countries[this.ci].x + countries[this.ci].w + 10;
     this.cy = map(curValueNC,  0, total, this.min, this.max) + (this.h / 2);
     this.px = prefectures[this.pi].x - 10;
     this.py = map(curValueNP[this.pi],  0, prefectures[this.pi].value, prefectures[this.pi].y, prefectures[this.pi].y + prefectures[this.pi].h) + (this.h / 2);
     this.cc = map(this.vl, 0, maxNum, 200, 130);
-  
+
     curValueNC += this.vl;
     curValueNP[this.pi] += this.vl;
   }
 
-  this.display = function(){    
-    
+  this.display = function(){
+
     if (this.vl >= 1 && this.show) {
 
       strokeWeight(this.h * 0.9);
       stroke(200,this.cc,this.cc,230);
       noFill();
-      
+
       this.md = (this.cx + this.px) / 2;
-      
+
       bezier(this.cx, this.cy, this.md, this.cy, this.md, this.py, this.px, this.py);
     }
   }
@@ -335,13 +335,13 @@ function cover() {
 
       var m = millis() - startMillis;
       var max = 1000;
-      
+
       if (m <= max) {
         this.r = map(m, 0, max, 1, 0);
-        
+
         this.px = this.x;
         this.pw = this.w * this.r;
-        
+
         if (prevHoverType == "C") {
           this.px = this.px + this.w - this.pw;
         }
@@ -356,11 +356,3 @@ function cover() {
     }
   }
 }
-
-
-
-
-
-
-
-
