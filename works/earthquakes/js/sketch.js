@@ -45,7 +45,7 @@ function setup() {
   createCanvas(winW, winH + 100);
   background(clrBackground);
   textSize(15);
-  pixelDensity(6.0);
+  pixelDensity(1.0);
 
   objWorldmap = new worldmap(0, 0, winW, winW / 2);
   objButton = new button(0, mapH, btnW, winH - mapH);
