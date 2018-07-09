@@ -1,33 +1,39 @@
-var winW = 720;
-var winH = 410;
-var mapH = 360;
-var btnW =  80;
+var winW = $("#canvas").width();
+var wBase = winW / 720;
+var winH = wBase * 410;
+var mapH = wBase * 360;
+var btnW = wBase *  80;
+
+var json;
+var isSetup = false;
 var isPlaying = false;
 var isClicking = false;
-
 var duration = 0;
-switch($("#select-time").val()) {
-  case "hour":  duration = 1000 * 3600;           break;
-  case "day":   duration = 1000 * 3600 * 24;      break;
-  case "week":  duration = 1000 * 3600 * 24 * 7;  break;
-  case "month": duration = 1000 * 3600 * 24 * 30; break;
-  default:      duration = 0;
-}
-
 var objWorldmap;
 var objSlider;
 var objButton;
-var objQuakes = new Array(json["features"].length);
-
-var clrBackground;
-var clrBlue;
-var clrWhite;
-var clrYellow;
-var clrRed;
-var clrGrey;
-
+var objQuakes;
 var imgWorldmap;
 var hoveredQuakeIndex = -1;
+
+
+var COLORS = {
+  "background": [10,  20,  30],
+  "blue": [130, 206, 238],
+  "yellow": [239, 169,  41],
+  "white": [250, 250, 250],
+  "red": [240, 100, 100],
+  "grey": [150, 150, 150]
+};
+
+
+
+// The same function as map in Processing
+function map(value, low1, high1, low2, high2) {
+  var ret = low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+  return ret;
+}
+
 
 function preload() {
   imgWorldmap = loadImage("img/worldmap.jpg");
@@ -35,42 +41,65 @@ function preload() {
 
 
 function setup() {
-  clrBackground = color( 10,  20,  30);
-  clrBlue       = color(130, 206, 238);
-  clrYellow     = color(239, 169,  41);
-  clrWhite      = color(250, 250, 250);
-  clrRed        = color(240, 100, 100);
-  clrGrey       = color(150, 150, 150);
-  
-  createCanvas(winW, winH + 100);
-  background(clrBackground);
-  textSize(15);
-  pixelDensity(1.0);
 
-  objWorldmap = new worldmap(0, 0, winW, winW / 2);
-  objButton = new button(0, mapH, btnW, winH - mapH);
-  objSlider = new slider(btnW, mapH, winW - btnW, winH - mapH);
-  
-  for(var i = 0; i < objQuakes.length; i++){
-    var feature = json["features"][i];
-    
-    var msc = feature["properties"]["time"];
-    var lat = feature["geometry"]["coordinates"][1];
-    var lng = feature["geometry"]["coordinates"][0];
-    var mag = feature["properties"]["mag"];
-    var dep = feature["geometry"]["coordinates"][2];
-    var url = feature["properties"]["url"];
-    var place = feature["properties"]["place"];
-    var status = feature["properties"]["status"];
-    
-    objQuakes[i] = new quake(i, msc, lat, lng, mag, dep, url, place, status);
-  }
+  var canvas = createCanvas(winW, winH);
+  canvas.parent('canvas-block');
+  pixelDensity(1.0);
+  frameRate(0);
+
+  kSetup();
+}
+
+
+function kSetup(){
+  frameRate(0);
+
+  $("#canvas-cover").fadeIn("fast");
+
+  var time = $("#select-time").val();
+  var mag  = $("#select-mag").val();
+  var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/" + mag + "_" + time + ".geojson";
+
+  $.getJSON(url).done(function(data){
+    json = data;
+
+    switch($("#select-time").val()) {
+      case "hour":  duration = 1000 * 3600;           break;
+      case "day":   duration = 1000 * 3600 * 24;      break;
+      case "week":  duration = 1000 * 3600 * 24 * 7;  break;
+      case "month": duration = 1000 * 3600 * 24 * 30; break;
+      default:      duration = 0;
+    }
+
+    objWorldmap = new worldmap(0, 0, winW, winW / 2);
+    objButton = new button(0, mapH, btnW, winH - mapH);
+    objSlider = new slider(btnW, mapH, winW - btnW, winH - mapH);
+    objQuakes = new Array(json.features.length);
+
+    for(var i = 0; i < objQuakes.length; i++){
+      var feature = json["features"][i];
+      
+      var msc = feature["properties"]["time"];
+      var lat = feature["geometry"]["coordinates"][1];
+      var lng = feature["geometry"]["coordinates"][0];
+      var mag = feature["properties"]["mag"];
+      var dep = feature["geometry"]["coordinates"][2];
+      var url = feature["properties"]["url"];
+      var place = feature["properties"]["place"];
+      var status = feature["properties"]["status"];
+      
+      objQuakes[i] = new quake(i, msc, lat, lng, mag, dep, url, place, status);
+    }
+
+    frameRate(60);
+    $("#canvas-cover").fadeOut("fast");
+  });
 }
 
 
 function draw() {
-  
-  background(clrBackground);
+
+  background(color(COLORS.background));
   
   objWorldmap.display();
   objButton.display();
@@ -105,7 +134,7 @@ function worldmap(tx, ty, tw, th) {
  class: button
 ------------------------------------------------------------*/
 function button(tx, ty, tw, th) {
-  this.b = 10;
+  this.b = wBase * 10;
   this.x = tx + this.b;
   this.y = ty + this.b;
   this.w = tw - (2 * this.b);
@@ -129,13 +158,14 @@ function button(tx, ty, tw, th) {
 
     // draw button
     strokeWeight(2);
-    stroke(clrBlue);
-    rect(this.x, this.y, this.w, this.h, 5);
+    stroke(color(COLORS.blue));
+
+    rect(this.x, this.y, this.w, this.h, wBase * 5);
     
     // when playing
     if (isPlaying) {
       
-      objSlider.cx += 2;
+      objSlider.cx += 1;
       if (objSlider.cx > objSlider.max) {
         objSlider.cx = objSlider.max;
         isPlaying = false;
@@ -143,9 +173,9 @@ function button(tx, ty, tw, th) {
 
       // draw stop icon
       rectMode(RADIUS);
-      fill(clrBlue);
+      fill(color(COLORS.blue));
       noStroke();
-      this.wh = 6;
+      this.wh = wBase * 6;
       rect(this.x + (this.w / 2), this.y + (this.h / 2), this.wh, this.wh);
       rectMode(CORNER);
 
@@ -153,10 +183,10 @@ function button(tx, ty, tw, th) {
     } else {
 
       // draw play icon
-      fill(clrBlue);
+      fill(color(COLORS.blue));
       noStroke();
-      this.bx = 24;
-      this.by =  8;
+      this.bx = wBase * 24;
+      this.by = wBase *  8;
       triangle(this.x + this.bx, this.y + this.by, this.x + this.bx, this.y + this.h - this.by, this.x + this.w - this.bx, this.y + (this.h / 2));
     }
     
@@ -173,11 +203,11 @@ function slider(tx, ty, tw, th) {
   this.w = tw;
   this.h = th;
   
-  this.min = this.x + 20;
-  this.max = this.x + this.w - 20;
+  this.min = this.x + (wBase * 20);
+  this.max = this.x + this.w - (wBase * 20);
   this.cx = this.min;
   this.cy = this.y + (this.h / 2);
-  this.cr = 30;
+  this.cr = wBase * 30;
   
   this.maxTime = json["metadata"]["generated"]; // msec of generated date & time
   this.minTime = this.maxTime - duration;
@@ -209,9 +239,9 @@ function slider(tx, ty, tw, th) {
     line(this.min, this.y + (this.h / 2), this.cx, this.y + (this.h / 2));
 
     // draw circle
-    stroke(clrYellow);
+    stroke(color(COLORS.yellow));
     strokeWeight(3);
-    fill(clrWhite);
+    fill(color(COLORS.white));
     ellipse(this.cx, this.cy, this.cr, this.cr);
 
     // v: adjust cx into a number from 0 to difSecond
@@ -238,8 +268,8 @@ function quake(ti, tmsc, tlat, tlng, tmag, tdep, turl, tplace, tstatus) {
 
   this.x = map(this.lng, -180, 180, objWorldmap.x, objWorldmap.x + objWorldmap.w);
   this.y = map(this.lat,   90, -90, objWorldmap.y, objWorldmap.y + objWorldmap.h);
-  this.r =  map(this.mag,0,9,3,30)   // radius of circle: between 5 and 20
-  this.wr = this.r * 3;  // radius of wave
+  this.r =  map(this.mag, 0, 9, 3, 30)    // radius of circle
+  this.wr = this.r * 3;                   // radius of wave
 
   
   this.display = function(){
@@ -310,16 +340,16 @@ function showDatetime(msec) {
 
   this.x = objWorldmap.x + (objWorldmap.w / 2);
   this.y = objWorldmap.y + objWorldmap.h - 10;
-  this.w = 200;
-  this.h = 25;
+  this.w = wBase * 200;
+  this.h = wBase *  25;
 
   noStroke();
   fill(0, 0, 0, 180);
-  rect(this.x - (this.w / 2), this.y - this.h + 4, this.w, this.h, this.h / 2);
+  rect(this.x - (this.w / 2), this.y - this.h + (wBase * 4), this.w, this.h, this.h / 2);
 
-  fill(clrWhite);
+  fill(color(COLORS.white));
   textAlign(CENTER, BOTTOM);
-  text(getDateStr(msec), objWorldmap.x + (objWorldmap.w / 2), objWorldmap.y + objWorldmap.h - 10);
+  text(getDateStr(msec), objWorldmap.x + (objWorldmap.w / 2), objWorldmap.y + objWorldmap.h - (wBase * 10));
 }
 
 
@@ -357,6 +387,11 @@ function hideTooltip() {
 }
 
 
+$(function(){
+  $("select").on("change", function(){
+    kSetup();
+  });
+});
 
 
 
