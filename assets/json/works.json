@@ -1,11 +1,18 @@
 [
 	{
+		"id": "viz4socialgood"
+	,	"title": "Viz for Social Good: Visualization of Human Trafficking"
+	,	"hasapp": true
+	}
+	{
 		"id": "teachers"
 	,	"title": "Schools are depending on part-time teachers"
+	,	"hasapp": true
 	}
 ,	{
 		"id": "jpycoins"
 	,	"title": "Japanese Coins issued in the 60 years"
+	,	"hasapp": true
 	}
 ,	{
 		"id": "dissolution"
@@ -56,10 +63,6 @@
 	,	"title": "Earthquakes on the earth"
 	,	"description": "Animation of earthquakes on the earth in the past an hour to 30 days"
 	,	"date": "23 Feb 2017"
+	,	"hasapp": true
 	}
 ]
-
-
-
-
-
