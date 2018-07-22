@@ -199,6 +199,8 @@ body {
         font-family: "Helvetica Neue", "Helvetica";
         margin-top: 24px;
         margin-bottom: 36px; }
+      body.work-description #container #article-block p img {
+        width: 100%; }
       body.work-description #container #article-block p.disclaimer {
         text-align: center;
         font-size: 0.8rem;
