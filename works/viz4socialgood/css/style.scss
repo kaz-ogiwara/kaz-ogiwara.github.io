@@ -21,7 +21,7 @@ body {
 
 #container {
   margin: 0 auto;
-  max-width: 960px;
+  width: 960px;
   padding: 16px;
 }
 
@@ -61,7 +61,7 @@ body {
   width: 100%;
 
   #canvas {
-    height: 1200px;
+    height: 1440px;
 
     #gc-map {
       position: absolute;
