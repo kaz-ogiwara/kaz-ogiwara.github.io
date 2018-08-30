@@ -15,30 +15,34 @@
     <link rel="stylesheet" href="https://kaz-ogiwara.github.io/assets/css/style.css">
 	</head>
 	<body>
+		<div id="cover">
+			<p>Loading...</p>
+		</div>
 		<div id="container">
 		<div id="icons-block">
 			<div id="icons-left">
-				<a href="https://kaz-ogiwara.github.io/">
+				<a href="https://kaz-ogiwara.github.io/" class="pjax">
 					<i class="material-icons" id="icon-home">home</i>
 				</a>
 			</div>
 			<div id="icons-right">
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/">Works</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/" class="pjax">Works</a></div>
 				<div class="separator">|</div>
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/">About</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/" class="pjax">About</a></div>
 			</div>
 		</div>
-      <div id="pjax-content" class="home">
-        <div id="title-block">
-          <h1>Kazuki OGIWARA</h1>
-          <h3>Data Visualization Engineer in Tokyo</h3>
-        </div>
-        <div id="works-block">
-          <section>
-            <div class="works">
+      <div id="pjax-content">
+        <div id="page-content" class="home">
+          <div id="title-block">
+            <h1>Kazuki OGIWARA</h1>
+            <h3>Data Visualization Engineer in Tokyo</h3>
+          </div>
+          <div id="works-block">
+            <section>
+              <div class="works">
 		<div class="work">
 			<div class="image" style="background-image:url(https://kaz-ogiwara.github.io/assets/img/eyecatch_viz4socialgood.png)">
-				<a href="https://kaz-ogiwara.github.io/works/viz4socialgood/description-en.html"></a>
+				<a href="https://kaz-ogiwara.github.io/works/viz4socialgood/description-en.html" class="pjax"></a>
 				<div class="ribbon">
 					<span></span>
 				</div>
@@ -47,7 +51,7 @@
 		</div>
 		<div class="work">
 			<div class="image" style="background-image:url(https://kaz-ogiwara.github.io/assets/img/eyecatch_teachers.png)">
-				<a href="https://kaz-ogiwara.github.io/works/teachers/description-en.html"></a>
+				<a href="https://kaz-ogiwara.github.io/works/teachers/description-en.html" class="pjax"></a>
 				<div class="ribbon">
 					<span></span>
 				</div>
@@ -56,48 +60,50 @@
 		</div>
 		<div class="work">
 			<div class="image" style="background-image:url(https://kaz-ogiwara.github.io/assets/img/eyecatch_jpycoins.png)">
-				<a href="https://kaz-ogiwara.github.io/works/jpycoins/description-en.html"></a>
+				<a href="https://kaz-ogiwara.github.io/works/jpycoins/description-en.html" class="pjax"></a>
 				<div class="ribbon">
 					<span></span>
 				</div>
 			</div>
 			<div class="title">Just Visualization: Japanese Coins</div>
 		</div>
-            </div>
-          </section>
-          <p class="center">Works with ribbon have interctive version.</p>
-        </div>
-        <div class="button-block">
-          <a class="button" href="works/">More Works</a>
-        </div>
-        <div id="about-block">
-          <section>
-            <div class="subsection">
-              <span class="strong">Born: </span>1987
-            </div>
-            <div class="subsection">
-              <span class="strong">Nationality: </span>Japanese
-            </div>
-            <div class="subsection">
-              <span class="strong">Alma mater: </span>University of Edinburgh (MSc. Design and Digital Media)
-            </div>
-            <div class="subsection">
-              <span class="strong">Residence: </span>Yokohama, Japan
-            </div>
-            <div class="subsection">
-              <span class="strong">Currently working as: </span>Data Visualization Engineer at Toyo Keizai Inc.
-            </div>
-            <div class="subsection">
-              <a href="https://www.linkedin.com/in/kazuki-ogiwara-9ba764122/" target="_blank">LinkedIn</a>
-            </div>
-          </section>
-        </div>
-        <div class="button-block">
-          <a class="button" href="about/">More About</a>
+              </div>
+            </section>
+            <p class="center">Works with ribbon have interctive version.</p>
+          </div>
+          <div class="button-block">
+            <a class="button pjax" href="works/">More Works</a>
+          </div>
+          <div id="about-block">
+            <section>
+              <div class="subsection">
+                <span class="strong">Born: </span>1987
+              </div>
+              <div class="subsection">
+                <span class="strong">Nationality: </span>Japanese
+              </div>
+              <div class="subsection">
+                <span class="strong">Alma mater: </span>University of Edinburgh (MSc. Design and Digital Media)
+              </div>
+              <div class="subsection">
+                <span class="strong">Residence: </span>Yokohama, Japan
+              </div>
+              <div class="subsection">
+                <span class="strong">Currently working as: </span>Data Visualization Engineer at Toyo Keizai Inc.
+              </div>
+              <div class="subsection">
+                <a href="https://www.linkedin.com/in/kazuki-ogiwara-9ba764122/" target="_blank">LinkedIn</a>
+              </div>
+            </section>
+          </div>
+          <div class="button-block">
+            <a class="button pjax" href="about/">More About</a>
+          </div>
         </div>
       </div>
 		</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://kaz-ogiwara.github.io/assets/js/jquery.pjax.min.js"></script>
     <script src="https://kaz-ogiwara.github.io/assets/js/script.js"></script>
   </body>
 </html>

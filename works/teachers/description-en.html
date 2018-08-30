@@ -15,41 +15,47 @@
     <link rel="stylesheet" href="https://kaz-ogiwara.github.io/assets/css/style.css">
 	</head>
 	<body>
+		<div id="cover">
+			<p>Loading...</p>
+		</div>
 		<div id="container">
 		<div id="icons-block">
 			<div id="icons-left">
-				<a href="https://kaz-ogiwara.github.io/">
+				<a href="https://kaz-ogiwara.github.io/" class="pjax">
 					<i class="material-icons" id="icon-home">home</i>
 				</a>
 			</div>
 			<div id="icons-right">
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/">Works</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/" class="pjax">Works</a></div>
 				<div class="separator">|</div>
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/">About</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/" class="pjax">About</a></div>
 			</div>
 		</div>
-      <div id="pjax-content" class="work-description">
-        <div id="title-block">
-          <div class="date">March 2018</div>
-          <h1>Schools are depending on part-time teachers</h1>
-          <h3>How and why the job security of elementary and junior high school teachers is collapsing</h3>
-        </div>
-        <div id="eyecatch-block">
-          <a href="./">
-            <img id="eyecatch" src="../../assets/img/eyecatch_teachers.png">
-          </a>
-        </div>
-        <div id="article-block">
-          <p>This project is about the job security of school teachers. In Japan, most children are enrolled in elementary school for six years (from six to 12 years of age) and in junior high school for three years (from 12 to 15 years of age) for their compulsory education. Traditionally, in these schools, most teachers are employed on a full-time and indefinite basis. However, over the past few decades, an increasing number of teachers have been working part-time - they are not in charge of entire classes, but only teach their chosen subject. The wage of part-time teachers is paid according to the classes they teach, and they are known for their low wages and unstable employment situation.</p>
-          <p>This project illustrates that the proportion of part-time teachers has increased in almost all of Japan’s prefectures (47 administrative divisions) over the past 20 years. Other data visualizations in this project also reveal that this trend is particularly affecting women and that the increase in part-time school teachers is a consequence of the finance deterioration of local governments, who have taken over the burden of the national government.</p>
-          <p>Data source: <a href="http://www.mext.go.jp/b_menu/toukei/chousa01/kihon/1267995.htm" target="_blank">Basic Research on School</a> and <a href="http://www.mext.go.jp/b_menu/toukei/001/index05.htm" target="_blank">Local Educational Expenditure Research</a>, The Ministry of Education, Culture, Sports, Science and Technology.</p>
-          <p>Languages and libraries: JavaScript (P5.js, jQuery), SQL (MySQL) and PHP for retrieving and shaping data</p>
-          <p><a class="button" href="./">See the App</a></p>
-          <p class="disclaimer">The app may not be available in your system environment.</p>
+      <div id="pjax-content">
+        <div id="page-content" class="work-description">
+          <div id="title-block">
+            <div class="date">March 2018</div>
+            <h1>Schools are depending on part-time teachers</h1>
+            <h3>How and why the job security of elementary and junior high school teachers is collapsing</h3>
+          </div>
+          <div id="eyecatch-block">
+            <a href="./">
+              <img id="eyecatch" src="../../assets/img/eyecatch_teachers.png">
+            </a>
+          </div>
+          <div id="article-block">
+            <p>This project is about the job security of school teachers. In Japan, most children are enrolled in elementary school for six years (from six to 12 years of age) and in junior high school for three years (from 12 to 15 years of age) for their compulsory education. Traditionally, in these schools, most teachers are employed on a full-time and indefinite basis. However, over the past few decades, an increasing number of teachers have been working part-time - they are not in charge of entire classes, but only teach their chosen subject. The wage of part-time teachers is paid according to the classes they teach, and they are known for their low wages and unstable employment situation.</p>
+            <p>This project illustrates that the proportion of part-time teachers has increased in almost all of Japan’s prefectures (47 administrative divisions) over the past 20 years. Other data visualizations in this project also reveal that this trend is particularly affecting women and that the increase in part-time school teachers is a consequence of the finance deterioration of local governments, who have taken over the burden of the national government.</p>
+            <p>Data source: <a href="http://www.mext.go.jp/b_menu/toukei/chousa01/kihon/1267995.htm" target="_blank">Basic Research on School</a> and <a href="http://www.mext.go.jp/b_menu/toukei/001/index05.htm" target="_blank">Local Educational Expenditure Research</a>, The Ministry of Education, Culture, Sports, Science and Technology.</p>
+            <p>Languages and libraries: JavaScript (P5.js, jQuery), SQL (MySQL) and PHP for retrieving and shaping data</p>
+            <p><a class="button" href="./">See the App</a></p>
+            <p class="disclaimer">The app may not be available in your system environment.</p>
+          </div>
         </div>
       </div>
 		</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://kaz-ogiwara.github.io/assets/js/jquery.pjax.min.js"></script>
     <script src="https://kaz-ogiwara.github.io/assets/js/script.js"></script>
   </body>
 </html>

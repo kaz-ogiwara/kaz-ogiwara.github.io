@@ -15,37 +15,43 @@
     <link rel="stylesheet" href="https://kaz-ogiwara.github.io/assets/css/style.css">
 	</head>
 	<body>
+		<div id="cover">
+			<p>Loading...</p>
+		</div>
 		<div id="container">
 		<div id="icons-block">
 			<div id="icons-left">
-				<a href="https://kaz-ogiwara.github.io/">
+				<a href="https://kaz-ogiwara.github.io/" class="pjax">
 					<i class="material-icons" id="icon-home">home</i>
 				</a>
 			</div>
 			<div id="icons-right">
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/">Works</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/" class="pjax">Works</a></div>
 				<div class="separator">|</div>
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/">About</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/" class="pjax">About</a></div>
 			</div>
 		</div>
-      <div id="pjax-content" class="work-description">
-        <div id="title-block">
-          <div class="date">June 2017</div>
-          <h1>140 years temperature in Tokyo</h1>
-          <h3>Daily average temperature in Tokyo over the past 140 years</h3>
-        </div>
-        <div id="eyecatch-block">
-          <img id="eyecatch" src="../../assets/img/eyecatch_temperature.png">
-        </div>
-        <div id="article-block">
-          <p>This visualisation is a heat map which describes how daily average temperature in Tokyo has changed over the past 140 years, from 1886 to 2015. Each dot, which can be divided into nine colours from blue to red, describes an average temperature on each day. By hovering each dot, you can check the correct temperature on that day. The story of this visualisation is that Tokyo is gradually becoming hotter: We can see the summer is getting hotter and longer, and, in contrast, winter is getting warmer and shorter.</p>
-          <p>This work was submitted as a class assignment.</p>
-          <p>Data source: <a href="http://www.jma.go.jp/jma/index.html" target="_blank">Japan Meteoroligical Agency</a></p>
-          <p>Languages and libraries: JavaScript (jQuery), SQL (MySQL) and PHP for retrieving and shaping data</p>
+      <div id="pjax-content">
+        <div id="page-content" class="work-description">
+          <div id="title-block">
+            <div class="date">June 2017</div>
+            <h1>140 years temperature in Tokyo</h1>
+            <h3>Daily average temperature in Tokyo over the past 140 years</h3>
+          </div>
+          <div id="eyecatch-block">
+            <img id="eyecatch" src="../../assets/img/eyecatch_temperature.png">
+          </div>
+          <div id="article-block">
+            <p>This visualisation is a heat map which describes how daily average temperature in Tokyo has changed over the past 140 years, from 1886 to 2015. Each dot, which can be divided into nine colours from blue to red, describes an average temperature on each day. By hovering each dot, you can check the correct temperature on that day. The story of this visualisation is that Tokyo is gradually becoming hotter: We can see the summer is getting hotter and longer, and, in contrast, winter is getting warmer and shorter.</p>
+            <p>This work was submitted as a class assignment.</p>
+            <p>Data source: <a href="http://www.jma.go.jp/jma/index.html" target="_blank">Japan Meteoroligical Agency</a></p>
+            <p>Languages and libraries: JavaScript (jQuery), SQL (MySQL) and PHP for retrieving and shaping data</p>
+          </div>
         </div>
       </div>
 		</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://kaz-ogiwara.github.io/assets/js/jquery.pjax.min.js"></script>
     <script src="https://kaz-ogiwara.github.io/assets/js/script.js"></script>
   </body>
 </html>

@@ -15,36 +15,42 @@
     <link rel="stylesheet" href="https://kaz-ogiwara.github.io/assets/css/style.css">
 	</head>
 	<body>
+		<div id="cover">
+			<p>Loading...</p>
+		</div>
 		<div id="container">
 		<div id="icons-block">
 			<div id="icons-left">
-				<a href="https://kaz-ogiwara.github.io/">
+				<a href="https://kaz-ogiwara.github.io/" class="pjax">
 					<i class="material-icons" id="icon-home">home</i>
 				</a>
 			</div>
 			<div id="icons-right">
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/">Works</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/" class="pjax">Works</a></div>
 				<div class="separator">|</div>
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/">About</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/" class="pjax">About</a></div>
 			</div>
 		</div>
-      <div id="pjax-content" class="work-description">
-        <div id="title-block">
-          <div class="date">April, 2017</div>
-          <h1>Music score visualization</h1>
-          <h3>Visualization of classic music score from Music XML</h3>
-        </div>
-        <div id="eyecatch-block">
-          <img id="eyecatch" src="../../assets/img/eyecatch_musicxml.png">
-        </div>
-        <div id="article-block">
-          <p>This work was submitted as a class assignment.</p>
-          <p>Data source: <a href="http://openmusicscore.org/" target="_blank">Open Music Score</a></p>
-          <p>Languages and libraries: JavaScript (Three.js, jQuery), SQL (MySQL) and PHP for retrieving and shaping data</p>
+      <div id="pjax-content">
+        <div id="page-content" class="work-description">
+          <div id="title-block">
+            <div class="date">April, 2017</div>
+            <h1>Music score visualization</h1>
+            <h3>Visualization of classic music score from Music XML</h3>
+          </div>
+          <div id="eyecatch-block">
+            <img id="eyecatch" src="../../assets/img/eyecatch_musicxml.png">
+          </div>
+          <div id="article-block">
+            <p>This work was submitted as a class assignment.</p>
+            <p>Data source: <a href="http://openmusicscore.org/" target="_blank">Open Music Score</a></p>
+            <p>Languages and libraries: JavaScript (Three.js, jQuery), SQL (MySQL) and PHP for retrieving and shaping data</p>
+          </div>
         </div>
       </div>
 		</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://kaz-ogiwara.github.io/assets/js/jquery.pjax.min.js"></script>
     <script src="https://kaz-ogiwara.github.io/assets/js/script.js"></script>
   </body>
 </html>

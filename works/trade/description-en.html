@@ -15,37 +15,43 @@
     <link rel="stylesheet" href="https://kaz-ogiwara.github.io/assets/css/style.css">
 	</head>
 	<body>
+		<div id="cover">
+			<p>Loading...</p>
+		</div>
 		<div id="container">
 		<div id="icons-block">
 			<div id="icons-left">
-				<a href="https://kaz-ogiwara.github.io/">
+				<a href="https://kaz-ogiwara.github.io/" class="pjax">
 					<i class="material-icons" id="icon-home">home</i>
 				</a>
 			</div>
 			<div id="icons-right">
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/">Works</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/" class="pjax">Works</a></div>
 				<div class="separator">|</div>
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/">About</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/" class="pjax">About</a></div>
 			</div>
 		</div>
-      <div id="pjax-content" class="work-description">
-        <div id="title-block">
-          <div class="date">August 2017</div>
-          <h1>Material to Product</h1>
-          <h3>Import and Export between Japan and the World, 2016</h3>
-        </div>
-        <div id="eyecatch-block">
-          <img id="eyecatch" src="../../assets/img/eyecatch_trade.png">
-        </div>
-        <div id="article-block">
-          <p>This visualisation is an animated sankey diagram which describes imports and exports between Japan and other countries. Vertical four bars indicate respectively (from left) countries of import source, imported products, exported products, and countries of export destination. When these bars are hovered on, breakdowns of import / export are shown in the shape of bezier curves. For example, if the top­left section (imports from China) is hovered on, the imported value by goods from China is displayed. The heights of bars and the thickness of curves depend on the value (1,000,000 GBP, converted as 1 GBP = 146 JPY).</p>
-          <p>This work was submitted as a class assignment.</p>
-          <p>Data source: <a href="http://www.customs.go.jp/toukei/info/index_e.htm" target="_blank">Trade Statistics of Japan</a></p>
-          <p>Languages and libraries: JavaScript (P5.js, jQuery), SQL (MySQL) and PHP for retrieving and shaping data</p>
+      <div id="pjax-content">
+        <div id="page-content" class="work-description">
+          <div id="title-block">
+            <div class="date">August 2017</div>
+            <h1>Material to Product</h1>
+            <h3>Import and Export between Japan and the World, 2016</h3>
+          </div>
+          <div id="eyecatch-block">
+            <img id="eyecatch" src="../../assets/img/eyecatch_trade.png">
+          </div>
+          <div id="article-block">
+            <p>This visualisation is an animated sankey diagram which describes imports and exports between Japan and other countries. Vertical four bars indicate respectively (from left) countries of import source, imported products, exported products, and countries of export destination. When these bars are hovered on, breakdowns of import / export are shown in the shape of bezier curves. For example, if the top­left section (imports from China) is hovered on, the imported value by goods from China is displayed. The heights of bars and the thickness of curves depend on the value (1,000,000 GBP, converted as 1 GBP = 146 JPY).</p>
+            <p>This work was submitted as a class assignment.</p>
+            <p>Data source: <a href="http://www.customs.go.jp/toukei/info/index_e.htm" target="_blank">Trade Statistics of Japan</a></p>
+            <p>Languages and libraries: JavaScript (P5.js, jQuery), SQL (MySQL) and PHP for retrieving and shaping data</p>
+          </div>
         </div>
       </div>
 		</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://kaz-ogiwara.github.io/assets/js/jquery.pjax.min.js"></script>
     <script src="https://kaz-ogiwara.github.io/assets/js/script.js"></script>
   </body>
 </html>
