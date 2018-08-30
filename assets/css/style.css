@@ -154,17 +154,11 @@ body {
         #works-block .works .work .image .ribbon span {
           display: inline-block;
           position: absolute;
-          padding: 4px 0 4px 4px;
           top: 20px;
           right: -24px;
-          height: 24px;
+          height: 26px;
           width: 160px;
-          text-align: center;
-          font-size: 18px;
-          line-height: 16px;
           background: #cf5353;
-          color: #fff;
-          letter-spacing: 0.05em;
           -webkit-transform: rotate(-45deg);
           -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
