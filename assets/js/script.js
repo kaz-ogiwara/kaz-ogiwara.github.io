@@ -6,16 +6,6 @@ function hideCover(){
 
 
 $(function(){
-  var ROOT = "https://kaz-ogiwara.github.io/";
-  if (location.hostname === "localhost") ROOT = "http://localhost:8888/kaz-ogiwara.github.io/";
-
-  var eClick = (function() {
-    if ('ontouchstart' in document.documentElement === true)
-      return 'touchstart';
-    else
-      return 'click';
-  })();
-
   hideCover();
 
   // When pjax pagenation was ended
@@ -24,7 +14,7 @@ $(function(){
   });
 
   // When link with pjax was clicked
-  $(document).on(eClick, "a.pjax", function(e){
+  $(document).on("click", "a.pjax", function(e){
     e.preventDefault();
     var href = $(this).attr("href");
 
