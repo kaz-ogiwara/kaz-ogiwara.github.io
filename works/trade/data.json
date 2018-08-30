@@ -1,9 +1,0 @@
-{"countries":{
-"export":[{"name":"US","value":96868},{"name":"China","value":84667},{"name":"ASEAN","value":71086},{"name":"EU","value":54670},{"name":"Korea","value":34386},{"name":"Middle East","value":17703},{"name":"Russia","value":3800},{"name":"Others","value":116517}]
-,"import":[{"name":"China","value":116569},{"name":"ASEAN","value":68813},{"name":"EU","value":59620},{"name":"US","value":50152},{"name":"Middle East","value":44528},{"name":"Korea","value":18645},{"name":"Russia","value":8405},{"name":"Others","value":85610}]
-},"products":{
-"export":[{"name":"Transportation equipment","value":118753},{"name":"Machinary","value":93242},{"name":"Electronics","value":84401},{"name":"Metal, fiber, gom, paper","value":53743},{"name":"Chemical products","value":48788},{"name":"Others","value":80770}]
-,"import":[{"name":"Mineral fuel","value":82548},{"name":"Electronics","value":73916},{"name":"Chemical products","value":48706},{"name":"Food","value":43582},{"name":"Machinary","value":43544},{"name":"Metal, fiber, mineral","value":41560},{"name":"Raw material","value":27480},{"name":"Transportation equipment","value":21191},{"name":"Clothing and accessories","value":20532},{"name":"Medicine","value":19044},{"name":"Others","value":30239}]
-},"lines":{
-"import":[583,34616,6698,5934,19184,13421,1297,3060,13069,589,18118,10667,13406,4982,6212,5328,7255,5182,2001,4943,1189,7648,259,4884,17256,5791,6280,3387,1639,8432,1072,10620,0,1794,7788,8512,9075,7532,2674,2701,4783,99,2782,2412,42274,361,477,77,123,835,199,3,5,29,145,1681,3284,2649,1468,2458,4074,422,830,78,237,1464,5864,3,44,827,1,1176,477,3,0,0,10,19426,9574,8088,14198,2638,8738,15563,2079,1266,3598,442],
-"export":[40001,8475,9718,14695,1015,10813,2215,31821,21004,17296,13939,12683,7290,2618,613,17799,13533,19923,14235,9706,5640,868,221,20275,6152,10518,13006,3608,5401,2169,345,12544,5546,12858,6297,4514,8112,396,90,10975,10632,15597,13891,9464,6928,839,316,23103]}}

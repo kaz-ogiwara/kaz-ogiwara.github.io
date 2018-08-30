@@ -9,11 +9,11 @@ $(function(){
       return 'click';
   })();
 
-
-  if ($("body").hasClass("home") || $("body").hasClass("works")) {
+/*
+  if ($("#pjax-content").hasClass("home") || $("#pjax-content").hasClass("works")) {
     $.getJSON(ROOT + "assets/json/works.json", function(works){
       $.each(works, function(i, work) {
-        if ($("body").hasClass("works") || i <= 2) {
+        if ($("#pjax-content").hasClass("works") || i <= 2) {
           var html =  '<div class="work">'
                       + '<div class="image" style="background-image:url(' + ROOT + 'assets/img/eyecatch_' + work.id + '.png)">'
                         + '<a href="' + ROOT + 'works/' + work.id + '/description-en.html"></a>'
@@ -26,16 +26,5 @@ $(function(){
       });
     });
   }
-
-  $("#icon-menu").on(eClick, function(){
-    //$("#menu-cover").fadeIn("fast");
-    $("#menu").addClass("show");
-  });
-
-  //$("#icon-close,#menu-cover").on("click touchstart", function(){
-  $("#icon-close,#menu-cover").on(eClick, function(){
-    //$("#menu-cover").fadeOut("fast");
-    $("#menu").removeClass("show");
-  });
-
+*/
 });

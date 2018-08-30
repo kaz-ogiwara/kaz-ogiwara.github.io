@@ -3,69 +3,101 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Data Visualization Engineer in Tokyo">
-		<meta property="og:url" content="https://kaz-ogiwara.github.io/" />
-		<meta property="og:type" content="article" />
-		<meta property="og:title" content="Kazuki OGIWARA - Data Visualization Engineer in Tokyo" />
-		<meta property="og:description" content="Data Visualization Engineer in Tokyo" />
-		<meta property="og:image" content="https://kaz-ogiwara.github.io/assets/img/eyecatch_home.png" />
-		<meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Kazuki OGIWARA - Data Visualization Engineer in Tokyo</title>
-  </head>
-  <body class="home">
-    <div id="container">
-			<div id="icons-block">
-				<i class="material-icons" id="icon-home">home<a href="https://kaz-ogiwara.github.io/"></a></i>
-				<i class="material-icons" id="icon-menu">menu</i>
-				<div id="menu">
-					<div id="menu-cover"></div>
-					<div id="menu-content">
-						<div class="item">
-							<i class="material-icons" id="icon-close">close</i>
-						</div>
-						<div class="item"><a href="">Home</a></div>
-						<div class="item"><a href="about/">About</a></div>
-						<div class="item"><a href="works/">Works</a></div>
-					</div>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta property="og:url" content="http://localhost:8888/kaz-ogiwara.github.io/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Kazuki OGIWARA: Personal page" />
+    <meta property="og:description" content="Data Visualization Engineer / Designer in Tokyo" />
+    <meta property="og:image" content="http://localhost:8888/kaz-ogiwara.github.io/assets/img/eyecatch_home.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title></title>
+		<link rel="amphtml" href="">
+    <link rel="stylesheet" href="http://localhost:8888/kaz-ogiwara.github.io/assets/css/style.css">
+	</head>
+	<body>
+		<div id="container">
+		<div id="icons-block">
+			<div id="icons-left">
+				<a href="http://localhost:8888/kaz-ogiwara.github.io/">
+					<i class="material-icons" id="icon-home">home</i>
+				</a>
+			</div>
+			<div id="icons-right">
+				<div class="text-menu"><a href="http://localhost:8888/kaz-ogiwara.github.io/works/">Works</a></div>
+				<div class="separator">|</div>
+				<div class="text-menu"><a href="http://localhost:8888/kaz-ogiwara.github.io/about/">About</a></div>
+			</div>
+		</div>
+      <div id="pjax-content" class="home">
+        <div id="title-block">
+          <h1>Kazuki OGIWARA</h1>
+          <h3>Data Visualization Engineer in Tokyo</h3>
+        </div>
+        <div id="works-block">
+          <section>
+            <div class="works">
+		<div class="work">
+			<div class="image" style="background-image:url(http://localhost:8888/kaz-ogiwara.github.io/assets/img/eyecatch_viz4socialgood.png)">
+				<a href="http://localhost:8888/kaz-ogiwara.github.io/works/viz4socialgood/description-en.html"></a>
+				<div class="ribbon">
+					<span></span>
 				</div>
 			</div>
-			<div id="title-block">
-				<h1>Kazuki OGIWARA</h1>
-				<h3>Data Visualization Engineer in Tokyo</h3>
+			<div class="title">Visualization of Human Trafficking</div>
+		</div>
+		<div class="work">
+			<div class="image" style="background-image:url(http://localhost:8888/kaz-ogiwara.github.io/assets/img/eyecatch_teachers.png)">
+				<a href="http://localhost:8888/kaz-ogiwara.github.io/works/teachers/description-en.html"></a>
+				<div class="ribbon">
+					<span></span>
+				</div>
 			</div>
-			<div id="works-block"></div>
-			<div class="button-block">
-				<a class="button" href="works/">More Works</a>
+			<div class="title">Schools are depending on part-time teachers</div>
+		</div>
+		<div class="work">
+			<div class="image" style="background-image:url(http://localhost:8888/kaz-ogiwara.github.io/assets/img/eyecatch_jpycoins.png)">
+				<a href="http://localhost:8888/kaz-ogiwara.github.io/works/jpycoins/description-en.html"></a>
+				<div class="ribbon">
+					<span></span>
+				</div>
 			</div>
-			<div id="about-block">
-				<section>
-					<div class="subsection">
-						<span class="strong">Born: </span>1987
-					</div>
-					<div class="subsection">
-						<span class="strong">Nationality: </span>Japanese
-					</div>
-					<div class="subsection">
-						<span class="strong">Alma mater: </span>University of Edinburgh (MSc. Design and Digital Media)
-					</div>
-					<div class="subsection">
-						<span class="strong">Residence: </span>Yokohama, Japan
-					</div>
-					<div class="subsection">
-						<span class="strong">Currently working as: </span>Data Visualization Engineer at Toyo Keizai Inc.
-					</div>
-					<div class="subsection">
-						<a href="https://www.linkedin.com/in/kazuki-ogiwara-9ba764122/" target="_blank">LinkedIn</a>
-					</div>
-				</section>
-			</div>
-			<div class="button-block">
-				<a class="button" href="about/">More About</a>
-			</div>
-    </div>
+			<div class="title">Just Visualization: Japanese Coins</div>
+		</div>
+            </div>
+          </section>
+          <p class="center">Works with ribbon have interctive version.</p>
+        </div>
+        <div class="button-block">
+          <a class="button" href="works/">More Works</a>
+        </div>
+        <div id="about-block">
+          <section>
+            <div class="subsection">
+              <span class="strong">Born: </span>1987
+            </div>
+            <div class="subsection">
+              <span class="strong">Nationality: </span>Japanese
+            </div>
+            <div class="subsection">
+              <span class="strong">Alma mater: </span>University of Edinburgh (MSc. Design and Digital Media)
+            </div>
+            <div class="subsection">
+              <span class="strong">Residence: </span>Yokohama, Japan
+            </div>
+            <div class="subsection">
+              <span class="strong">Currently working as: </span>Data Visualization Engineer at Toyo Keizai Inc.
+            </div>
+            <div class="subsection">
+              <a href="https://www.linkedin.com/in/kazuki-ogiwara-9ba764122/" target="_blank">LinkedIn</a>
+            </div>
+          </section>
+        </div>
+        <div class="button-block">
+          <a class="button" href="about/">More About</a>
+        </div>
+      </div>
+		</div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<script src="assets/js/script.js"></script>
+    <script src="http://localhost:8888/kaz-ogiwara.github.io/assets/js/script.js"></script>
   </body>
 </html>
