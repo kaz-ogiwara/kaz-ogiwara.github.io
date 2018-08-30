@@ -8,12 +8,10 @@ function hideCover(){
 $(function(){
   hideCover();
 
-  // When pjax pagenation was ended
   $(document).on('pjax:end', function() {
     hideCover();
   });
 
-  // When link with pjax was clicked
   $(document).on("click", "a.pjax", function(e){
     e.preventDefault();
     var href = $(this).attr("href");
