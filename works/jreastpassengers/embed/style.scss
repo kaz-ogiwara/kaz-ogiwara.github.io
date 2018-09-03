@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Noto Sans Japanese';
+  font-style: normal;
+  font-weight: 400;
+  src:  url(../../../assets/fonts/NotoSansJP/NotoSansJP-Regular.woff2) format('woff2'),
+        url(../../../assets/fonts/NotoSansJP/NotoSansJP-Regular.woff) format('woff'),
+        url(../../../assets/fonts/NotoSansJP/NotoSansJP-Regular.otf) format('opentype');
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", "Helvetica", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "Noto Sans Japanese", "メイリオ", Meiryo, sans-serif;
+}
+
+body,html {
+  width: 100%;
+  height: 100%;
+  font-weight: normal;
+  letter-spacing: 0.03em;
+  line-height: 1.8em;
+  color: #666;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+@mixin circle($zindex, $color, $size: 8px) {
+  width: $size !important;
+  height: $size !important;
+  margin-left: -0.5 * $size !important;
+  margin-top: -0.5 * $size !important;
+  border-radius: 0.5 * $size;
+  border: 2px solid $color;
+  z-index: $zindex;
+  background-color: rgba(255,255,255,0.4);
+}
+
+@mixin rowHeight($i){
+  height: 40px;
+  line-height: 40px;
+
+  .location {
+    margin-top: calc((40px - (8px * #{$i})) / 2) !important;
+    margin-left: calc((60px - (8px * #{$i})) / 2) !important;
+  }
+}
+
+#legend {
+  z-index: 1000;
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  font-size: 0.9em;
+  background-color: rgba(255,255,255,0.7);
+  width: 220px;
+  padding: 8px 0;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    &:nth-child(1) {@include rowHeight(1);}
+    &:nth-child(2) {@include rowHeight(2);}
+    &:nth-child(3) {@include rowHeight(3);}
+    &:nth-child(4) {@include rowHeight(4);}
+    &:nth-child(5) {@include rowHeight(5);}
+
+    .location {
+      margin: 0 auto !important;
+      position: absolute;
+    }
+
+    .num {
+      margin-left: 60px;
+    }
+  }
+}
+
+.location {
+  border: 1px solid #fdfdfd;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  z-index: 20 !important;
+
+  // Prevent flickering
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  &.k1 {@include circle(50, #39b0ce, 8px);}
+  &.k2 {@include circle(40, #1daa53, 16px);}
+  &.k3 {@include circle(30, #c3c544, 24px);}
+  &.k4 {@include circle(20, #f7924e, 32px);}
+  &.k5 {@include circle(10, #b31818, 40px);}
+}
+
+img {
+  opacity: 0.7 !important;
+}
+
+.leaflet-container {
+  a.leaflet-popup-close-button {
+    top: 8px;
+    right: 8px;
+  }
+
+  .leaflet-popup {
+    font-size: 1.1em;
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 6px;
+
+      .leaflet-popup-content {
+        padding: 0 24px 0 16px;
+    
+        .name {
+          font-weight: bold;
+          font-size: 1.3em;
+          color: #333;
+          margin-bottom: 12px;
+        }
+    
+        .label {
+          color: #aaa;
+          font-size: 0.9em;
+          line-height: 1.6em;
+          margin-top: 8px;
+
+          &.t0 {color: #1894b3;}
+          &.t1 {color: #CE6752;}
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #legend {
+    display: none;
+  }
+}

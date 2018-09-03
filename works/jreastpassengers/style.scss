@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+@font-face {
+  font-family: 'Noto Sans Japanese';
+  font-style: normal;
+  font-weight: 400;
+  src:  url(../../assets/fonts/NotoSansJP/NotoSansJP-Regular.woff2) format('woff2'),
+        url(../../assets/fonts/NotoSansJP/NotoSansJP-Regular.woff) format('woff'),
+        url(../../assets/fonts/NotoSansJP/NotoSansJP-Regular.otf) format('opentype');
+  font-display: swap;
+}
+
+
+
+@mixin circle($zindex, $color, $size: 8px) {
+  width: $size !important;
+  height: $size !important;
+  border-radius: 0.5 * $size;
+  border: 2px solid $color;
+  z-index: $zindex;
+  background-color: rgba(255,255,255,0.4);
+}
+
+@mixin rowHeight($i){
+  height: calc((#{$i} * 8px) + 16px);
+  line-height: calc((#{$i} * 8px) + 16px);
+
+  .location {
+    margin-top: calc((((#{$i} * 8px) + 16px) - (8px * #{$i})) / 2) !important;
+    margin-left: calc((60px - (8px * #{$i})) / 2) !important;
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", "Helvetica", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, YuGothic, Arial, "Noto Sans Japanese", "メイリオ", Meiryo, sans-serif;
+  font-weight: normal;
+  color: #666;
+  letter-spacing: 0.03em;
+}
+
+body {
+  width: 100%;
+  line-height: 1.8em;
+  background-color: #fdfdfd;
+}
+
+#cover {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(255,255,255);
+  z-index: 1000;
+  display: none;
+}
+
+#container {
+  a {
+    color: #37b;
+    text-decoration: none;
+  }
+
+  #header-block,#title-block,#article-block {
+    margin: 0 auto;
+    width: calc(100% - 32px);
+    max-width: 800px;
+  }
+
+  #header-block {
+    margin-top: 24px;
+
+    a {
+      text-decoration: none;
+      line-height: 28px;
+      vertical-align: top;
+    }
+  }
+
+  #title-block {
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    h1 {
+      font-size: 1.3em;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .date {
+      color: #aaa;
+      font-size: 0.9em;
+    }
+  }
+
+  #iframe-block {
+    width: 100%;
+    height: 400px;
+    background-color: #aaa;
+    transition: none;
+
+    #button-close {
+      position: fixed;
+      top: 8px;
+      right: 8px;
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      background-color: #fefefe;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      background-image: url('../../assets/img/icon-close.svg');
+      background-size: 80%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      display: none;
+    }
+
+    &.fullscreen {
+      z-index: 100;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      #button-close {
+        display: block;
+      }
+    }
+  }
+
+  p.fullscreen {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    font-size: 0.9em;
+
+    a {
+      cursor: pointer;
+    }
+  }
+
+  #article-block {
+    p {
+      margin-bottom: 1em;
+    }
+  }
+
+  #legend {
+    z-index: 1000;
+    bottom: 16px;
+    left: 16px;
+    font-size: 0.9em;
+    background-color: rgba(255,255,255,0.7);
+    width: 220px;
+    padding: 8px 0;
+    margin: 0 auto;
+  
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+  
+      &:nth-child(1) {@include rowHeight(1);}
+      &:nth-child(2) {@include rowHeight(2);}
+      &:nth-child(3) {@include rowHeight(3);}
+      &:nth-child(4) {@include rowHeight(4);}
+      &:nth-child(5) {@include rowHeight(5);}
+  
+      .location {
+        border: 1px solid #fdfdfd;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.8);
+        z-index: 20 !important;
+        margin: 0 auto !important;
+        position: absolute;
+      
+        &.k1 {@include circle(50, #39b0ce, 8px);}
+        &.k2 {@include circle(40, #1daa53, 16px);}
+        &.k3 {@include circle(30, #c3c544, 24px);}
+        &.k4 {@include circle(20, #f7924e, 32px);}
+        &.k5 {@include circle(10, #b31818, 40px);}
+      }
+  
+      .num {
+        margin-left: 60px;
+      }
+    }
+  }
+  
+  #social-block {
+    display: flex;
+    width: fit-content;
+    margin: 48px auto 48px auto;
+
+    a {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 0 16px;
+
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &.fbshare {background-image: url('../../assets/img/social_icon_fb.png');}
+      &.twitter {background-image: url('../../assets/img/social_icon_tw.png');}
+      &.gplus   {background-image: url('../../assets/img/social-icon-gplus.svg'); background-size: 85%;}
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #container {
+    #iframe-block {
+      height: 500px;
+    }
+
+    #legend {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #container {
+    #iframe-block {
+      height: 600px;
+    }
+  }
+}

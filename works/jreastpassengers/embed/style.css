@@ -1,0 +1,218 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Noto Sans Japanese';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../../assets/fonts/NotoSansJP/NotoSansJP-Regular.woff2) format("woff2"), url(../../../assets/fonts/NotoSansJP/NotoSansJP-Regular.woff) format("woff"), url(../../../assets/fonts/NotoSansJP/NotoSansJP-Regular.otf) format("opentype");
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", "Helvetica", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "Noto Sans Japanese", "メイリオ", Meiryo, sans-serif;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-weight: normal;
+  letter-spacing: 0.03em;
+  line-height: 1.8em;
+  color: #666;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+#legend {
+  z-index: 1000;
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  font-size: 0.9em;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 220px;
+  padding: 8px 0;
+}
+
+#legend .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#legend .row:nth-child(1) {
+  height: 40px;
+  line-height: 40px;
+}
+
+#legend .row:nth-child(1) .location {
+  margin-top: calc((40px - (8px * 1)) / 2) !important;
+  margin-left: calc((60px - (8px * 1)) / 2) !important;
+}
+
+#legend .row:nth-child(2) {
+  height: 40px;
+  line-height: 40px;
+}
+
+#legend .row:nth-child(2) .location {
+  margin-top: calc((40px - (8px * 2)) / 2) !important;
+  margin-left: calc((60px - (8px * 2)) / 2) !important;
+}
+
+#legend .row:nth-child(3) {
+  height: 40px;
+  line-height: 40px;
+}
+
+#legend .row:nth-child(3) .location {
+  margin-top: calc((40px - (8px * 3)) / 2) !important;
+  margin-left: calc((60px - (8px * 3)) / 2) !important;
+}
+
+#legend .row:nth-child(4) {
+  height: 40px;
+  line-height: 40px;
+}
+
+#legend .row:nth-child(4) .location {
+  margin-top: calc((40px - (8px * 4)) / 2) !important;
+  margin-left: calc((60px - (8px * 4)) / 2) !important;
+}
+
+#legend .row:nth-child(5) {
+  height: 40px;
+  line-height: 40px;
+}
+
+#legend .row:nth-child(5) .location {
+  margin-top: calc((40px - (8px * 5)) / 2) !important;
+  margin-left: calc((60px - (8px * 5)) / 2) !important;
+}
+
+#legend .row .location {
+  margin: 0 auto !important;
+  position: absolute;
+}
+
+#legend .row .num {
+  margin-left: 60px;
+}
+
+.location {
+  border: 1px solid #fdfdfd;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  z-index: 20 !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.location.k1 {
+  width: 8px !important;
+  height: 8px !important;
+  margin-left: -4px !important;
+  margin-top: -4px !important;
+  border-radius: 4px;
+  border: 2px solid #39b0ce;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.location.k2 {
+  width: 16px !important;
+  height: 16px !important;
+  margin-left: -8px !important;
+  margin-top: -8px !important;
+  border-radius: 8px;
+  border: 2px solid #1daa53;
+  z-index: 40;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.location.k3 {
+  width: 24px !important;
+  height: 24px !important;
+  margin-left: -12px !important;
+  margin-top: -12px !important;
+  border-radius: 12px;
+  border: 2px solid #c3c544;
+  z-index: 30;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.location.k4 {
+  width: 32px !important;
+  height: 32px !important;
+  margin-left: -16px !important;
+  margin-top: -16px !important;
+  border-radius: 16px;
+  border: 2px solid #f7924e;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.location.k5 {
+  width: 40px !important;
+  height: 40px !important;
+  margin-left: -20px !important;
+  margin-top: -20px !important;
+  border-radius: 20px;
+  border: 2px solid #b31818;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+img {
+  opacity: 0.7 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  top: 8px;
+  right: 8px;
+}
+
+.leaflet-container .leaflet-popup {
+  font-size: 1.1em;
+}
+
+.leaflet-container .leaflet-popup .leaflet-popup-content-wrapper {
+  border-radius: 6px;
+}
+
+.leaflet-container .leaflet-popup .leaflet-popup-content-wrapper .leaflet-popup-content {
+  padding: 0 24px 0 16px;
+}
+
+.leaflet-container .leaflet-popup .leaflet-popup-content-wrapper .leaflet-popup-content .name {
+  font-weight: bold;
+  font-size: 1.3em;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.leaflet-container .leaflet-popup .leaflet-popup-content-wrapper .leaflet-popup-content .label {
+  color: #aaa;
+  font-size: 0.9em;
+  line-height: 1.6em;
+  margin-top: 8px;
+}
+
+.leaflet-container .leaflet-popup .leaflet-popup-content-wrapper .leaflet-popup-content .label.t0 {
+  color: #1894b3;
+}
+
+.leaflet-container .leaflet-popup .leaflet-popup-content-wrapper .leaflet-popup-content .label.t1 {
+  color: #CE6752;
+}
+
+@media screen and (max-width: 600px) {
+  #legend {
+    display: none;
+  }
+}
