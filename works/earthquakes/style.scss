@@ -10,21 +10,40 @@ body{
 
 #container {
   margin: 0 auto;
-  width: calc(100% - 16px);
+  width: 100%;
   max-width: 900px;
+}
+
+#icon-block {
+  margin: 0 auto;
+  margin-top: 24px;
+  width: calc(100% - 32px);
+
+  a {
+    text-decoration: none;
+  }
+
+  #icon-home {
+    text-indent: 30px;
+    background-image: url(img/icon_home_white.svg);
+    background-position: 0% center;
+    background-size: 24px;
+    background-repeat: no-repeat;
+  }
 }
 
 #title-block {
   margin: 0 auto;
+  width: calc(100% - 32px);
   margin-top: 24px;
-  max-width: 720px;
 
   h1 {
     font-size: 1.6em;
-    color: rgba(255,255,255,0.97);
+    color: rgba(255,255,255,0.9);
   }
 
   h4 {
+    line-height: 1.4em;
     margin-top: 8px;
     font-size: 1.0em;
     color: rgba(255,255,255,0.7);
@@ -39,18 +58,19 @@ body{
 #description-block {
   margin: 0 auto;
   margin-top: 36px;
-  max-width: 720px;
+  width: calc(100% - 32px);
 
   p {
+    color: #ccc;
     margin-bottom: 8px;
-    font-size: 0.92em;
+    font-size: 0.9em;
   }
 }
 
 #controls-block {
   margin: 0 auto;
   margin-top: 24px;
-  max-width: 720px;
+  width: calc(100% - 32px);
 
   select {
     margin: 8px 32px;
@@ -77,10 +97,12 @@ body{
 }
 
 #canvas-block {
+  margin: 0 auto;
   margin-top: 36px;
   margin-bottom: 36px;
   position: relative;
   width: 100%;
+  max-width: 868px;
 
   &:before {
     content: "";
@@ -193,17 +215,17 @@ body{
 @media screen and (min-width: 900px) {
   #title-block {
     h1 {
-      font-size: 2.4em;
+      font-size: 2.0em;
     }
   
     h4 {
-      font-size: 1.4em;
+      font-size: 1.2em;
     }
   }
 
   #description-block {
     p {
-      font-size: 1.0em;
+      font-size: 0.9em;
     }
   }
 }
