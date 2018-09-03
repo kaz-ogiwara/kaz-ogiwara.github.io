@@ -120,6 +120,10 @@ body {
     margin-top: 8px;
     font-size: 1.0em;
     color: #999; }
+  #title-block p.introduction {
+    text-align: left;
+    line-height: 1.8em;
+    margin-top: 36px; }
 
 #works-block h3 {
   font-size: 1.0em;
