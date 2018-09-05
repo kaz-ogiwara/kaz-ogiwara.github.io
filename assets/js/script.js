@@ -6,12 +6,12 @@ function hideCover(){
 
 
 $(function(){
+
   hideCover();
 
   $(document).on('pjax:end', function() {
     hideCover();
-    console.log(location.pathname);
-    ga('send','pageview', location.pathname);
+    ga('send','pageview',location.pathname);
   });
 
   $(document).on("click", "a.pjax", function(e){
