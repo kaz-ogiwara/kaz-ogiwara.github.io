@@ -10,6 +10,7 @@ $(function(){
 
   $(document).on('pjax:end', function() {
     hideCover();
+    console.log(location.pathname);
     ga('send','pageview', location.pathname);
   });
 
