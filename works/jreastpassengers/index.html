@@ -7,12 +7,12 @@
 		<meta name="format-detection" content="telephone=no">
 		<meta property="og:url" content="https://kaz-ogiwara.github.io/works/jreastpassengers/" />
 		<meta property="og:type" content="article" />
-		<meta property="og:title" content="JR東日本「乗車人員数」マップ" />
-		<meta property="og:description" content="JR東日本の事業エリア内950駅の1日平均乗車人員数をマッピングした" />
+		<meta property="og:title" content="JR East Average Daily Passengers Map" />
+		<meta property="og:description" content="Map of average daily passengers at 950 stations in JR East business area" />
 		<meta property="og:image" content="https://kaz-ogiwara.github.io/assets/img/eyecatch_jreastpassengers.png" />
 		<meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="style.min.css"/>
-		<title>JR東日本「乗車人員数」マップ</title>
+		<title>JR East Average Daily Passengers Map</title>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89303107-2"></script>
 		<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','UA-89303107-2');</script>
 	</head>
@@ -26,20 +26,20 @@
 				</a>
 			</div>
 			<div id="title-block">
-				<h1>JR東日本「乗車人員数」マップ</h1>
-				<div class="date">2018年9月4日</div>
+				<h1>JR East Average Daily Passengers Map</h1>
+				<div class="date">September 2018</div>
 			</div>
 			<div id="iframe-block">
 				<iframe src="embed/" width="100%" height="100%" frameborder="0"></iframe>
 				<button id="button-close"></button>
 			</div>
 			<p class="fullscreen">
-				<a id="fullscreen">全画面で見る</a>
+				<a id="fullscreen">Show full screen</a>
 			</p>
 			<div id="article-block">
 				<section>
-					<p>JR東日本が公開している<a href="http://www.jreast.co.jp/passenger/index.html" target="_blank">各駅の乗車人員データ</a>から、エリア内950駅の定期・定期外利用を合わせた乗車人員数（1日平均）をマッピングした。緯度経度の取得には<a href="https://developers.google.com/maps/documentation/geocoding/start" target="_blank">Google Geocoding API</a>を使ったため、同名の駅が混同されている可能性がある。地図表示のJavaScriptライブラリは<a href="https://leafletjs.com/" target="_blank">Leaflet</a>を、地図タイルは<a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>を使った。</p>
-					<p>今回の対象地域は関東から東北にかけてのJR東日本の事業エリアだけだが、首都圏への人口集中ぶりがよくわかる。データ元のページでは乗員客数の多い順に各駅が並んでいるが、ベスト100のうち実に99駅を1都3県の駅が占めている。関東以外で唯一ランクインしているのは49位の仙台。</p>
+					<p>This is the map of average daily passengers at 950 stations in the business area of JR East, one of Japanese railway companies. The raw data is <a href="http://www.jreast.co.jp/passenger/index.html" target="_blank">published by the company</a>, then latitudes and longitudes were obtained with <a href="https://developers.google.com/maps/documentation/geocoding/start" target="_blank">Google Geocoding API</a>. The map was drawn with <a href="https://leafletjs.com/" target="_blank">Leaflet.js</a>, and map tiles are provided by <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>.</p>
+					<p>While the target area is only JR East's business area from Kanto to Tohoku, it clearly shows the population concentration in Tokyo metropolitan area. The raw data page lists stations in the order of decreasing average daily passengers, and 99 stations of 100 are in Tokyo area (Tokyo + peripheral 3 prefectures). The only exception is Sendai, 49th, prefectoral capital of Miyagi.</p>
 					<p>
 				    <div id="legend">
 							凡例：
@@ -65,9 +65,8 @@
 							</div>
 						</div>
 					</p>
-					<p><a href="image_1280_720.png" download="image_1280_720.png" target="_blank">画像をダウンロード</a>（png）</p>
-					<p><a href="embed/data.json" download="data.json" target="_blank">データをダウンロード</a>（JSON）</p>
-					<p>制作：荻原 和樹</p>
+					<p><a href="image_1280_720.png" download="image_1280_720.png" target="_blank">Download image</a>（png）</p>
+					<p><a href="embed/data.json" download="data.json" target="_blank">Download data</a>（JSON）</p>
 				</section>
 			</div>
 			<div id="social-block">

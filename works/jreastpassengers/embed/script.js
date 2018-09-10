@@ -4,19 +4,19 @@ function addCommas(num){
 
 
 function getPopupContent(station){
-  var ret = 
-    '<div class="name">JR ' + station[0] + '駅</div>'
-  +	'<div class="label">１日平均乗車人員数</div>'
-  +	'<div class="right">' + addCommas(station[1]) + '人</div>'
+  var ret =
+    '<div class="name">JR ' + station[0] + ' station</div>'
+  +	'<div class="label">Average daily passengers:</div>'
+  +	'<div class="right">' + addCommas(station[1]) + '</div>'
   ;
-  
+
   return ret;
 }
 
 
 var kMap = L.map('map').setView([35.679, 139.732], 10);
 var kMarkers = [];
-  
+
 L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
   maxZoom: 16,
@@ -43,6 +43,3 @@ $.getJSON("data.json", function(data){
       .bindPopup(getPopupContent(station));
   });
 });
-
-
-
