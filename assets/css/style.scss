@@ -23,7 +23,7 @@
 body {
   width: 100%;
   background-image: url('../../assets/img/white_wall_hash.png');
-  
+
   a.button {
     $height: 48px;
     display: block;
@@ -87,6 +87,16 @@ body {
   padding: 0 24px 72px 24px;
 }
 
+#pjax-content {
+  transform: translateY(40px);
+  opacity: 0;
+
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 /*-----------------------------------------------------------------------------
 * Blocks
@@ -96,14 +106,14 @@ body {
   height: 36px;
   line-height: 28px;
   margin-top: 24px;
-  
+
   i {
     &:hover {
       cursor: pointer;
       opacity: 0.7;
     }
   }
-  
+
   a {
     color: #369;
     text-decoration: none;
@@ -156,7 +166,7 @@ body {
     letter-spacing: 0.04em;
     color: #333;
   }
-    
+
   h3 {
     margin-top: 8px;
     font-size: 1.0em;
@@ -190,7 +200,7 @@ body {
       border-radius: 2px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       background-color: #fefefe;
-  
+
       .image {
         width: 100%;
         height: 180px;
@@ -225,13 +235,13 @@ body {
           }
         }
       }
-      
+
       .title {
         padding: 8px;
         font-size: 0.9em;
         line-height: 1.2em;
       }
-      
+
       a {
         position: absolute;
         width: 100%;
@@ -247,19 +257,19 @@ body {
 
   section {
     margin-bottom: 36px;
-    
+
     .gray {
       color: #999;
     }
-    
+
     .strong {
       font-weight: 400;
       color: #432;
     }
-    
+
     .subsection {
       margin-bottom: 16px;
-      
+
       p,h4 {
         margin-bottom: 4px;
       }
@@ -269,18 +279,18 @@ body {
         color: #ccc;
       }
     }
-    
+
     h2 {
       color: #333;
       font-size: 1.4em;
       margin-bottom: 4px;
     }
-    
+
     h5 {
       color: #999;
       margin-bottom: 16px;
     }
-    
+
     h3 {
       color: #333;
       font-size: 1.2em;
@@ -300,17 +310,17 @@ body {
   &.work-description {
     #title-block {
       text-align: left;
-      
+
       .date {
         color: #999;
         font-size: 0.9em;
       }
-      
+
       h1 {
         font-size: 1.6em;
       }
     }
-    
+
     #eyecatch-block {
       overflow-x: hidden;
       margin-left: calc(((100vw - 100%) / 2) * -1);
@@ -324,16 +334,16 @@ body {
 
     #article-block {
       margin-top: 24px;
-      
+
       p {
         font-family: 'PT Serif', 'Georgia', serif;
         line-height: 1.6em;
         margin-bottom: 16px;
-        
+
         a {
           font-family: 'PT Serif', 'Georgia', serif;
         }
-        
+
         a.button {
           font-family: "Helvetica Neue", "Helvetica";
           margin-top: 24px;
@@ -343,7 +353,7 @@ body {
         img {
           width: 100%;
         }
-        
+
         &.disclaimer {
           text-align: center;
           font-size: 0.8em;
@@ -361,7 +371,7 @@ body {
     }
   }
 }
-  
+
 
 /*-----------------------------------------------------------------------------
 * Responsive
@@ -373,7 +383,7 @@ body {
       .work {
         margin: 0 20px 32px 20px;
         width: calc((100% / 2) - 40px);
-        
+
         .title {
           font-size: 1em;
         }
@@ -383,7 +393,7 @@ body {
 
   #page-content {
     &.work-description {
-      
+
       #title-block {
         h1 {
           font-size: 1.6em;
@@ -408,7 +418,7 @@ body {
       .work {
         margin: 0 10px 32px 10px;
         width: calc((100% / 3) - 20px);
-        
+
         .title {
           font-size: 0.9em;
         }
@@ -432,6 +442,3 @@ body {
     }
   }
 }
-
-
-

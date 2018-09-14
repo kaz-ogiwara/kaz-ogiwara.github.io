@@ -1,32 +1,43 @@
-function hideCover(){
-  if ($("#cover").is(":visible")) {
-    $("#cover").fadeOut("slow");
+function showContent(){
+  if (!$("#pjax-content").hasClass("show")) {
+    $("#pjax-content").addClass("show");
+  }
+}
+
+
+function hideContent(){
+  if ($("#pjax-content").hasClass("show")) {
+    $("#pjax-content").removeClass("show");
   }
 }
 
 
 $(function(){
 
-  hideCover();
+  showContent();
 
   $(document).on('pjax:end', function() {
-    hideCover();
+    showContent();
     ga('send','pageview',location.pathname);
   });
 
   $(document).on("click", "a.pjax", function(e){
     e.preventDefault();
     var href = $(this).attr("href");
+    var i = 0;
 
-    $.when(
-      $("#cover").fadeIn("fast"),
-    ).done(function() {
-      $.pjax({
-        url: href,
-        container: "#pjax-content",
-        fragment: "#pjax-content",
-        timeout: 5000
-      });
+    hideContent();
+
+    $("#pjax-content").on('transitionend', function() {
+      if (i === 0) {
+        $.pjax({
+          url: href,
+          container: "#pjax-content",
+          fragment: "#pjax-content",
+          timeout: 5000
+        });
+        i++;
+      }
     });
   });
 });

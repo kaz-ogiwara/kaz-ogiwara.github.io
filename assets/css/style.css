@@ -68,6 +68,13 @@ body {
   max-width: 960px;
   padding: 0 24px 72px 24px; }
 
+#pjax-content {
+  transform: translateY(40px);
+  opacity: 0; }
+  #pjax-content.show {
+    transform: translateY(0);
+    opacity: 1; }
+
 /*-----------------------------------------------------------------------------
 * Blocks
 -----------------------------------------------------------------------------*/
