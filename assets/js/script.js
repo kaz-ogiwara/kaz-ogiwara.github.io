@@ -32,8 +32,8 @@ $(function(){
       if (i === 0) {
         $.pjax({
           url: href,
-          container: "#pjax-content",
-          fragment: "#pjax-content",
+          container: "#pjax-container",
+          fragment: "#pjax-container",
           timeout: 5000
         });
         i++;

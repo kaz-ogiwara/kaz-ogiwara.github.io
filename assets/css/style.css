@@ -220,40 +220,40 @@ body {
 /*-----------------------------------------------------------------------------
 * Pages
 -----------------------------------------------------------------------------*/
-#page-content.work-description #title-block {
+#pjax-content.work-description #title-block {
   text-align: left; }
-  #page-content.work-description #title-block .date {
+  #pjax-content.work-description #title-block .date {
     color: #999;
     font-size: 0.9em; }
-  #page-content.work-description #title-block h1 {
+  #pjax-content.work-description #title-block h1 {
     font-size: 1.6em; }
-#page-content.work-description #eyecatch-block {
+#pjax-content.work-description #eyecatch-block {
   overflow-x: hidden;
   margin-left: calc(((100vw - 100%) / 2) * -1);
   width: 100vw; }
-  #page-content.work-description #eyecatch-block #eyecatch {
+  #pjax-content.work-description #eyecatch-block #eyecatch {
     margin-left: -15%;
     width: 130%; }
-#page-content.work-description #article-block {
+#pjax-content.work-description #article-block {
   margin-top: 24px; }
-  #page-content.work-description #article-block p {
+  #pjax-content.work-description #article-block p {
     font-family: 'PT Serif', 'Georgia', serif;
     line-height: 1.6em;
     margin-bottom: 16px; }
-    #page-content.work-description #article-block p a {
+    #pjax-content.work-description #article-block p a {
       font-family: 'PT Serif', 'Georgia', serif; }
-    #page-content.work-description #article-block p a.button {
+    #pjax-content.work-description #article-block p a.button {
       font-family: "Helvetica Neue", "Helvetica";
       margin-top: 24px;
       margin-bottom: 36px; }
-    #page-content.work-description #article-block p img {
+    #pjax-content.work-description #article-block p img {
       width: 100%; }
-    #page-content.work-description #article-block p.disclaimer {
+    #pjax-content.work-description #article-block p.disclaimer {
       text-align: center;
       font-size: 0.8em;
       color: #933;
       margin-top: -12px; }
-#page-content.home div.button-block {
+#pjax-content.home div.button-block {
   margin-top: 16px;
   margin-bottom: 48px; }
 
@@ -267,10 +267,10 @@ body {
     #works-block .works .work .title {
       font-size: 1em; }
 
-  #page-content.work-description #title-block h1 {
+  #pjax-content.work-description #title-block h1 {
     font-size: 1.6em;
     font-weight: normal; }
-  #page-content.work-description #eyecatch-block #eyecatch {
+  #pjax-content.work-description #eyecatch-block #eyecatch {
     margin-left: 0;
     width: 100%; } }
 @media screen and (min-width: 900px) {
@@ -280,10 +280,10 @@ body {
     #works-block .works .work .title {
       font-size: 0.9em; }
 
-  #page-content.work-description #title-block h1 {
+  #pjax-content.work-description #title-block h1 {
     font-size: 2.0em;
     font-weight: normal; }
-  #page-content.work-description #eyecatch-block {
+  #pjax-content.work-description #eyecatch-block {
     margin-left: 0;
     width: 100%; } }
 
