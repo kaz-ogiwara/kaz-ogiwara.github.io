@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta name=”description” content="The latest price and comparison with the last year">
+    <meta name=”description” content="Comparison between the latest price and up to 30 years ago">
     <meta property="og:url" content="https://kaz-ogiwara.github.io/works/landprices/description-en.html" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="3D map of Tokyo Land Prices" />
-    <meta property="og:description" content="The latest price and comparison with the last year" />
+    <meta property="og:title" content="Average Land Prices Map of Japanese Municipalities" />
+    <meta property="og:description" content="Comparison between the latest price and up to 30 years ago" />
     <meta property="og:image" content="https://kaz-ogiwara.github.io/assets/img/eyecatch_landprices.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>3D map of Tokyo Land Prices</title>
+    <title>Average Land Prices Map of Japanese Municipalities</title>
 		<link rel="amphtml" href="https://kaz-ogiwara.github.io/works/landprices/description-amp-en.html">
 		<link rel="stylesheet" href="https://kaz-ogiwara.github.io/assets/css/style.min.css">
 		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-89303107-2','auto');ga('send','pageview');</script>
@@ -33,19 +33,22 @@
 			<div id="pjax-container">
         <div id="pjax-content" class="work-description">
           <div id="title-block">
-            <div class="date">October 2018</div>
-            <h1>3D map of Tokyo Land Prices</h1>
-            <h3>The latest price and comparison with the last year</h3>
+            <div class="date">November 2018</div>
+            <h1>Average Land Prices Map of Japanese Municipalities</h1>
+            <h3>Comparison between the latest price and up to 30 years ago</h3>
           </div>
           <div id="eyecatch-block">
             <img id="eyecatch" src="../../assets/img/eyecatch_landprices.png">
           </div>
           <div id="article-block">
-            <p>3D map of the official land prices in Tokyo as of July 1, 2018.</p>
-            <p>You can change the latest price or comparison with the last year, and select the purpose of the land (no preference, for residence, or for business). By hovering (or tapping) each bar, detailed information about the area is shown; closest station and distance, price or percent change, size, and purpose.</p>
-            <p>This is a public work. The app and the explanation are at <a href="http://toyokeizai.net/sp/visual/tko/landprices/" target="_blank">Toyo Keizai Online</a>  [Japanese].</p>
-            <p>Data source: <a href="http://www.land.mlit.go.jp/webland/" target="_blank">The Ministry of Land, Infrastructure, Transport, and Tourism</a></p>
-            <p>Languages and libraries: deck.gl, JavaScript (P5.js, jQuery), SQL (MySQL) and PHP for retrieving and handling data</p>
+            <p>The data was retrieved from Land Information Center. You can choose the years to compare from the select box above the map. Each city / town/ village is colored by overall change rate. Details is shown by tapping or mouse hovering on each municipality.</p>
+            <p>Accurately, this map uses a different way to calculate the change rate from the original data source. Thus change rates from the last year might be different from the source PDF file. The comparison pairs are decided according to municipality codes. If a municipality formed a merger with another and no longer have comparison pair, it is colored gray.</p>
+            <p>JavaScript libraries Leaflet.js and D3.js were used to draw the map. Each municipality's border line data was obtained from MLIT of Japan [Japanese].</p>
+            <p>The municipality with the highest increasing rate compared with the last year is Kutchan Town, Hokkaido. This town is known as the part of Niseko area, a famous ski resort. The town has experienced increase of its land price over the course of these several years, due to high demand of foreign tourists staying for a long time.</p>
+            <p>On the other hand, looking at the overall trend from the map, mainly urban area increased its land price. For example, Shibuya Ward, Tokyo, one of the most famous commercial and business center in Japan, raised its overall land prices by 10%. Regional core cities, such as Sendai, Osaka, or Fukuoka, also experienced land price increasing.</p>
+            <p>You can compare the latest price with the past, up to 30 years ago (1988). In 1988, Japan was in the midst of asset price bubble, where people believed that land prices always increase. The nationwide average land price rose to 2.2 times between 1986 and 1990. We can see that most municipalities decreased land price in this 30 years. The worst case is Yuzawa Town, a small town in Niigata that used to be known as ski resort. During a ski boom in late 1980's, lots of holiday apartments were built (they are called "resort mansion" in Japan). While these apartments had been quite popular during asset price bubble, their price rapidly shrunk after the bubble collapsed.</p>
+            <p>Refer to GitHub to download data and see the source code.</p>
+            <p>This is a public work. The app and the explanation are at <a href="http://toyokeizai.net/sp/visual/tko/landprices2/en.html" target="_blank">Toyo Keizai Online</a> [English].</p>
           </div>
         </div>
 			</div>
