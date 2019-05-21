@@ -278,7 +278,6 @@ a.button {
   #pjax-content[page=work-description] #article-block {
     margin-top: 24px; }
     #pjax-content[page=work-description] #article-block p {
-      line-height: 1.6em;
       margin-bottom: 16px; }
       #pjax-content[page=work-description] #article-block p a {
         font-family: inherit;
