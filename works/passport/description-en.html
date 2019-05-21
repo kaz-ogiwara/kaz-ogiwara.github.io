@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name=”description” content="3D globe that shows where you can travel without visa from a country. The more red lines, the more countries citizens from the selected country">
+    <meta property="og:url" content="https://kaz-ogiwara.github.io/works/passport/description-en.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Visualization of World Passport Power" />
+    <meta property="og:description" content="3D globe that shows where you can travel without visa from a country. The more red lines, the more countries citizens from the selected country" />
+    <meta property="og:image" content="https://kaz-ogiwara.github.io/assets/img/eyecatch_passport.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Visualization of World Passport Power</title>
+		<link rel="stylesheet" href="../../assets/css/style.min.css">
+		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-89303107-2','auto');ga('send','pageview');</script>
+	</head>
+	<body>
+		<div id="header-block">
+			<div id="icons-right">
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/" class="pjax">Home</a></div>
+				<div class="separator">|</div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about.html" class="pjax">About</a></div>
+			</div>
+		</div>
+		<div id="pjax-container">
+        <div id="pjax-content" page="work-description">
+          <div id="title-block">
+            <div class="date">May 2019</div>
+            <h1>Visualization of World Passport Power</h1>
+            <h3>3D globe that shows where you can travel without visa from a country. The more red lines, the more countries citizens from the selected country</h3>
+          </div>
+          <div id="eyecatch-block">
+            <img id="eyecatch" src="../../assets/img/eyecatch_passport.png">
+          </div>
+          <div id="article-block">
+            <p class="en">ある国からビザ不要で渡航できる国を表したデータビジュアルです。赤い線が多いほど、選択された国からビザなしで渡航できる国が多いことを示します。</p>
+            <p class="en">選択されている国からビザなしで渡航できる国が赤い線でつながれています（ビザ不要、到着時ビザ発行を含む）。青い線の場合、選択されている国から別の国への渡航はビザが必要ですが、逆はビザ不要であることを意味します。なお、両方に当てはまる場合には線は赤くなります。</p>
+            <p class="en">この作品は<a href="https://toyokeizai.net/sp/brandstudio-lab/passport/" target="_blank">東洋経済ブランドスタジオ</a>にて公開されています。</p>
+            <p class="en">データは<a href="https://www.passportindex.org/byRank.php" target="_blank">Global Passport Power Rank 2019</a>（英語）から取得しました。</p>
+            <p class="en">This is a data visualization that shows where you can travel without visa from a country. The more red lines, the more countries citizens from the selected country can visit without a visa.</p>
+            <p class="en">The red line means that citizens from the selected country can travel to another without a visa (Visa-free or visa on arrival). The blue line means that visa is required for traveling from the selected country to another, while visa is not required in the opposite direction. If in both directions a visa is not necessary, the line becomes red.</p>
+            <p class="en">This work is published in <a href="https://toyokeizai.net/sp/brandstudio-lab/passport/" target="_blank">Toyo Keizai Brand Studio</a>.</p>
+            <p class="en">The data was retrieved from <a href="https://www.passportindex.org/byRank.php" target="_blank">Global Passport Power Rank 2019</a>.</p>
+          </div>
+        </div>
+				<div id="loading-message">
+					<p>Loading...</p>
+				</div>
+			</div>
+		</div>
+		<div id="p5canvas-block"></div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/jquery.pjax.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/script.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/sketch.min.js"></script>
+  </body>
+</html>
