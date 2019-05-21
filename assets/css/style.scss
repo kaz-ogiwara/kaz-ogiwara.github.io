@@ -4,7 +4,7 @@
 $width-tablet: 540px;
 $width-pc: 900px;
 
-/*
+
 @font-face {
   font-family: 'Noto Sans Japanese';
   font-style: normal;
@@ -23,7 +23,6 @@ $width-pc: 900px;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-*/
 
 
 
@@ -142,7 +141,6 @@ a.button {
   height: 36px;
   line-height: 28px;
   margin-top: 24px;
-  margin-right: 16px;
 
   i {
     &:hover {
@@ -151,25 +149,10 @@ a.button {
     }
   }
 
-  #icons-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 36px;
-    line-height: 36px;
-    vertical-align: middle;
-
-    a {
-      height: 36px;
-      line-height: 36px;
-      vertical-align: middle;
-    }
-  }
-
   #icons-right {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 32px;
     display: flex;
     flex-wrap: wrap;
 
@@ -381,11 +364,12 @@ a.button {
     text-align: left;
 
     .date {
-      color: #999;
-      font-size: 14px;
+      color: #963;
+      font-size: 16px;
     }
 
     h1 {
+      font-weight: bold;
       font-size: 20px;
 
       @media screen and (min-width: $width-tablet) {
@@ -395,6 +379,11 @@ a.button {
       @media screen and (min-width: $width-pc) {
         font-size: 24px;
       }
+    }
+
+    h3 {
+      color: #666;
+      font-size: 16px;
     }
   }
 
@@ -428,6 +417,7 @@ a.button {
 
       a {
         font-family: inherit;
+        font-size: inherit;
         text-decoration: none;
         color: #369;
       }

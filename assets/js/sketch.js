@@ -29,7 +29,7 @@ function draw(){
   clear();
 
   angle += 0.0015;
-  stroke(30,100,120,15);
+  stroke(30,100,120,10);
 
   translate(canvasW / 2, canvasH / 2);
   rotate(sin(angle));
