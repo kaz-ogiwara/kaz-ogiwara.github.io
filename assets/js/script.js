@@ -1,43 +1,60 @@
-function showContent(){
-  if (!$("#pjax-content").hasClass("show")) {
-    $("#pjax-content").addClass("show");
+
+
+const showContainer = () => {
+  if (!$("#pjax-container").hasClass("show")) {
+    $("#pjax-container").addClass("show");
   }
 }
 
 
-function hideContent(){
-  if ($("#pjax-content").hasClass("show")) {
-    $("#pjax-content").removeClass("show");
+const hideContainer = () => {
+  if ($("#pjax-container").hasClass("show")) {
+    $("#pjax-container").removeClass("show");
   }
 }
+
+
+const init = () => {
+  $('.lazy').Lazy({
+    effect: 'fadeIn',
+    effectspeed: 4000,
+    threshold: 0
+  });
+
+  showContainer();
+}
+
 
 
 $(function(){
 
-  showContent();
-
   $(document).on('pjax:end', function() {
-    showContent();
+    init();
     ga('send','pageview',location.pathname);
   });
 
   $(document).on("click", "a.pjax", function(e){
     e.preventDefault();
-    var href = $(this).attr("href");
-    var i = 0;
 
-    hideContent();
+    if (!$(this).hasClass("disabled")) {
+      let container = "#pjax-container";
+      let href = $(this).attr("href");
 
-    $("#pjax-content").on('transitionend', function() {
-      if (i === 0) {
+      hideContainer();
+
+      $(container).on('transitionend', function() {
         $.pjax({
           url: href,
-          container: "#pjax-container",
-          fragment: "#pjax-container",
+          cache: false,
+          container: container,
+          fragment: container,
           timeout: 5000
         });
-        i++;
-      }
-    });
+
+        $(container).off('transitionend');
+      });
+    }
   });
+
+  init();
 });

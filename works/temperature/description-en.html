@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="ja">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,26 +12,19 @@
     <meta property="og:image" content="https://kaz-ogiwara.github.io/assets/img/eyecatch_temperature.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>Summer in Tokyo is Gradually Becoming Hotter and Longer</title>
-		<link rel="amphtml" href="https://kaz-ogiwara.github.io/works/temperature/description-amp-en.html">
-		<link rel="stylesheet" href="https://kaz-ogiwara.github.io/assets/css/style.min.css">
+		<link rel="stylesheet" href="../../assets/css/style.min.css">
 		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-89303107-2','auto');ga('send','pageview');</script>
 	</head>
 	<body>
-		<div id="container">
-		<div id="icons-block">
-			<div id="icons-left">
-				<a href="https://kaz-ogiwara.github.io/" class="pjax">
-					<i class="material-icons" id="icon-home">home</i>
-				</a>
-			</div>
+		<div id="header-block">
 			<div id="icons-right">
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/works/" class="pjax">Works</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/" class="pjax">Home</a></div>
 				<div class="separator">|</div>
-				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about/" class="pjax">About</a></div>
+				<div class="text-menu"><a href="https://kaz-ogiwara.github.io/about.html" class="pjax">About</a></div>
 			</div>
 		</div>
-			<div id="pjax-container">
-        <div id="pjax-content" class="work-description">
+		<div id="pjax-container">
+        <div id="pjax-content" page="work-description">
           <div id="title-block">
             <div class="date">July 2018</div>
             <h1>Summer in Tokyo is Gradually Becoming Hotter and Longer</h1>
@@ -41,14 +34,22 @@
             <img id="eyecatch" src="../../assets/img/eyecatch_temperature.png">
           </div>
           <div id="article-block">
-            <p>This heat map indicates the average daily temperatures of the summer season (June to September) in Tokyo over the course of 140 years. You can hover over or tap on a cell to see detailed information. Each cell indicates the average temperature on the day by 2°, from blue (less than 18°C) to deep red (30°C or more). The raw data were obtained from the Japan Meteorological Agency. This visualization shows that the temperature in Tokyo has been steadily rising and now approaching a deadly level.</p>
-            <p>This is a public work. The app and the explanation are at <a href="http://toyokeizai.net/sp/visual/tko/temperature/" target="_blank">Toyo Keizai Online</a> [Japanese].</p>
+            <p class="en">This heat map indicates the average daily temperatures of the summer season (June to September) in Tokyo over the course of 140 years. You can hover over or tap on a cell to see detailed information. Each cell indicates the average temperature on the day by 2°, from blue (less than 18°C) to deep red (30°C or more). The raw data were obtained from the Japan Meteorological Agency. This visualization shows that the temperature in Tokyo has been steadily rising and now approaching a deadly level.</p>
+            <p class="en">This is a public work. The app and the explanation are at <a href="http://toyokeizai.net/sp/visual/tko/temperature/" target="_blank">Toyo Keizai Online</a> [Japanese].</p>
           </div>
         </div>
+				<div id="loading-message">
+					<p>Loading...</p>
+				</div>
 			</div>
 		</div>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-		<script src="https://kaz-ogiwara.github.io/assets/js/jquery.pjax.min.js"></script>
-    <script src="https://kaz-ogiwara.github.io/assets/js/script.min.js"></script>
+		<div id="p5canvas-block"></div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/jquery.pjax.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/script.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/sketch.min.js"></script>
   </body>
 </html>
