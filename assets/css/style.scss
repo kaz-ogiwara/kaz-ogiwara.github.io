@@ -265,14 +265,13 @@ a.button {
       .info {
         padding: 8px 16px 16px 16px;
 
-        .title {
-          font-size: 18px;
-          font-weight: 500;
+        .title-jp {
+          font-size: 16px;
+          font-weight: bold;
           color: #333;
-          line-height: 28px;
+          line-height: 24px;
 
           @media screen and (min-width: $width-tablet) {
-            padding: 8px 0px 16px 0px;
             font-size: 16px;
           }
         }
@@ -316,6 +315,10 @@ a.button {
       a {
         color: #36a;
         text-decoration: none;
+      }
+
+      &.jp {
+        font-size: 14px;
       }
 
       .separator {
@@ -371,18 +374,21 @@ a.button {
     h1 {
       font-weight: bold;
       font-size: 20px;
+    }
 
-      @media screen and (min-width: $width-tablet) {
-        font-size: 22px;
-      }
-
-      @media screen and (min-width: $width-pc) {
-        font-size: 24px;
-      }
+    h2 {
+      font-weight: bold;
+      font-size: 18px;
     }
 
     h3 {
-      color: #666;
+      color: #888;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    h4 {
+      color: #888;
       font-size: 16px;
     }
   }

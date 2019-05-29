@@ -185,14 +185,13 @@ a.button {
         background: center center / cover no-repeat #eee; }
     #pjax-content[page=home] #works-block .work .info {
       padding: 8px 16px 16px 16px; }
-      #pjax-content[page=home] #works-block .work .info .title {
-        font-size: 18px;
-        font-weight: 500;
+      #pjax-content[page=home] #works-block .work .info .title-jp {
+        font-size: 16px;
+        font-weight: bold;
         color: #333;
-        line-height: 28px; }
+        line-height: 24px; }
         @media screen and (min-width: 540px) {
-          #pjax-content[page=home] #works-block .work .info .title {
-            padding: 8px 0px 16px 0px;
+          #pjax-content[page=home] #works-block .work .info .title-jp {
             font-size: 16px; } }
       #pjax-content[page=home] #works-block .work .info .date {
         font-size: 14px;
@@ -219,6 +218,8 @@ a.button {
       #pjax-content[page=about] #title-block p a {
         color: #36a;
         text-decoration: none; }
+      #pjax-content[page=about] #title-block p.jp {
+        font-size: 14px; }
       #pjax-content[page=about] #title-block p .separator {
         color: #ccc; }
   #pjax-content[page=about] #publicity-block {
@@ -251,14 +252,15 @@ a.button {
     #pjax-content[page=work-description] #title-block h1 {
       font-weight: bold;
       font-size: 20px; }
-      @media screen and (min-width: 540px) {
-        #pjax-content[page=work-description] #title-block h1 {
-          font-size: 22px; } }
-      @media screen and (min-width: 900px) {
-        #pjax-content[page=work-description] #title-block h1 {
-          font-size: 24px; } }
+    #pjax-content[page=work-description] #title-block h2 {
+      font-weight: bold;
+      font-size: 18px; }
     #pjax-content[page=work-description] #title-block h3 {
-      color: #666;
+      color: #888;
+      font-size: 16px;
+      margin-bottom: 16px; }
+    #pjax-content[page=work-description] #title-block h4 {
+      color: #888;
       font-size: 16px; }
   #pjax-content[page=work-description] #eyecatch-block {
     overflow-x: hidden;

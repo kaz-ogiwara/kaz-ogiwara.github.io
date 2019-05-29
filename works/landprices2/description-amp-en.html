@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 		<link rel="canonical" href="https://kaz-ogiwara.github.io/works/landprices2/description-en.html">
-    <title>Japan Land Values 3D map</title>
+    <title>全国「公示地価」最新価格・過去比較3Dマップ</title>
 		<style amp-custom>
       * {
         padding: 0;
@@ -57,13 +57,13 @@
         font-weight: bold;
         color: #333;
       }
-      
+
       #title-block h3 {
         margin-top: 4px;
         font-size: 0.9em;
         color: #999;
       }
-      
+
       #title-block .date {
         color: #999;
         font-size: 0.8rem;
@@ -79,17 +79,17 @@
         margin-left: -15%;
         width: 130%;
       }
-      
+
       #article-block {
         margin-top: 24px;
       }
-      
+
       #article-block p {
         font-family: 'PT Serif', 'Georgia', serif;
         line-height: 1.6em;
         margin-bottom: 16px;
       }
-      
+
       #article-block p a {
         font-family: 'PT Serif', 'Georgia', serif;
         color: #36b;
@@ -112,7 +112,7 @@
         border-radius: 22px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.4);
       }
-      
+
       #article-block p.disclaimer {
         text-align: center;
         font-size: 0.8rem;
@@ -130,7 +130,7 @@
           font-size: 1.6rem;
           font-weight: normal;
         }
-        
+
         #eyecatch {
           margin-left: 0;
           width: 100%;
@@ -143,7 +143,7 @@
           font-size: 2.0rem;
           font-weight: normal;
         }
-        
+
         #eyecatch-block {
           margin-left: 0;
           width: 100%;
@@ -154,7 +154,7 @@
 			{
 				"@context": "http://schema.org",
 				"@type": "Article",
-				"headline": "Japan Land Values 3D map",
+				"headline": "",
 				"image": [
 					"https://kaz-ogiwara.github.io/assets/img/eyecatch_landprices2.png"
 				]
@@ -171,20 +171,20 @@
         </a>
       </div>
       <div id="title-block">
-        <div class="date">March 2019</div>
-        <h1>Japan Land Values 3D map</h1>
+        <div class="date">2019.03</div>
+        <h1>全国「公示地価」最新価格・過去比較3Dマップ</h1>
+        <h3>全国約26000地点の公示地価を1989〜2019年まで過去30年分マップに表現した</h3>
+        <h2>Japan Land Values 3D map</h2>
         <h3>The latest price and comparison with past values</h3>
       </div>
       <div id="eyecatch-block">
         <amp-img layout="responsive" src="../../assets/img/eyecatch_landprices2.png" width="1200" height="630">
       </div>
       <div id="article-block">
+        <p>国土交通省が発表した公示地価をDeck.glを使って3Dマップに表現しました。</p>
+        <p>この作品は<a href="http://toyokeizai.net/sp/visual/tko/landprices3/" target="_blank">東洋経済オンライン</a>にて公開されています。</p>
         <p>3D map of land prices from 1989, the peak of Japanese real estate bubble, to 2019, the latest, in order to see how land land prices have fluctuated.</p>
-        <p>The land values data in 1989, 1999, 2009, 2018, and 2019 (as of January 1st) was retrieved from Japanese <a href="http://www.land.mlit.go.jp/webland/" target="_blank">The Ministry of Land, Infrastructure, Transport, and Tourism</a> (MLIT). Deck.gl, a WebGL framework provided by UBER was used in order to draw this 3D map. Colors and heights are pre-calculated based on values.</p>
-        <p>Since each point is aggregated every 200 meters, one bar (hexagon) may contain multiple points. In that case, color and height are calculated based on the average price or rate of fluctuation. By tapping or mouse hovering, you can see the detailed information about the point (the nearest transportation facility and the distance, the price or the rate of fluctuation, area, current usage) will be shown. These information is also obtained from MLIT.</p>
-        <p>Top left buttons can rotate camera. You can select a value (latest or comparison with the past) and points (all / residential area / business area). In the comparison map, bar colors are red if increased from the past and blue if decreased. The darker and the taller each bar is, the larger fluctuation the point has experienced.</p>
-        <p>This is a public work. The app and the explanation are at <a href="http://toyokeizai.net/sp/visual/tko/landprices3/en.html" target="_blank">Toyo Keizai Online</a> [English].</p>
-        <p>Languages and libraries: Deck.gl, JavaScript (P5.js, jQuery), SQL (MySQL) and Python for retrieving and handling data</p>
+        <p>This work is published in <a href="http://toyokeizai.net/sp/visual/tko/landprices3/en.html" target="_blank">Toyo Keizai Online</a>.</p>
       </div>
     </div>
   </body>
