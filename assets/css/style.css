@@ -193,6 +193,9 @@ a.button {
         @media screen and (min-width: 540px) {
           #pjax-content[page=home] #works-block .work .info .title-jp {
             font-size: 16px; } }
+      #pjax-content[page=home] #works-block .work .info .title-en {
+        margin-top: 8px;
+        line-height: 24px; }
       #pjax-content[page=home] #works-block .work .info .date {
         font-size: 14px;
         color: #999; }
