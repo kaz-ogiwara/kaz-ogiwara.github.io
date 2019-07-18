@@ -231,7 +231,6 @@ a.button {
       @media screen and (min-width: $width-tablet) {
         margin: 0 20px 32px 20px;
         width: calc((100% / 2) - 40px);
-        width: 100%;
       }
 
       @media screen and (min-width: $width-pc) {
@@ -259,11 +258,19 @@ a.button {
           width: 100%;
           height: 100%;
           background: center center / cover no-repeat #eee;
+
+          @media screen and (min-width: $width-tablet) {
+            border-radius: 4px;
+          }
         }
       }
 
       .info {
         padding: 8px 16px 16px 16px;
+
+        @media screen and (min-width: $width-tablet) {
+          padding: 8px 1px;
+        }
 
         .title-jp {
           font-size: 16px;
