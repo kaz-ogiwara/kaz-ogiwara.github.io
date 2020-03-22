@@ -53,12 +53,26 @@ body {
 
 .jp {
   text-align: justify;
+
+  a {
+    font-family: inherit;
+    font-size: inherit;
+    color: #369;
+    text-decoration: none;
+  }
 }
 
 .en {
   font-family: "PT Serif";
   font-size: 17px;
   text-align: left;
+
+  a {
+    font-family: inherit;
+    font-size: inherit;
+    color: #369;
+    text-decoration: none;
+  }
 }
 
 a.button {
