@@ -27,7 +27,7 @@ const init = () => {
 
 
 $(function(){
-
+/*
   $(document).on('pjax:end', function() {
     init();
     ga('send','pageview',location.pathname);
@@ -55,6 +55,6 @@ $(function(){
       });
     }
   });
-
+*/
   init();
 });
