@@ -6,16 +6,6 @@ $width-pc: 900px;
 
 
 @font-face {
-  font-family: 'Noto Sans Japanese';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(//fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.otf) format('opentype');
-}
-
-@font-face {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -32,11 +22,9 @@ $width-pc: 900px;
 * {
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", "Helvetica", Arial, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, "Roboto", "Noto Sans Japanese", YuGothic, "メイリオ", Meiryo, sans-serif;
-  font-weight: normal;
+  font-family: "Roboto", sans-serif;
   font-size: 15px;
-  line-height: 32px;
-  letter-spacing: 1px;
+  letter-spacing: 0.04em;
   color: #333;
   position: relative;
   box-sizing: border-box;
@@ -48,420 +36,178 @@ $width-pc: 900px;
 body {
   width: 100%;
   overflow-y: scroll;
-  background-image: url('../../assets/img/white_wall_hash.png');
+  background-color: #f3f3f3;
 }
 
-.jp {
-  text-align: justify;
-
-  a {
-    font-family: inherit;
-    font-size: inherit;
-    color: #369;
-    text-decoration: none;
-  }
-}
-
-.en {
-  font-family: "PT Serif";
-  font-size: 17px;
-  text-align: left;
-
-  a {
-    font-family: inherit;
-    font-size: inherit;
-    color: #369;
-    text-decoration: none;
-  }
-}
-
-a.button {
-  $height: 48px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 24px;
+a {
   text-decoration: none;
-  text-align: center;
-  width: 200px;
-  height: $height;
-  line-height: $height - 4px;
-  background-color: #fefefe;
-  border: 2px solid #369;
   color: #369;
-  border-radius: $height / 2;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 
-  &:hover {
-    opacity: 0.8;
-  }
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 64px;
 }
 
 
-/*-----------------------------------------------------------------------------
-* Basic
------------------------------------------------------------------------------*/
-#pjax-container {
-  #loading-message {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    pointer-events: none;
-    opacity: 1;
-
-    p {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #aaa;
-      font-size: 14px;
-    }
-  }
-
-  #pjax-content {
-    opacity: 0;
-    transform: translateY(8px);
-    height: 100vh;
-  }
-
-  &.show {
-    #pjax-content {
-      opacity: 1;
-      transform: translateY(0);
-      height: auto;
-    }
-
-    #loading-message {
-      opacity: 0;
-    }
-  }
+h5 {
+  margin-top: 4px;
+  margin-bottom: 32px;
+  font-weight: normal;
 }
 
 
-#p5canvas-block {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+#container {
+  margin: 0 auto;
+  width: calc(100% - 32px);
+  max-width: 960px;
 
+  #title-block {
+    margin-top: 32px;
+    margin-bottom: 32px;
 
-#header-block {
-  height: 36px;
-  line-height: 28px;
-  margin-top: 24px;
-
-  i {
-    &:hover {
-      cursor: pointer;
-      opacity: 0.7;
+    h1 {
+      font-size: 20px;
+      color: #333;
     }
   }
 
-  #icons-right {
-    position: absolute;
-    top: 0;
-    right: 32px;
-    display: flex;
-    flex-wrap: wrap;
+  #contents-block {
+    section {
+      background-color: #fefefe;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      padding: 16px;
 
-    .text-menu {
-      width: fit-content;
-      text-align: center;
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
 
-      a {
-        color: #369;
-        text-decoration: none;
+      article {
+        margin-top: 24px;
+        line-height: 30px;
 
-        &.disabled {
+        span {
           color: #999;
-          &:hover {
-            cursor: inherit;
+
+          &.separator {
+            color: #ccc;
           }
+        }
+
+        &:not(.bio) {
+          $indent: 75px;
+          margin-left: $indent;
+          text-indent: -1 * $indent;
         }
       }
     }
-
-    .separator {
-      width: 40px;
-      color: #ccc;
-      text-align: center;
-    }
-  }
-}
-
-
-#title-block {
-  margin-top: 24px;
-  margin-bottom: 48px;
-  text-align: center;
-
-  h1 {
-    margin-top: 12px;
-    font-size: 24px;
-    letter-spacing: 1px;
-    color: #333;
   }
 
-  h3 {
-    margin-top: 8px;
-    font-size: 1.0em;
-    color: #999;
-  }
-
-  p.introduction {
-    text-align: left;
-    line-height: 1.8em;
-    margin-top: 36px;
-  }
-}
-
-
-
-/*-----------------------------------------------------------------------------
-* Pages
------------------------------------------------------------------------------*/
-#pjax-content[page=home] {
 
   #works-block {
     display: flex;
     flex-wrap: wrap;
-    max-width: 1080px;
-    margin: 0 auto;
+    width: calc(100% + 16px);
+    margin-left: -8px;
 
-    .work {
-      margin: 0 auto;
-      margin-bottom: 64px;
-      width: 100%;
+    section {
+      background-color: #fefefe;
       border-radius: 2px;
-      //box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      //background-color: #fefefe;
+      margin: 0 8px 16px 8px;
+      width: 100%;
 
       @media screen and (min-width: $width-tablet) {
-        margin: 0 20px 32px 20px;
-        width: calc((100% / 2) - 40px);
+        width: calc((100% / 2) - 16px);
       }
 
       @media screen and (min-width: $width-pc) {
-        margin: 0 10px 32px 10px;
-        width: calc((100% / 3) - 20px);
+        width: calc((100% / 3) - 16px);
       }
 
-      a {
-        display: block;
-        position: relative;
+      .image {
         width: 100%;
-
-        &:before {
-          content: "";
-          display: block;
-          padding-top: 75%; /* 高さを幅の75%に固定 */
-        }
-
-        div {
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          width: 100%;
-          height: 100%;
-          background: center center / cover no-repeat #eee;
-
-          @media screen and (min-width: $width-tablet) {
-            border-radius: 4px;
-          }
-        }
+        height: 140px;
+        border: 2px solid #fefefe;
+        border-radius: 2px;
+        background-color: #aaa;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
 
       .info {
-        padding: 8px 16px 16px 16px;
+        padding: 16px;
 
-        @media screen and (min-width: $width-tablet) {
-          padding: 8px 1px;
-        }
-
-        .title-jp {
-          font-size: 16px;
+        h3 {
           font-weight: bold;
-          color: #333;
-          line-height: 24px;
-
-          @media screen and (min-width: $width-tablet) {
-            font-size: 16px;
-          }
-        }
-
-        .title-en {
-          margin-top: 8px;
-          line-height: 24px;
+          line-height: 20px;
+          height: 40px;
+          margin-bottom: 8px;
         }
 
         .date {
           font-size: 14px;
-          color: #999;
+          color: #aaa;
         }
       }
     }
   }
-}
 
 
-#pjax-content[page=about] {
-  width: calc(100% - 32px);
-  max-width: 720px;
-  margin: 0 auto;
+  #copyright {
+    text-align: center;
+    margin: 64px;
 
-
-  h2 {
-    color: #666;
-    font-size: 20px;
-    border-left: 4px solid #b43;
-    padding-left: 8px;
-  }
-
-  #title-block {
-    text-align: left;
-
-    h1 {
-      margin-bottom: 32px;
-    }
-
-    p {
-      color: #666;
-      margin-top: 8px;
-      font-size: 16px;
-      line-height: 32px;
-
-      a {
-        color: #36a;
-        text-decoration: none;
-      }
-
-      &.jp {
-        font-size: 14px;
-      }
-
-      .separator {
-        color: #ccc;
-      }
+    small {
+      font-size: 13px;
+      color: #999;
     }
   }
 
-  #publicity-block {
-    margin-top: 36px;
+  &.work-description {
+    max-width: 720px;
 
-    section {
-      margin: 32px 0;
+    #title-block {
 
-      @media screen and (min-width: 480px) {
-        display: flex;
+      #title-link {
+        font-size: 16px;
+        text-align: right;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      h3 {
+        margin-top: 8px;
+        font-size: 16px;
+        font-weight: normal;
       }
 
       .date {
-        font-weight: bold;
-        margin-bottom: 4px;
-
-        @media screen and (min-width: 480px) {
-          padding-right: 40px;
-        }
+        margin-top: 16px;
+        font-size: 14px;
+        color: #999;
       }
     }
-  }
 
-  #bio-block {
-    margin-top: 60px;
-
-    p {
-      margin: 16px 0;
-    }
-  }
-}
-
-
-#pjax-content[page=work-description] {
-  margin: 0 auto;
-  width: calc(100% - 32px);
-  max-width: 720px;
-
-  #title-block {
-    text-align: left;
-
-    .date {
-      color: #963;
-      font-size: 16px;
-    }
-
-    h1 {
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    h2 {
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    h3 {
-      color: #888;
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
-
-    h4 {
-      color: #888;
-      font-size: 16px;
-    }
-  }
-
-  #eyecatch-block {
-    overflow-x: hidden;
-    margin-left: calc(((100vw - 100%) / 2) * -1);
-    width: 100vw;
-
-    @media screen and (min-width: $width-tablet) {
-      margin-left: 0;
+    img {
+      display: block;
       width: 100%;
+      border-radius: 4px;
     }
 
-    #eyecatch {
-      margin-left: -15%;
-      width: 130%;
+    #article-block {
+      margin-top: 32px;
 
-      @media screen and (min-width: $width-pc) {
-        margin-left: 0;
-        width: 100%;
-      }
-    }
-  }
-
-  #article-block {
-    margin-top: 24px;
-
-    p {
-      margin-bottom: 16px;
-
-      a {
-        font-family: inherit;
-        font-size: inherit;
-        text-decoration: none;
-        color: #369;
-      }
-
-      img {
-        width: 100%;
-      }
-
-      &.disclaimer {
-        text-align: center;
-        font-size: 12px;
-        color: #933;
-        margin-top: -12px;
+      p {
+        line-height: 32px;
+        margin-top: 16px;
       }
     }
   }
