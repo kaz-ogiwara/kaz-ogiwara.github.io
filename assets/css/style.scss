@@ -143,10 +143,20 @@ h5 {
         padding: 16px;
 
         h3 {
-          font-weight: bold;
+          font-size: 14px;
+          font-weight: normal;
           line-height: 20px;
           height: 40px;
           margin-bottom: 8px;
+        }
+
+        p {
+          font-size: 14px;
+          margin-bottom: 8px;
+
+          a {
+            font-size: 14px;
+          }
         }
 
         .date {
