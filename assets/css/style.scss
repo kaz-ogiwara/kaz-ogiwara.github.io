@@ -29,7 +29,6 @@ $width-pc: 900px;
   position: relative;
   box-sizing: border-box;
   outline: none;
-  transition: all 600ms;
 }
 
 
@@ -83,27 +82,37 @@ h5 {
       h3 {
         font-size: 16px;
         font-weight: bold;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
       }
 
-      article {
-        margin-top: 24px;
-        line-height: 30px;
+      p {
+        line-height: 32px;
+        margin-top: 16px;
 
-        span {
-          color: #999;
+        span.separator {
+          color: #ccc;
+        }
+      }
 
-          &.separator {
-            color: #ccc;
+      table {
+        tr {
+          td {
+            vertical-align: middle;
+            line-height: 24px;
+            padding-top: 16px;
+
+            &:nth-child(1) {
+              color: #999;
+              padding-right: 16px;
+            }
+
+            &:nth-child(2) {
+
+            }
           }
         }
-
-        &:not(.bio) {
-          $indent: 75px;
-          margin-left: $indent;
-          text-indent: -1 * $indent;
-        }
       }
+
     }
   }
 
@@ -144,7 +153,6 @@ h5 {
 
         h3 {
           font-size: 14px;
-          font-weight: normal;
           line-height: 20px;
           height: 40px;
           margin-bottom: 8px;
@@ -152,7 +160,7 @@ h5 {
 
         p {
           font-size: 14px;
-          margin-bottom: 8px;
+          height: 28px;
 
           a {
             font-size: 14px;
@@ -175,50 +183,6 @@ h5 {
     small {
       font-size: 13px;
       color: #999;
-    }
-  }
-
-  &.work-description {
-    max-width: 720px;
-
-    #title-block {
-
-      #title-link {
-        font-size: 16px;
-        text-align: right;
-        margin-bottom: 16px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      h3 {
-        margin-top: 8px;
-        font-size: 16px;
-        font-weight: normal;
-      }
-
-      .date {
-        margin-top: 16px;
-        font-size: 14px;
-        color: #999;
-      }
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      border-radius: 4px;
-    }
-
-    #article-block {
-      margin-top: 32px;
-
-      p {
-        line-height: 32px;
-        margin-top: 16px;
-      }
     }
   }
 }

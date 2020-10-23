@@ -17,8 +17,7 @@
   color: #333;
   position: relative;
   box-sizing: border-box;
-  outline: none;
-  transition: all 600ms; }
+  outline: none; }
 
 body {
   width: 100%;
@@ -57,17 +56,19 @@ h5 {
     #container #contents-block section h3 {
       font-size: 16px;
       font-weight: bold;
-      margin-bottom: 16px; }
-    #container #contents-block section article {
-      margin-top: 24px;
-      line-height: 30px; }
-      #container #contents-block section article span {
-        color: #999; }
-        #container #contents-block section article span.separator {
-          color: #ccc; }
-      #container #contents-block section article:not(.bio) {
-        margin-left: 75px;
-        text-indent: -75px; }
+      margin-bottom: 8px; }
+    #container #contents-block section p {
+      line-height: 32px;
+      margin-top: 16px; }
+      #container #contents-block section p span.separator {
+        color: #ccc; }
+    #container #contents-block section table tr td {
+      vertical-align: middle;
+      line-height: 24px;
+      padding-top: 16px; }
+      #container #contents-block section table tr td:nth-child(1) {
+        color: #999;
+        padding-right: 16px; }
   #container #works-block {
     display: flex;
     flex-wrap: wrap;
@@ -97,13 +98,12 @@ h5 {
         padding: 16px; }
         #container #works-block section .info h3 {
           font-size: 14px;
-          font-weight: normal;
           line-height: 20px;
           height: 40px;
           margin-bottom: 8px; }
         #container #works-block section .info p {
           font-size: 14px;
-          margin-bottom: 8px; }
+          height: 28px; }
           #container #works-block section .info p a {
             font-size: 14px; }
         #container #works-block section .info .date {
@@ -115,30 +115,5 @@ h5 {
     #container #copyright small {
       font-size: 13px;
       color: #999; }
-  #container.work-description {
-    max-width: 720px; }
-    #container.work-description #title-block #title-link {
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: 16px; }
-    #container.work-description #title-block h1 {
-      font-size: 24px; }
-    #container.work-description #title-block h3 {
-      margin-top: 8px;
-      font-size: 16px;
-      font-weight: normal; }
-    #container.work-description #title-block .date {
-      margin-top: 16px;
-      font-size: 14px;
-      color: #999; }
-    #container.work-description img {
-      display: block;
-      width: 100%;
-      border-radius: 4px; }
-    #container.work-description #article-block {
-      margin-top: 32px; }
-      #container.work-description #article-block p {
-        line-height: 32px;
-        margin-top: 16px; }
 
 /*# sourceMappingURL=style.css.map */
