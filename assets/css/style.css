@@ -56,13 +56,23 @@ h5 {
       margin-top: 16px; }
       #container #contents-block section p span.separator {
         color: #ccc; }
-    #container #contents-block section table tr td {
-      vertical-align: middle;
-      line-height: 24px;
-      padding-top: 16px; }
-      #container #contents-block section table tr td:nth-child(1) {
-        color: #999;
-        padding-right: 16px; }
+    #container #contents-block section article {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 16px; }
+      #container #contents-block section article div {
+        line-height: 23px; }
+        #container #contents-block section article div:nth-child(1) {
+          width: 100%;
+          color: #999; }
+          @media screen and (min-width: 540px) {
+            #container #contents-block section article div:nth-child(1) {
+              width: 72px; } }
+        #container #contents-block section article div:nth-child(2) {
+          width: 100%; }
+          @media screen and (min-width: 540px) {
+            #container #contents-block section article div:nth-child(2) {
+              width: calc(100% - 72px); } }
   #container #works-block {
     display: flex;
     flex-wrap: wrap;

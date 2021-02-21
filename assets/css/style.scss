@@ -85,25 +85,33 @@ h5 {
         }
       }
 
-      table {
-        tr {
-          td {
-            vertical-align: middle;
-            line-height: 24px;
-            padding-top: 16px;
+      article {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 16px;
 
-            &:nth-child(1) {
-              color: #999;
-              padding-right: 16px;
+        div {
+          $date-width: 72px;
+          line-height: 23px;
+
+          &:nth-child(1) {
+            width: 100%;
+            color: #999;
+
+            @media screen and (min-width: $width-tablet) {
+              width: #{$date-width};
             }
+          }
 
-            &:nth-child(2) {
+          &:nth-child(2) {
+            width: 100%;
 
+            @media screen and (min-width: $width-tablet) {
+              width: calc(100% - #{$date-width});
             }
           }
         }
       }
-
     }
   }
 
