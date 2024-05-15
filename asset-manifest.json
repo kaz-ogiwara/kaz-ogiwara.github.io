@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.e5f9fc91.css",
-    "main.js": "/static/js/main.8392195d.js",
-    "static/media/background.png": "/static/media/background.74a6761c415da9aeb11a.png",
-    "static/media/white_wall_hash.png": "/static/media/white_wall_hash.30fb9f92f63a4f4c8d47.png",
-    "static/media/icon_rect.jpeg": "/static/media/icon_rect.8fc04dfda857a320a180.jpeg",
-    "static/media/icon-note.svg": "/static/media/icon-note.e680e2b5d4080fb420c2.svg",
-    "static/media/icon-github.svg": "/static/media/icon-github.54f629ee8cf7d145e24e.svg",
+    "main.css": "/static/css/main.76b6bc53.css",
+    "main.js": "/static/js/main.b12282a8.js",
+    "static/media/background.png": "/static/media/background.5d111c9aedfd86dbe7c2.png",
+    "static/media/icon-profile.png": "/static/media/icon-profile.2d45dc492fbd183a75ed.png",
+    "static/media/Hue-Medium.otf": "/static/media/Hue-Medium.bba429e64a8c26898f44.otf",
+    "static/media/Hue-Medium.woff2": "/static/media/Hue-Medium.164a488d518cc38d98a3.woff2",
     "index.html": "/index.html",
-    "static/media/icon-twitter.svg": "/static/media/icon-twitter.db4f5b0c8ddbce4c5022.svg",
-    "main.e5f9fc91.css.map": "/static/css/main.e5f9fc91.css.map",
-    "main.8392195d.js.map": "/static/js/main.8392195d.js.map"
+    "main.76b6bc53.css.map": "/static/css/main.76b6bc53.css.map",
+    "main.b12282a8.js.map": "/static/js/main.b12282a8.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5f9fc91.css",
-    "static/js/main.8392195d.js"
+    "static/css/main.76b6bc53.css",
+    "static/js/main.b12282a8.js"
   ]
 }
