@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.11b1273b.css",
-    "main.js": "/static/js/main.3991e84b.js",
+    "main.css": "/static/css/main.e28dac54.css",
+    "main.js": "/static/js/main.123ace07.js",
     "static/media/background.png": "/static/media/background.5d111c9aedfd86dbe7c2.png",
+    "static/media/social-icon-twitter.png": "/static/media/social-icon-twitter.4d73a49285dbe9cac801.png",
     "static/media/icon-profile.png": "/static/media/icon-profile.2d45dc492fbd183a75ed.png",
     "static/media/Hue-Medium.otf": "/static/media/Hue-Medium.bba429e64a8c26898f44.otf",
     "static/media/Hue-Medium.woff2": "/static/media/Hue-Medium.164a488d518cc38d98a3.woff2",
     "index.html": "/index.html",
     "static/media/icon-arrow-down.svg": "/static/media/icon-arrow-down.d0e99a588bb11493b774.svg",
-    "main.11b1273b.css.map": "/static/css/main.11b1273b.css.map",
-    "main.3991e84b.js.map": "/static/js/main.3991e84b.js.map"
+    "main.e28dac54.css.map": "/static/css/main.e28dac54.css.map",
+    "main.123ace07.js.map": "/static/js/main.123ace07.js.map"
   },
   "entrypoints": [
-    "static/css/main.11b1273b.css",
-    "static/js/main.3991e84b.js"
+    "static/css/main.e28dac54.css",
+    "static/js/main.123ace07.js"
   ]
 }
